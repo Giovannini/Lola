@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/eisti/AndroidStudioProjects/Lola/app/build/intermediates/pre-dexed/debug/support-v4-19.0.0-73bcfccadc87895c408e30c68fd5c985711c0a5e.jar"
+        jar="/usr/local/ide/android-studio/sdk/extras/android/m2repository/com/android/support/support-v4/19.0.0/support-v4-19.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="afee690af14bd2c32d400cdf78e746fd45c386fa"/>
+    <item
+        dex="/home/eisti/AndroidStudioProjects/Lola/app/build/intermediates/pre-dexed/debug/support-v13-19.0.0-d91dad80200eac36d04caedfc70752bdd8c70271.jar"
+        jar="/usr/local/ide/android-studio/sdk/extras/android/m2repository/com/android/support/support-v13/19.0.0/support-v13-19.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="cc8ccb8ee435883471a5f5856b00f5f86d3f938c"/>
+
+</pre-dex-items>
