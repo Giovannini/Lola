@@ -1,0 +1,491 @@
+{
+    "Nom" : "Lola",
+    "Race" : "Halfelin",
+    "Classes" : [
+        {
+            "Nom": "Roublard",
+            "Niveau" : 5,
+            "Part":{
+                "Armes et armures": "Le roublard est formé au maniement de toutes les armes courantes, des arbalètes de poing, des arcs courts, des épées courtes, des matraques et des rapières. Il est également formé au port des rumres légères mais pas à l'utilisation des boucliers.",
+                "Attaque sournoise": "Lorsqu’un roublard attaque son adversaire dans une situation où ce dernier est incapable de se défendre efficacement, il peut lui infliger des dégâts supplémentaires en touchant un point sensible. L’attaque du roublard inflige des dégâts supplémentaires lorsque sa cible se trouve dans un cas de figure lui ôtant son bonus de Dextérité à la CA (qu’elle en ait un ou pas) ou qu’elle est prise en tenaille par le roublard et un compagnon de celui-ci. Si le roublard obtient un coup critique sur une attaque sournoise, ces dégâts supplémentaires ne sont pas multipliés. Une attaque à distance ne peut être une attaque sournoise que si la cible se trouve à 9 m (6 cases) ou moins. S’il utilise une arme qui inflige des dégâts non létaux (comme une matraque, un fouet ou une attaque à mains nues), le personnage peut porter une attaque sournoise infligeant elle aussi des dégâts non létaux. Il ne peut pas choisir cette option avec une arme occasionnant normalement des dégâts létaux (même en acceptant une pénalité de -4 au jet d’attaque). Le roublard ne peut tenter une attaque sournoise que contre un adversaire qu’il peut observer suffisamment pour en repérer les points faibles et dont il peut toucher les organes vitaux. Les attaques sournoises sont impossibles lorsque la cible bénéficie d’un camouflage.", "Recherche des pièges": "Les roublards ajoutent la moitié de leur niveau (au minimum +1) aux tests de Perception destinés à repérer des pièges ainsi qu’aux tests de Sabotage. Seul un roublard peut utiliser la compétence Sabotage pour désarmer les pièges magiques.",
+                "Esquive totale (Ext)": "L’agilité phénoménale d’un roublard de niveau 2 lui permet d’esquiver les attaques magiques ou inhabituelles. S’il réussit un jet de Réflexes contre une attaque dont les dégâts devraient être réduits de moitié en cas de jet de Réflexes réussi, il évite l’attaque et ne subit pas le moindre dégât. Le roublard bénéficie de cet avantage uniquement s’il porte une armure légère ou aucune armure. Un roublard sans défense ne bénéficie pas des avantages de l’esquive totale.",
+                "Sens des pièges (Ext)": "À partir du niveau 3, le roublard acquiert un sens intuitif lui permettant d’éviter les dangers des pièges, ce qui se traduit par un bonus de +1 aux jets de Réflexes effectués pour éviter les pièges et par un bonus d’esquive de +1 à la CA contre les attaques déclenchées par des pièges. Ces bonus passent à +2 lorsque le roublard atteint le niveau 6, à +3 lorsqu’il atteint le niveau 9, à +4 lorsqu’il atteint le niveau 12, à +5 lorsqu'il atteint le niveau 15 et enfin à +6 lorsqu’il atteint le niveau 18. Les bonus de sens des pièges provenant de classes différentes se cumulent entre eux.",
+                "Esquive instinctive (Ext)": "Au niveau 4, le roublard gagne la capacité de réagir aux dangers avant même que ses sens les perçoivent. Il ne peut pas être pris au dépourvu. De plus, il conserve son bonus de Dextérité à la classe d’armure lorsqu’il est attaqué par un adversaire invisible. La règle normale s’applique cependant lorsqu’il est immobilisé : dans ce cas, il perd son bonus de Dextérité à la classe d’armure. Un roublard disposant de cette capacité perd également son bonus de Dextérité à la classe d’armure si un adversaire parvient à réaliser une feinte en combat à son encontre. Si un roublard possède déjà la capacité d’esquive instinctive (grâce à une autre classe par exemple), il gagne à la place la capacité d’esquive instinctive supérieure.",
+                "Esquive Instinctive Supérieure (Ext)": "À partir du niveau 8, un roublard ne peut plus être pris en tenaille. Un autre roublard ne peut donc pas utiliser ses capacités pour lui porter une attaque sournoise en le prenant en tenaille, à moins de posséder au moins quatre niveaux de roublard de plus que lui. Si le personnage dispose déjà de la capacité d’esquive instinctive (voir plus haut) grâce à une autre classe, les niveaux de toutes les classes qui lui donnent cette capacité se cumulent pour déterminer le nombre de niveaux de roublard qu’un attaquant doit posséder pour pouvoir le prendre en tenaille."
+            }
+        },
+        {
+            "Nom": "Maître des Ombres",
+            "Niveau" : 0
+        }
+    ],
+    "Alignement" : "Chaotique neutre",
+    "Niveaux" : 5,
+    "XP": 12480,
+    "MalusXP": 0,
+    "Sexe": "Féminin",
+    "Age": 21,
+    "Poids":17,
+    "Taille": 83,
+    "Cheveux": "Bruns, mi-long",
+    "Yeux": "Verts",
+    "Peau": "Blanche",
+    "Religion" : "Olidamara",
+    "Caracteristique": {
+        "PvMax": 17,
+        "Pv": 17,
+        "Force": 8,
+        "Dextérité": 18,
+        "Constitution": 11,
+        "Intelligence": 14,
+        "Sagesse": 14,
+        "Charisme": 18
+    },
+    "Richesse": {
+        "Platine": 0,
+        "Or": 0,
+        "Argent": 0,
+        "Bronze": 0
+    },
+    "BBA": 3,
+    "bonusTaille":1,
+    "pointCompetences": 0,
+    "initiative": 0,
+    "Compétences":[
+        {"nom":"Acrobatie",
+        "rang": 5,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Art de la Magie",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Artisanat1()",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Artisanat2()",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Bluff",
+        "rang": 7,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        },
+        {"nom":"Concentration",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "con"
+        },
+        {"nom":"Connaissance (architecture)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance(souterrains)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Connaissance(floklore local)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (géographie)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaisance (histoire)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (mystères)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (nature)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (noblesse)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (plans)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (religion)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (other1)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Connaissance (other2)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "int"
+        },
+        {"nom":"Contrefaçon",
+        "rang": 2,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Crochetage",
+        "rang": 3,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Décryptage",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Déguisement",
+        "rang": 3,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        },
+        {"nom":"Déplacement silencieux",
+        "rang": 7,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Désamorçage / Sabotage",
+        "rang": 3,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Détection",
+        "rang": 3,
+        "divers": 0,
+        "cc": 1,
+        "carac": "sag"
+        },
+        {"nom":"Diplomatie",
+        "rang": 5,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        },
+        {"nom":"Discrétion",
+        "rang": 7,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Dressage",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "cha"
+        },
+        {"nom":"Equilibre",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Equitation",
+        "rang": 1,
+        "divers": 0,
+        "cc": 0,
+        "carac": "dex"
+        },
+        {"nom":"Escalade",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "for"
+        },
+        {"nom":"Escamotage",
+        "rang": 3,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Estimation",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Evasion",
+        "rang": 5,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Fouille",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "int"
+        },
+        {"nom":"Intimidation",
+        "rang": 3,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        },
+        {"nom":"Langue",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "-"
+        },
+        {"nom":"Maîtrise des cordes",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "dex"
+        },
+        {"nom":"Natation",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "for"
+        },
+        {"nom":"Perception auditive",
+        "rang": 5,
+        "divers": 0,
+        "cc": 1,
+        "carac": "sag"
+        },
+        {"nom":"Premiers secours",
+        "rang": 1,
+        "divers": 0,
+        "cc": 0,
+        "carac": "sag"
+        },
+        {"nom":"Profession (libraire)",
+        "rang": 2,
+        "divers": 0,
+        "cc": 1,
+        "carac": "sag"
+        },
+        {"nom":"Profession (autre)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "sag"
+        },
+        {"nom":"Psychologie",
+        "rang": 5,
+        "divers": 0,
+        "cc": 1,
+        "carac": "sag"
+        },
+        {"nom":"Renseignements",
+        "rang": 3,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        },
+        {"nom":"Représentation (danse)",
+        "rang": 7,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        },
+        {"nom":"Représentation (autre)",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        },
+        {"nom":"Saut",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "for"
+        },
+        {"nom":"Survie",
+        "rang": 0,
+        "divers": 0,
+        "cc": 0,
+        "carac": "sag"
+        },
+        {"nom":"Utilisation des objets magiques",
+        "rang": 0,
+        "divers": 0,
+        "cc": 1,
+        "carac": "cha"
+        }
+    ],
+    "Armes":[
+        {
+        "nom": "Fronde",
+        "dommages": "1D3",
+        "portée": "15m",
+        "critique": "x2",
+        "bonus": ""
+        },
+        {
+        "nom": "Dague",
+        "dommages": "1D3",
+        "portée": "3m",
+        "critique": "19-20 x2",
+        "bonus": ""
+        },
+        {
+        "nom": "Dague Froid Intense",
+        "dommages": "1D3 + 1",
+        "portée": "3m",
+        "critique": "19-20 x2",
+        "bonus": "+1D6 froid ; critique + (facteur critique - 1)D10"
+        },
+        {
+        "nom": "Dague de maître",
+        "dommages": "1D3 + 1",
+        "portée": "3m",
+        "critique": "19-20 x2",
+        "bonus": ""
+        }
+    ],
+    "Armures":[
+        {
+        "nom": "Armure de cuir",
+        "ca": 2,
+        "dex": 6,
+        "penalite": "",
+        "sorts": "10%",
+        "deplacements": "6m",
+        "poids": "6.25"
+        }
+    ],
+    "Equipement":[
+        {
+            "nom": "Paillasse",
+            "emplacement": "sac",
+            "poids": 2.5
+        },
+        {
+            "nom": "Couverture d'hiver",
+            "emplacement": "sac",
+            "poids": 1.5
+        },
+        {
+            "nom": "Ration de survie",
+            "emplacement": "sac",
+            "poids": 2,
+            "qt": 15
+        },
+        {
+            "nom": "Outils de cambrioleur sup",
+            "emplacement": "sac",
+            "poids": 1
+        },
+        {
+            "nom": "Torche",
+            "emplacement": "sac",
+            "poids": 0.5
+        },
+        {
+            "nom": "Jaretèle",
+            "emplacement": "corps",
+            "poids": 0
+        },
+        {
+            "nom": "Déguisement",
+            "emplacement": "sac",
+            "poids": 4
+        },
+        {
+            "nom": "Boucle d'oreille",
+            "emplacement": "corps",
+            "poids": 0
+        },
+        {
+            "nom": "Flûte de Hamelin",
+            "emplacement": "sac",
+            "poids": 0
+        },
+        {
+            "nom": "Grimoire cool",
+            "emplacement": "sac",
+            "poids": 0
+        },
+        {
+            "nom": "Sac sans fond",
+            "emplacement": "corps",
+            "poids": 12.5,
+            "note": "250kg"
+        },
+        {
+            "nom": "Parchemins Contrôle mort vivants",
+            "emplacement": "sac",
+            "poids": 0,
+            "note": "Le personnage peut prendre le contrôle de morts-vivants pour un temps limité. Il leur donne ses ordres vocalement. Le personnage ne peut pas communiquer par télépathie mais quelle que soit la langue qu’il utilise, il se fait comprendre des morts-vivants. S’il se trouve dans l’incapacité de pouvoir s’exprimer (par exemple, à cause d’un sort de silence), les créatures affectées ne l’attaquent pas."
+        },
+        {
+            "nom": "Parchemin d'identification",
+            "emplacement": "sac",
+            "poids": 0,
+            "note": "+10 aux tests d'Art de la Magie pour découvrir propriétés et mots de commande d'objets magiques"
+        },
+        {
+            "nom": "Lingot platine",
+            "emplacement": "sac",
+            "poids": 3
+        },
+        {
+            "nom": "Anneau de protection",
+            "emplacement": "corps",
+            "poids": 0,
+            "bonus": "ca:1"
+        },
+        {
+            "nom": "Baguette soin modéré",
+            "emplacement": "sac",
+            "poids": 0,
+            "note": "Le personnage transmet de l’énergie positive à une créature vivante et lui rend 2d8 points de vie +1 par niveau de lanceur de sorts. Ce sort inflige des dégâts aux morts vivants."
+        },
+        {
+            "nom": "Ajonc à feuille bleue",
+            "emplacement": "sac",
+            "poids": 3,
+            "note": "-1CON, Vig DD14 pour 1d3h d'inconscience"
+        }
+    ]
+}
