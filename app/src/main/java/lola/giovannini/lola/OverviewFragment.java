@@ -1,6 +1,9 @@
 package lola.giovannini.lola;
 
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,7 +17,7 @@ import android.widget.TextView;
 /**
  * Created by giovannini on 10/17/14.
  */
-public class OverviewFragment extends Fragment {
+public class OverviewFragment extends Fragment implements View.OnClickListener {
 
     Personnage perso;
 
@@ -48,17 +51,8 @@ public class OverviewFragment extends Fragment {
         valueExperience = (TextView) competences.findViewById(R.id.valueExperience);
         caracTaille     = (TextView) competences.findViewById(R.id.carac_taille);
 
-        editXP = (EditText) competences.findViewById(R.id.gainXPvalue);
         addXPButton = (Button) competences.findViewById(R.id.XPupButton);
-        addXPButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int xp = Integer.parseInt(editXP.getText().toString());
-                perso.addXP(xp);
-                valueNiveau.setText("" + perso.getNiveau());
-                valueExperience.setText("" + perso.getExpérience());
-            }
-        });
+        addXPButton.setOnClickListener(this);
     }
 
     public void findViewsPersoCaracteristics(View competences){
@@ -87,5 +81,48 @@ public class OverviewFragment extends Fragment {
         intelligence.setText("" + perso.getCaractéristiques().getIntelligence());
         sagesse.setText("" + perso.getCaractéristiques().getSagesse());
         charisme.setText("" + perso.getCaractéristiques().getCharisme());
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == addXPButton){
+            /*int xp = Integer.parseInt(editXP.getText().toString());
+            perso.addXP(xp);
+            valueNiveau.setText("" + perso.getNiveau());
+            valueExperience.setText("" + perso.getExpérience());*/
+            final Context context = getActivity();
+
+            LayoutInflater li = LayoutInflater.from(context);
+            View promptsView = li.inflate(R.layout.ajout_xp_prompt, null);
+            final EditText xp = (EditText) promptsView.findViewById(R.id.add_xp_editText);
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+
+            // set prompts.xml to alertdialog builder
+            alertDialogBuilder.setView(promptsView);
+
+            // set dialog message
+            alertDialogBuilder
+                    .setCancelable(true)
+                    .setPositiveButton("Ajouter",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Personnage perso = ((MainActivity) getActivity())
+                                            .getPerso();
+                                    String textXP = xp.getText().toString();
+                                    if ((!textXP.equals(""))) {
+                                        perso.addXP(Integer.parseInt(textXP));
+                                        valueNiveau.setText("" + perso.getNiveau());
+                                        valueExperience.setText("" + perso.getExpérience());
+                                    }
+                                }
+                            });
+
+            // create alert dialog
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }
     }
 }

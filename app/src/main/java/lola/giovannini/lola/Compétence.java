@@ -5,18 +5,12 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by giovannini on 10/21/14.
- */
 public class Compétence {
     String nom;
     int total, rang;
     boolean cc;
     Personnage perso;
     JSONObject o;
-
-    public Compétence() {
-    }
 
     public Compétence(JSONObject o, Personnage perso){
         this.perso = perso;
@@ -67,12 +61,13 @@ public class Compétence {
     public boolean addPoint(){
         if ((cc && rang < perso.getNiveau() + 3) || (!cc && rang < (perso.getNiveau() + 3)/2)){
             rang++;
-            perso.useCompetencePoint();
+            total++;//Only for display
             try {
                 this.o.put("rang", this.rang);
             }catch(JSONException e){
                 Log.e("Compétences.addPoint()", e.getMessage());
             }
+            perso.useCompetencePoint();
             return true;
         }else {
             return false;

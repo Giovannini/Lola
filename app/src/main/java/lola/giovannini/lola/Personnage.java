@@ -110,7 +110,7 @@ public class Personnage {
             for (int i=0;i<classes.length();i++) {
                 JSONObject json = classes.getJSONObject(i);
                 if (json.getInt("Niveau") > 0){
-                    Classe c = new Classe(json);
+                    Classe c = new Classe(json, this);
                     this.classes.add(c);
                 }
             }
@@ -228,12 +228,14 @@ public class Personnage {
 
     public void levelUp(){
         this.niveau++;
-        this.competencesPoints += 8; /**TODO ajout de points de compétences*/
-        try {
-            this.obj.put("Niveau", this.niveau);
-            this.obj.put("pointCompetences", this.competencesPoints);
-        }catch (JSONException e){
-            Log.e("Personnage.levelup()", e.getMessage());
+        if (this.getClasses().size() == 1) {
+            this.getClasses().get(0).addNiveau();
+             /**TODO ajout de points de compétences*/
+            try {
+                this.obj.put("Niveaux", this.niveau);
+            } catch (JSONException e) {
+                Log.e("Personnage.levelUp()", e.getMessage());
+            }
         }
     }
 
@@ -255,6 +257,7 @@ public class Personnage {
         if(this.expérience > getXPForLevelUp()){
             levelUp();
         }
+        main.saveJson(this.getObj());
     }
 
     public int getXPForLevelUp(){
@@ -406,15 +409,25 @@ public class Personnage {
         return competencesPoints;
     }
 
+    public void addPointCompetence(int p){
+        this.competencesPoints += p;
+        try {
+            this.obj.put("pointCompetences", this.competencesPoints);
+        }catch (JSONException e){
+            Log.e(CLASS_NAME + ".addPointCompetences()", "Erreur JSON en ajoutant des points de " +
+                    "compétence.");
+        }
+    }
     public void useCompetencePoint(){
         this.competencesPoints--;
         try {
             this.obj.put("pointCompetences", this.competencesPoints);
-            main.saveJson(this.obj);
         }catch(JSONException e){
             Log.e("Personnage.useCompetencePoint", e.getMessage());
         }
     }
+
+
 
     public void removeWeapon(int i) {
         String nom = this.armes.get(i).getNom();

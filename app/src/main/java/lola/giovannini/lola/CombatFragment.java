@@ -3,12 +3,10 @@ package lola.giovannini.lola;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,9 +24,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by giovannini on 10/20/14.
- */
 public class CombatFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener{
     String CLASS_NAME = "CombatFragment";
     /*Fragment variables*/
@@ -302,8 +297,6 @@ public class CombatFragment extends Fragment implements View.OnClickListener, Vi
                         .setPositiveButton("Ajouter",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        Personnage perso = ((MainActivity) getActivity())
-                                                .getPerso();
                                         if ((!nom.getText().toString().equals(""))
                                                 && (!dommages.getText().toString().equals(""))
                                                 && (!portee.getText().toString().equals(""))
@@ -332,7 +325,6 @@ public class CombatFragment extends Fragment implements View.OnClickListener, Vi
     @Override
     public boolean onLongClick(View v) {
         if (v == layout_arme){
-            Log.d("CombatFragment.onLongClick()", "hihi");
             arme_bouton.setVisibility(View.VISIBLE);
             arme_bouton_visible = true;
         }

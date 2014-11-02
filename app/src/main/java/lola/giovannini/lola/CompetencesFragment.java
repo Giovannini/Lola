@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,12 @@ public class CompetencesFragment extends Fragment {
             final String comp_name = c.getNom();
             TextView tvl = new TextView(context);
             TextView tvr = new TextView(context);
-            Button b = new Button(context);
+
+            TextView b = new TextView(context);
+            b.setText("+");
+            b.setGravity(Gravity.CENTER_HORIZONTAL);
+            b.setLayoutParams((new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT)));
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -63,6 +69,7 @@ public class CompetencesFragment extends Fragment {
                 b.setBackgroundColor(Color.parseColor("#2f8b31"));
             }else{
                 b.setBackgroundColor(Color.parseColor("#2f2f2f"));
+                b.setVisibility(View.GONE);
             }
             SpannableString content = new SpannableString(c.getNom());
             tvr.setText(""+c.getTotal());
@@ -91,10 +98,17 @@ public class CompetencesFragment extends Fragment {
         if (this.perso.getCompetencesPoints() > 0) {
             int i = 0;
             List<Compétence> competences = perso.getCompétences();
-            while (!competences.get(i).getNom().equals(nom))
+            while (! competences.get(i).getNom().equals(nom)) {
                 ++i;
+            }
             Compétence c = competences.get(i);
-            c.addPoint();
+            if (c.addPoint()){
+                Log.d("CompetencesFragment.addCompetencePoint()", "Point de compétence ajouté à " +
+                        "la compétence " + c.getNom() + ".");
+                Log.d("CompetencesFragment.addCompetencePoint()", "Nouveau niveau: " + c.getRang
+                        () + ".");
+            }
+            perso.main.saveJson(perso.getObj());
             layoutB.removeAllViews();
             layoutL.removeAllViews();
             layoutR.removeAllViews();
