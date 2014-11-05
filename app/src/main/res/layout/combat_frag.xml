@@ -2,232 +2,348 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:id="@+id/linearLayoutCombat">
 
-    <HorizontalScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/horizontalScrollView">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_armes">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/layout_armes">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="20dp"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/layout_arme_buttons">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/plus"
-                        android:id="@+id/ajoutArmeBouton"
-                        android:background="#ff1f9109"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:gravity="center_horizontal"/>
-                </LinearLayout>
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/horizontalScrollView5">
 
                 <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_arme_nom"
-                    android:paddingRight="7dp">
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
-                    <TextView
-                        android:layout_width="112dp"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/titre_armes_nom"
-                        android:id="@+id/titre_arme_nom"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_arme_bonus"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="114dp"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/totre_arme_bonus"
-                        android:id="@+id/titre_arme_bonus"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_arme_dommages"
-                    android:paddingRight="7dp">
-
-                    <TextView
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/titre_arme_dommages"
-                        android:id="@+id/titre_arme_dommages"/>
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/plus"
+                            android:id="@+id/ajoutArmeBouton"
+                            android:background="#2f8b31"
+                            android:gravity="center_horizontal"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="22dp"/>
+
+                        <TextView
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/titre_armes_nom"
+                            android:id="@+id/titre_arme_nom"
+                            android:paddingLeft="10dp"/>
+
+                        <TextView
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/totre_arme_bonus"
+                            android:id="@+id/titre_arme_bonus"
+                            />
+
+                        <TextView
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/titre_arme_dommages"
+                            android:id="@+id/titre_arme_dommages"
+                            />
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/titre_arme_critique"
+                            android:id="@+id/titre_arme_critique"
+                            />
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/titre_arme_portee"
+                            android:id="@+id/titre_arme_portee"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/layout_scroll_container_armes">
+
+                        <ScrollView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/horizontalScrollView2">
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/layout_list_armes">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="40dp"
+                                    android:layout_height="fill_parent"
+                                    android:id="@+id/layout_arme_buttons">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_arme_nom"
+                                    android:paddingRight="7dp"
+                                    android:paddingLeft="10dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_arme_bonus"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_arme_dommages"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_arme_critique"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_arme_portee"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </ScrollView>
+                    </LinearLayout>
+
                 </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_arme_critique"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/titre_arme_critique"
-                        android:id="@+id/titre_arme_critique"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_arme_portee"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/titre_arme_portee"
-                        android:id="@+id/titre_arme_portee"/>
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/layout_armures">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_armure_nom"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="112dp"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/title_armure_nom"
-                        android:id="@+id/title_armure_nom"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_armure_ca"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/title_armure_ca"
-                        android:id="@+id/title_armure_ca"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_armure_dex"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/title_armure_dex"
-                        android:id="@+id/title_armure_dex"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_armure_menalite"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/title_armure_penalite"
-                        android:id="@+id/title_armure_penalite"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_armure_sorts"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/title_armure_sorts"
-                        android:id="@+id/title_armure_sorts"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_armure_deplacement"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/title_armure_deplacement"
-                        android:id="@+id/title_armure_deplacement"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/layout_armure_poids"
-                    android:paddingRight="7dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/title_armure_poids"
-                        android:id="@+id/title_armure_poids"/>
-                </LinearLayout>
-            </LinearLayout>
+            </HorizontalScrollView>
 
         </LinearLayout>
-    </HorizontalScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/horizontalScrollView">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/layout_armures">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+
+                        <TextView
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/plus"
+                            android:id="@+id/ajoutArmureBouton"
+                            android:background="#2f8b31"
+                            android:gravity="center_horizontal"
+                            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+                        <TextView
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/title_armure_nom"
+                            android:id="@+id/title_armure_nom"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/title_armure_ca"
+                            android:id="@+id/title_armure_ca"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/title_armure_dex"
+                            android:id="@+id/title_armure_dex"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/title_armure_penalite"
+                            android:id="@+id/title_armure_penalite"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/title_armure_sorts"
+                            android:id="@+id/title_armure_sorts"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/title_armure_deplacement"
+                            android:id="@+id/title_armure_deplacement"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="@string/title_armure_poids"
+                            android:id="@+id/title_armure_poids"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp">
+
+                        <HorizontalScrollView
+                            android:layout_width="fill_parent"
+                            android:layout_height="50dp"
+                            android:id="@+id/horizontalScrollView3">
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:id="@+id/layout_list_armures">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="40dp"
+                                    android:layout_height="fill_parent"
+                                    android:id="@+id/layout_armure_boutons">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="250dp"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_armure_nom"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_armure_ca"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_armure_dex"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_armure_menalite"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_armure_sorts"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_armure_deplacement"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/layout_armure_poids"
+                                    android:paddingRight="7dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -240,7 +356,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Initiative"
             android:id="@+id/textView"
-            android:background="#976d55"
+            android:background="#8e282b"
             android:textColor="#ffffff"
             android:gravity="center_horizontal"/>
 
@@ -274,7 +390,7 @@
         android:text="@string/PV"
         android:id="@+id/textView3"
         android:autoText="false"
-        android:background="#976d55"
+        android:background="#8e282b"
         android:textColor="#ffffff"
         android:gravity="center_horizontal"/>
 
@@ -317,38 +433,41 @@
         android:weightSum="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="192dp"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/bonusdebasealattaque"
             android:id="@+id/textView4"
-            android:background="#976d55"
+            android:background="#8e282b"
             android:textColor="#ffffff"
-            android:layout_weight="1.30"/>
+            android:gravity="center_vertical|center_horizontal"/>
 
         <TextView
-            android:layout_width="140dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/classdarmure"
             android:id="@+id/textView5"
-            android:background="#976d55"
+            android:background="#8e282b"
             android:textColor="#ffffff"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="1">
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.93">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="154dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Mélée (FOR)"
@@ -365,10 +484,11 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <TextView
-                android:layout_width="48dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="0"
@@ -383,7 +503,7 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="136dp"
+            android:layout_width="117dp"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="0"

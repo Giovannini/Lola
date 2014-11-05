@@ -18,6 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -77,15 +81,21 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
 
             TextView tvnom = new TextView(context);
             tvnom.setText(champNom);
-            tvnom.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 200,
+            tvnom.setTextSize(16.0f);
+            tvnom.setPadding(10, 21, 10, 17);
+            tvnom.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 280,
                     r.getDisplayMetrics()));
             TextView tvequip = new TextView(context);
             tvequip.setText(o.getEmplacement());
-            tvequip.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 72,
+            tvequip.setTextSize(16.0f);
+            tvequip.setPadding(10, 21, 10, 17);
+            tvequip.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100,
                     r.getDisplayMetrics()));
             TextView tvpoids = new TextView(context);
             tvpoids.setText(o.getPoids() + "kg");
-            tvpoids.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48,
+            tvpoids.setTextSize(16.0f);
+            tvpoids.setPadding(10, 21, 10, 17);
+            tvpoids.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 72,
                     r.getDisplayMetrics()));
             TextView note = null;
             if (! o.getNote().equals("")) {
@@ -93,7 +103,9 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
                 note.setText(o.getNote());
                 if (i%2 == 1)
                     note.setBackgroundColor(Color.parseColor("#976d55"));
-                    note.setVisibility(View.GONE);
+                note.setVisibility(View.GONE);
+                note.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 250,
+                        r.getDisplayMetrics()));
             }
 
             if (i%2 == 1) {
@@ -124,6 +136,9 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
                     // get prompts.xml view
                     LayoutInflater li = LayoutInflater.from(context);
                     View promptsView = li.inflate(R.layout.object_prompt, null);
+                    TextView titre = (TextView) promptsView.findViewById(R.id.objet_promp_titre);
+                    titre.setText(((TextView) ((ViewGroup) ((ViewGroup)arg0).getChildAt(0))
+                            .getChildAt(0)).getText().toString());
 
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                             context);
@@ -148,6 +163,7 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
                                                 i++;
                                             }
                                             perso.getObjets().get(i).add();
+                                            perso.main.saveJson(perso.getObj());
 
                                             container.removeAllViews();
                                             getObjets();
@@ -164,6 +180,19 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
                                                 i++;
                                             }
                                             perso.getObjets().get(i).del();
+                                            if (perso.getObjets().get(i).getQuantite() == 0){
+                                                perso.getObjets().remove(i);
+                                            }
+
+                                            try {
+                                                JSONArray objets = perso.getObj().getJSONArray
+                                                        ("Equipement");
+                                                objets.remove(i);
+                                            }catch (JSONException e){
+                                                Log.e("EquipementFragment.getObjets()",
+                                                        "Erreur JSON lors de la suppression d'un " +
+                                                                "objet.");
+                                            }
 
                                             container.removeAllViews();
                                             getObjets();

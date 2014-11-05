@@ -81,6 +81,13 @@ public class Classe {
             this.obj.put("Niveau", this.niveau);
             perso.addPointCompetence(this.points_de_compétence_par_niveau
                                         + perso.getCaractéristiques().getModificateur("int"));
+            if (this.niveau % 3 == 0){
+                //Gain d'un don
+            }
+            if(this.niveau % 4 == 0){
+                //gain d'un point de caractéristique
+                this.perso.addPointCaractéristique();
+            }
             //La sauvegarde se fait plus tard, dans la classe Personnage.
         }catch (JSONException e){
             Log.e("Class.addNiveau()", "Erreur JSON en ajoutant un niveau.");

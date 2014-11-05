@@ -36,12 +36,50 @@ public class Caractéristiques {
         return force;
     }
 
+    public void ajoutForce(){
+        this.force ++;
+        try {
+            obj.put("Force", this.force);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutForce()",
+                    "Erreur JSON lors de l'ajout d'un point de FOR.");
+        }
+    }
+    public void retireForce(){
+        this.force --;
+        try {
+            obj.put("Force", this.force);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutForce()",
+                    "Erreur JSON lors du retranchement d'un point de FOR.");
+        }
+    }
+
     public void setForce(int force) {
         this.force = force;
     }
 
     public int getDextérité() {
         return dextérité;
+    }
+
+    public void ajoutDexterite(){
+        this.dextérité ++;
+        try {
+            obj.put("Dextérité", this.dextérité);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutDexterite()",
+                    "Erreur JSON lors de l'ajout d'un point de DEX.");
+        }
+    }
+    public void retireDexterite(){
+        this.dextérité --;
+        try {
+            obj.put("Dextérité", this.dextérité);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutDexterite()",
+                    "Erreur JSON lors du retranchement d'un point de DEX.");
+        }
     }
 
     public void setDextérité(int dextérité) {
@@ -52,12 +90,50 @@ public class Caractéristiques {
         return intelligence;
     }
 
+    public void ajoutIntelligence(){
+        this.intelligence ++;
+        try {
+            obj.put("Intelligence", this.intelligence);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutIntelligence()",
+                    "Erreur JSON lors de l'ajout d'un point de INT.");
+        }
+    }
+    public void retireIntelligence(){
+        this.intelligence --;
+        try {
+            obj.put("Intelligence", this.intelligence);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.retireIntelligence()",
+                    "Erreur JSON lors du retranchement d'un point de INT.");
+        }
+    }
+
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 
     public int getSagesse() {
         return sagesse;
+    }
+
+    public void ajoutSagesse(){
+        this.sagesse ++;
+        try {
+            obj.put("Sagesse", this.sagesse);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutSagesse()",
+                    "Erreur JSON lors de l'ajout d'un point de SAG.");
+        }
+    }
+    public void retireSagesse(){
+        this.sagesse --;
+        try {
+            obj.put("Intelligence", this.sagesse);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.retireSagesse()",
+                    "Erreur JSON lors du retranchement d'un point de SAG.");
+        }
     }
 
     public void setSagesse(int sagesse) {
@@ -68,12 +144,50 @@ public class Caractéristiques {
         return constitution;
     }
 
+    public void ajoutConstitution(){
+        this.constitution ++;
+        try {
+            obj.put("Constitution", this.constitution);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutConstitution()",
+                    "Erreur JSON lors de l'ajout d'un point de CON.");
+        }
+    }
+    public void retireConstitution(){
+        this.constitution --;
+        try {
+            obj.put("Constitution", this.constitution);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.retireConstitution()",
+                    "Erreur JSON lors du retranchement d'un point de CON.");
+        }
+    }
+
     public void setConstitution(int constitution) {
         this.constitution = constitution;
     }
 
     public int getCharisme() {
         return charisme;
+    }
+
+    public void ajoutCharisme(){
+        this.charisme ++;
+        try {
+            obj.put("Charisme", this.charisme);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.ajoutCharisme()",
+                    "Erreur JSON lors de l'ajout d'un point de CHA.");
+        }
+    }
+    public void retireCharisme(){
+        this.charisme --;
+        try {
+            obj.put("Charisme", this.charisme);
+        }catch (JSONException e){
+            Log.e("Caractéristiques.retireCharisme()",
+                    "Erreur JSON lors du retranchement d'un point de CHA.");
+        }
     }
 
     public void setCharisme(int charisme) {

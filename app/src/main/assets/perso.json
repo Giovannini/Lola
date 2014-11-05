@@ -52,6 +52,7 @@
     "BBA": 3,
     "bonusTaille":1,
     "pointCompetences": 0,
+    "pointsCaractéristiques": 0,
     "initiative": 0,
     "Compétences":[
         {"nom":"Acrobatie",
@@ -489,5 +490,27 @@
             "poids": 3,
             "note": "-1CON, Vig DD14 pour 1d3h d'inconscience"
         }
+    ],
+    "Dons":[
+        {
+            "nom": "Esquive",
+            "effet": "Bonus d'esquive de +1 à la CA",
+            "conditions": "DEX:13"
+        },
+        {
+            "nom": "Attaques réflexes",
+            "effet": "Attaques d’opportunité supplémentaires.",
+            "conditions": "-"
+        }
+
     ]
+
+    /*Au level up
+        * tous les 4 niveaux point de carac
+        * dons tous les 3 niveaux
+        * parfois des talents
+            * Les talents seront dans la classe
+        * bba
+        * sauvegarde
+    */
 }

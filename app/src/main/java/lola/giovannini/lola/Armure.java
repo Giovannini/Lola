@@ -10,11 +10,24 @@ import org.json.JSONObject;
  */
 public class Armure {
     String nom, ca, dex, pénalité, sorts, déplacement, poids;
+    JSONObject obj;
 
     public Armure() {
     }
 
+    public Armure(String nom, String poids, String ca, String dex,
+                  String pénalité, String sorts, String déplacement){
+        this.nom = nom;
+        this.ca = ca;
+        this.dex = dex;
+        this.pénalité = pénalité;
+        this.poids = poids;
+        this.sorts = sorts;
+        this.déplacement = déplacement;
+    }
+
     public Armure(JSONObject o){
+        this.obj = o;
         try {
             this.setNom(o.getString("nom"));
             this.setCa(o.getString("ca"));
@@ -82,5 +95,13 @@ public class Armure {
 
     public void setPoids(String poids) {
         this.poids = poids;
+    }
+
+    public JSONObject getObj() {
+        return obj;
+    }
+
+    public void setObj(JSONObject obj) {
+        this.obj = obj;
     }
 }

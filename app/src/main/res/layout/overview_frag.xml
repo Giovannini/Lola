@@ -12,7 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/titlePersonnage"
         android:id="@+id/titlePersonnage"
-        android:background="#976d55"
+        android:background="#8e282b"
         android:textColor="#ffffffff"
         android:textStyle="bold"
         android:textAlignment="center"/>
@@ -171,7 +171,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/caracteristiques"
         android:id="@+id/title_caracteristiques"
-        android:background="#976d55"
+        android:background="#8e282b"
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
@@ -182,56 +182,135 @@
 
         <LinearLayout
             android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/overview_layout_ajout_caracteristiques">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/plus"
+                android:id="@+id/textView"
+                android:background="#2f8b31"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/plus"
+                android:id="@+id/textView2"
+                android:background="#2f8b31"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/plus"
+                android:id="@+id/textView3"
+                android:background="#2f8b31"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/plus"
+                android:id="@+id/textView4"
+                android:background="#2f8b31"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/plus"
+                android:id="@+id/textView5"
+                android:background="#2f8b31"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/plus"
+                android:id="@+id/textView6"
+                android:background="#2f8b31"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:padding="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="143dp"
             android:layout_height="fill_parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/force"
                 android:id="@+id/textForce"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/dexterite"
                 android:id="@+id/textDex"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/constitution"
                 android:id="@+id/textConst"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/intelligence"
                 android:id="@+id/textINT"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/sagesse"
                 android:id="@+id/textSAG"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/charisme"
                 android:id="@+id/textCHAR"
-                android:paddingTop="5dp" />
+                android:paddingTop="5dp"
+                android:padding="5dp"/>
 
         </LinearLayout>
 
@@ -245,42 +324,48 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Large Text"
-                android:id="@+id/valueFOR" />
+                android:id="@+id/valueFOR"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Large Text"
-                android:id="@+id/valueDEX" />
+                android:id="@+id/valueDEX"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Large Text"
-                android:id="@+id/valueCON" />
+                android:id="@+id/valueCON"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Large Text"
-                android:id="@+id/valueINT" />
+                android:id="@+id/valueINT"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Large Text"
-                android:id="@+id/valueSAG" />
+                android:id="@+id/valueSAG"
+                android:padding="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Large Text"
-                android:id="@+id/valueCHA" />
+                android:id="@+id/valueCHA"
+                android:padding="5dp"/>
         </LinearLayout>
 
     </LinearLayout>

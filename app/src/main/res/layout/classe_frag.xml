@@ -9,7 +9,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/titleParticularite"
         android:id="@+id/titleParticularites"
-        android:background="#976d55"
+        android:background="#8e282b"
         android:textColor="#ffffff" />
 
     <ScrollView

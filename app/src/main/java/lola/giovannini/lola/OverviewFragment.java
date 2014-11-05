@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -24,20 +25,28 @@ public class OverviewFragment extends Fragment implements View.OnClickListener {
     TextView valueNom, valueSexe , valuePoids, valueTaille, valueAlignement, valueNiveau, valueExperience, caracTaille;
 
     TextView force, dexterite, constitution, intelligence, sagesse, charisme;
-    EditText editXP;
     Button addXPButton;
+    LinearLayout layoutAjoutPointCaractéristique;
+    boolean ajoutPointCaractéristiquePossible;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View competences = inflater.inflate(R.layout.overview_frag, container, false);
 
         this.perso = ((MainActivity) getActivity()).getPerso();
+        this.ajoutPointCaractéristiquePossible = false;
 
         findViewsPersoInfos(competences);
         findViewsPersoCaracteristics(competences);
 
         retrieveData();
 
-        Log.i("OverviewFragment", "Ce fragment est créé.");
+        if(this.ajoutPointCaractéristiquePossible){
+            this.layoutAjoutPointCaractéristique.setVisibility(View.VISIBLE);
+        }else{
+            this.layoutAjoutPointCaractéristique.setVisibility(View.GONE);
+        }
+
+        Log.i("OverviewFragment", "Le fragment Général est créé.");
         return competences;
     }
 
@@ -56,12 +65,67 @@ public class OverviewFragment extends Fragment implements View.OnClickListener {
     }
 
     public void findViewsPersoCaracteristics(View competences){
+        layoutAjoutPointCaractéristique = (LinearLayout) competences.findViewById(R.id
+                .overview_layout_ajout_caracteristiques);
         force = (TextView) competences.findViewById(R.id.valueFOR);
         dexterite = (TextView) competences.findViewById(R.id.valueDEX);
         constitution = (TextView) competences.findViewById(R.id.valueCON);
         intelligence = (TextView) competences.findViewById(R.id.valueINT);
         sagesse = (TextView) competences.findViewById(R.id.valueSAG);
         charisme = (TextView) competences.findViewById(R.id.valueCHA);
+
+        TextView b;
+        for(int i = 0, fini = layoutAjoutPointCaractéristique.getChildCount(); i<fini; i++){
+            b = (TextView) layoutAjoutPointCaractéristique.getChildAt(i);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(perso.getPointCaractéristiques() > 0) {
+                        int index = layoutAjoutPointCaractéristique.indexOfChild(v);
+                        switch (index) {
+                            case 0://Force
+                                perso.getCaractéristiques().ajoutForce();
+                                force.setText("" + perso.getCaractéristiques().getForce());
+                                perso.usePointCaracteristique();
+                                break;
+                            case 1://Dextérité
+                                perso.getCaractéristiques().ajoutDexterite();
+                                dexterite.setText("" + perso.getCaractéristiques().getDextérité());
+                                perso.usePointCaracteristique();
+                                break;
+                            case 2://Constitution
+                                perso.getCaractéristiques().ajoutConstitution();
+                                constitution.setText("" + perso.getCaractéristiques().getConstitution());
+                                perso.usePointCaracteristique();
+                                break;
+                            case 3://Intelligence
+                                perso.getCaractéristiques().ajoutIntelligence();
+                                intelligence.setText("" + perso.getCaractéristiques().getIntelligence());
+                                perso.usePointCaracteristique();
+                                break;
+                            case 4://Sagesse
+                                perso.getCaractéristiques().ajoutSagesse();
+                                sagesse.setText("" + perso.getCaractéristiques().getSagesse());
+                                perso.usePointCaracteristique();
+                                break;
+                            case 5://Charisme
+                                perso.getCaractéristiques().ajoutCharisme();
+                                charisme.setText("" + perso.getCaractéristiques().getCharisme());
+                                perso.usePointCaracteristique();
+                                break;
+                            default:
+                                Log.e("OverviewFragment.findViewsPersoCaracteristics()",
+                                        "Erreur en ajoutant un point de caractéristique: mauvais " +
+                                                "index.");
+                                break;
+                        }
+                    }
+                    if(perso.getPointCaractéristiques() <= 0){
+                        layoutAjoutPointCaractéristique.setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
     }
 
     public void retrieveData(){
@@ -81,6 +145,8 @@ public class OverviewFragment extends Fragment implements View.OnClickListener {
         intelligence.setText("" + perso.getCaractéristiques().getIntelligence());
         sagesse.setText("" + perso.getCaractéristiques().getSagesse());
         charisme.setText("" + perso.getCaractéristiques().getCharisme());
+
+        ajoutPointCaractéristiquePossible = (perso.getPointCaractéristiques() > 0);
     }
 
     @Override

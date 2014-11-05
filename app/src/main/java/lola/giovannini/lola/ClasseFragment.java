@@ -29,7 +29,7 @@ public class ClasseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View classe = inflater.inflate(R.layout.classe_frag, container, false);
 
-        this.name = ((MainActivity) getActivity()).getSelectedTabTitle();
+        this.name = /*((MainActivity) getActivity()).getSelectedTabTitle()*/"Roublard";
 
         this.layout = (LinearLayout) classe.findViewById(R.id.classLayoutPart);
 

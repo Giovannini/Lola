@@ -37,6 +37,7 @@ public class Personnage {
     /*Liste de compétences*/
     List<Compétence> compétences;
     int competencesPoints;
+    int pointCaractéristiques;
     /*Map Bonus divers*/
     Map<String, Integer> divers;
     /*Argent*/
@@ -98,6 +99,7 @@ public class Personnage {
             richesses[3] = jsonRic.getInt("Bronze");
             /*Caractéristiques*/
             JSONObject jsonCar = obj.getJSONObject("Caracteristique");
+            this.pointCaractéristiques = obj.getInt("pointsCaractéristiques");
             Caractéristiques caractéristiques = new Caractéristiques(jsonCar);
             this.caractéristiques = caractéristiques;
 
@@ -230,7 +232,6 @@ public class Personnage {
         this.niveau++;
         if (this.getClasses().size() == 1) {
             this.getClasses().get(0).addNiveau();
-             /**TODO ajout de points de compétences*/
             try {
                 this.obj.put("Niveaux", this.niveau);
             } catch (JSONException e) {
@@ -254,7 +255,7 @@ public class Personnage {
         }catch (JSONException e){
             Log.e("Personnage.setExperience", e.getMessage());
         }
-        if(this.expérience > getXPForLevelUp()){
+        while(this.expérience > getXPForLevelUp()){
             levelUp();
         }
         main.saveJson(this.getObj());
@@ -427,8 +428,6 @@ public class Personnage {
         }
     }
 
-
-
     public void removeWeapon(int i) {
         String nom = this.armes.get(i).getNom();
         this.armes.remove(i);
@@ -438,7 +437,8 @@ public class Personnage {
             main.saveJson(this.obj);
             Log.i(CLASS_NAME + ".removeWeapon()", nom + " removed.");
         }catch (JSONException e){
-            Log.e(CLASS_NAME + ".removeWeapon()", "Problem removing the weapon " + nom + ".");
+            Log.e(CLASS_NAME + ".removeWeapon()", "Problem removing the weapon " + nom + ":\n" +
+                    e.getMessage());
         }
     }
 
@@ -451,7 +451,73 @@ public class Personnage {
 
             Log.i(CLASS_NAME + ".addWeapon()", "Arme " + a.getNom() + " ajoutée.");
         }catch (JSONException e){
-            Log.e(CLASS_NAME + ".addWeapon()", "Problem removing the weapon " + nom + ".");
+            Log.e(CLASS_NAME + ".addWeapon()", "Problem removing the weapon " + nom + ":\n" + e
+                    .getMessage());
+        }
+    }
+
+    public void removeArmor(int i) {
+        String nom = this.armures.get(i).getNom();
+        this.armures.remove(i);
+        try {
+            JSONArray armures = obj.getJSONArray("Armures");
+            armes.remove(i);
+            main.saveJson(this.obj);
+            Log.i(CLASS_NAME + ".removeArmor()", nom + " removed.");
+        }catch (JSONException e){
+            Log.e(CLASS_NAME + ".removeArmor()", "Problem removing the armor " + nom + ":\n" + e
+                    .getMessage());
+        }
+    }
+
+    public void addArmor(Armure a) {
+        try {
+            this.getArmures().add(a); //Ajout de l'arme à la liste des armes du personnage.
+
+            this.getObj().getJSONArray("Armures").put(a.getObj());//Ajout de l'arme au fichier JSON.
+            main.saveJson(this.obj);//Sauvegarde du JSON
+
+            Log.i(CLASS_NAME + ".addArmor()",
+                    "Armure " + a.getNom() + " ajoutée.");
+        }catch (JSONException e){
+            Log.e(CLASS_NAME + ".addArmor()",
+                    "Problem removing the armor " + nom + ":\n" + e.getMessage());
+        }
+    }
+
+    public int getPointCaractéristiques() {
+        return pointCaractéristiques;
+    }
+
+    public void addPointCaractéristique(){
+        this.pointCaractéristiques++;
+        try {
+            //Ajout du point de caractéristiques dans le fichier JSON.
+            this.getObj().put("pointsCaractéristiques",this.pointCaractéristiques);
+            //Sauvegarde du JSON plus tard dans le programme.
+
+            Log.i(CLASS_NAME + ".addPointCaractéristique()",
+                    "Ajout d'un point de caractéristiques.");
+        }catch (JSONException e){
+            Log.e(CLASS_NAME + ".addPointCaractéristique()",
+                    "Erreur JSON lors de l'ajout d'un point de caractéristiques:\n" + e
+                            .getMessage());
+        }
+    }
+
+    public void usePointCaracteristique(){
+        this.pointCaractéristiques--;
+        try {
+            //Notification de l'utilisation dans le fichier JSON.
+            this.getObj().put("pointsCaractéristiques", this.pointCaractéristiques);
+            main.saveJson(this.obj);//Sauvegarde du JSON
+
+            Log.i(CLASS_NAME + ".usePointCaractéristique()",
+                    "Utilisation d'un point de caractéristiques.");
+        }catch (JSONException e){
+            Log.e(CLASS_NAME + ".usePointCaractéristique()",
+                    "Erreur JSON lors de l'utilisation d'un point de caractéristiques:\n"
+                    + e.getMessage());
         }
     }
 }

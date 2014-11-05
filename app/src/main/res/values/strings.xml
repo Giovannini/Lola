@@ -76,5 +76,9 @@
     <string name="critique">Critique:</string>
     <string name="plus">+</string>
     <string name="ajoutxp">Ajout d\'expérience</string>
+    <string name="ajoutarmure">Ajout d\'une armure</string>
+    <string name="prnalite">Pénalité</string>
+    <string name="psorts">% sorts</string>
+    <string name="deplacement">Déplacements</string>
 
 </resources>

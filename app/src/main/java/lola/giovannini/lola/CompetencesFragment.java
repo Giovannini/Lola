@@ -52,10 +52,16 @@ public class CompetencesFragment extends Fragment {
         for (final Compétence c : compétences){
             final String comp_name = c.getNom();
             TextView tvl = new TextView(context);
+            tvl.setTextSize(16.0f);
+            tvl.setPadding(10,21,10,17);
             TextView tvr = new TextView(context);
+            tvr.setTextSize(16.0f);
+            tvr.setPadding(10,21,10,17);
 
             TextView b = new TextView(context);
             b.setText("+");
+            b.setTextSize(30.0f);
+            b.setPadding(5,5,5,5);
             b.setGravity(Gravity.CENTER_HORIZONTAL);
             b.setLayoutParams((new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT)));

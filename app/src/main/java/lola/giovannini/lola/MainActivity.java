@@ -13,17 +13,24 @@ import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements ActionBar.OnNavigationListener{
 
     String CLASS_NAME = "MainActivity";
     /**
@@ -35,11 +42,13 @@ public class MainActivity extends FragmentActivity {
 
     Personnage perso;
 
+    /********************/
+    TextView but1, but2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         createJSON();
 
         tabAdapter = new TabPagerAdapter(getSupportFragmentManager(), this.perso);
@@ -58,38 +67,28 @@ public class MainActivity extends FragmentActivity {
 
         actionBar = getActionBar();
         //enables tabs on action bar
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        /**TODO
+         * Add list menu
+         */
+        final String[] dropdownValues = getResources().getStringArray(R.array.fragments);
+        // Specify a SpinnerAdapter to populate the dropdown list.
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(actionBar.getThemedContext(),
+                android.R.layout.simple_spinner_item, android.R.id.text1,
+                dropdownValues);
 
-            @Override
-            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-                mViewPager.setCurrentItem(tab.getPosition());
-            }
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-            @Override
-            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-            }
-
-            @Override
-            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-            }
-        };
-
-        //Add new tabs
-        actionBar.addTab(actionBar.newTab().setText("Général").setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab().setText("Competences").setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab().setText("Equipement").setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab().setText("Combat").setTabListener(tabListener));
-        for (Classe c : this.perso.getClasses()) {
-            actionBar.addTab(actionBar.newTab().setText(c.getNom()).setTabListener(tabListener));
-        }
+        // Set up the dropdown list navigation in the action bar.
+        actionBar.setListNavigationCallbacks(adapter, this);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        System.out.println("onCreateOptionsMenu");
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -122,7 +121,11 @@ public class MainActivity extends FragmentActivity {
         File persoDir = getApplicationContext().getDir("Lola", Context.MODE_PRIVATE);
         File persoFile = new File(persoDir, "perso.json");
         InputStream is = null;
-        if ((persoDir.exists() && persoFile.exists())) {
+        /*******HERE**********/
+        /*******HERE**********/
+        /*******HERE**********/
+        /*******HERE**********/
+        if (!(persoDir.exists() && persoFile.exists())) {
             Log.d(CLASS_NAME + ".createJson()", "Le fichier json existe déjà.");
             try {
                 is = new FileInputStream(persoFile);
@@ -181,5 +184,38 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(int position, long id) {
+        Fragment fragment;
+        // When the given dropdown item is selected, show its contents in the
+        // container view.
+        switch (position){
+            case 0:
+                fragment = new OverviewFragment();
+                break;
+            case 1:
+                fragment = new CompetencesFragment();
+                break;
+            case 2:
+                fragment = new EquipementFragment();
+                break;
+            case 3:
+                fragment = new CombatFragment();
+                break;
+            case 4:
+                fragment = new ClasseFragment();
+                break;
+            case 5:
+                fragment = new ClasseFragment();
+                break;
+            default:
+                fragment = null;
+                break;
+        }
+        /*getFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment).commit();*/
+        return true;
     }
 }
