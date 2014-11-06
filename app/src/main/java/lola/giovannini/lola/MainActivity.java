@@ -75,9 +75,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.OnNaviga
          */
         final String[] dropdownValues = getResources().getStringArray(R.array.fragments);
         // Specify a SpinnerAdapter to populate the dropdown list.
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(actionBar.getThemedContext(),
-                android.R.layout.simple_spinner_item, android.R.id.text1,
-                dropdownValues);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(actionBar.getThemedContext(),
+                    android.R.layout.simple_spinner_item, android.R.id.text1,
+                    dropdownValues);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 

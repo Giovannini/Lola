@@ -43,7 +43,7 @@ public class CombatFragment extends Fragment implements View.OnClickListener, Vi
     TextView bouton_add_arme, bouton_add_armure;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View combat = inflater.inflate(R.layout.combat_frag, container, false);
+        View combat = inflater.inflate(R.layout.frag_combat, container, false);
         combat.setOnClickListener(this);
         perso = ((MainActivity) getActivity()).getPerso();
 
@@ -209,7 +209,7 @@ public class CombatFragment extends Fragment implements View.OnClickListener, Vi
 
                 // get prompts.xml view
                 LayoutInflater li = LayoutInflater.from(context);
-                View promptsView = li.inflate(R.layout.initiative_prompt, null);
+                View promptsView = li.inflate(R.layout.prompt_initiative, null);
                 final NumberPicker picker = (NumberPicker) promptsView.findViewById(R.id.initiativePicker);
                 picker.setMinValue(1);
                 picker.setMaxValue(20);
@@ -287,7 +287,7 @@ public class CombatFragment extends Fragment implements View.OnClickListener, Vi
 
                 // get prompts.xml view
                 LayoutInflater li = LayoutInflater.from(context);
-                View promptsView = li.inflate(R.layout.ajout_arme_prompt, null);
+                View promptsView = li.inflate(R.layout.prompt_ajout_arme, null);
                 final EditText nom = (EditText) promptsView.findViewById(R.id.arme_prompt_nom);
                 final EditText dommages = (EditText) promptsView.findViewById(R.id
                         .arme_prompt_dommages);
@@ -331,7 +331,7 @@ public class CombatFragment extends Fragment implements View.OnClickListener, Vi
 
                 // get prompts.xml view
                 LayoutInflater li = LayoutInflater.from(context);
-                View promptsView = li.inflate(R.layout.ajout_armure_prompt, null);
+                View promptsView = li.inflate(R.layout.prompt_ajout_armure, null);
                 final EditText nom = (EditText) promptsView.findViewById(R.id.armure_prompt_nom);
                 final EditText ca = (EditText) promptsView.findViewById(R.id
                         .armure_prompt_ca);

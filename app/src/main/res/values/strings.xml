@@ -25,7 +25,7 @@
     <string name="character_sex">Féminin</string>
     <string name="poids">Poids:</string>
     <string name="character_weight">17kg</string>
-    <string name="titlePersonnage">Le Personnage</string>
+    <string name="titlePersonnage">Personnage</string>
     <string name="taille">Taille:</string>
     <string name="characterTaille">83cm</string>
     <string name="caract_taille">[P]</string>

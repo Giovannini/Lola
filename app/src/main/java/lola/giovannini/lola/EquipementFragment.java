@@ -3,12 +3,10 @@ package lola.giovannini.lola;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +18,6 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
     Personnage perso;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        equipement = inflater.inflate(R.layout.objects_frag, container, false);
+        equipement = inflater.inflate(R.layout.frag_objects, container, false);
 
         this.perso = ((MainActivity) getActivity()).getPerso();
         this.container = (LinearLayout) equipement.findViewById(R.id.objectContainer);
@@ -72,81 +69,42 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
                 champNom += " x" + o.getQuantite();
             }
 
-            LinearLayout bigl = new LinearLayout(context);
-            bigl.setOrientation(LinearLayout.VERTICAL);
-
             LinearLayout l = new LinearLayout(context);
-            l.setOrientation(LinearLayout.HORIZONTAL);
-            Resources r = getResources();
+            l.setOrientation(LinearLayout.VERTICAL);
 
             TextView tvnom = new TextView(context);
             tvnom.setText(champNom);
             tvnom.setTextSize(16.0f);
             tvnom.setPadding(10, 21, 10, 17);
-            tvnom.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 280,
-                    r.getDisplayMetrics()));
-            TextView tvequip = new TextView(context);
-            tvequip.setText(o.getEmplacement());
-            tvequip.setTextSize(16.0f);
-            tvequip.setPadding(10, 21, 10, 17);
-            tvequip.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100,
-                    r.getDisplayMetrics()));
-            TextView tvpoids = new TextView(context);
-            tvpoids.setText(o.getPoids() + "kg");
-            tvpoids.setTextSize(16.0f);
-            tvpoids.setPadding(10, 21, 10, 17);
-            tvpoids.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 72,
-                    r.getDisplayMetrics()));
-            TextView note = null;
-            if (! o.getNote().equals("")) {
-                note = new TextView(context);
-                note.setText(o.getNote());
-                if (i%2 == 1)
-                    note.setBackgroundColor(Color.parseColor("#976d55"));
-                note.setVisibility(View.GONE);
-                note.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 250,
-                        r.getDisplayMetrics()));
-            }
 
             if (i%2 == 1) {
                 tvnom.setBackgroundColor(Color.parseColor("#976d55"));
-                tvequip.setBackgroundColor(Color.parseColor("#976d55"));
-                tvpoids.setBackgroundColor(Color.parseColor("#976d55"));
             }
 
-            bigl.setOnClickListener(new View.OnClickListener() {
+            l.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (((ViewGroup)v).getChildCount() > 1) {
-                        TextView note = (TextView) ((ViewGroup) v).getChildAt(1);
-                        if (note.getVisibility() == View.VISIBLE) {
-                            note.setVisibility(View.GONE);
-                        } else {
-                            note.setVisibility(View.VISIBLE);
-                        }
-                    }
-                }
-            });
-
-            bigl.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View arg0) {
                     final Context context = getActivity();
 
-                    // get prompts.xml view
+
                     LayoutInflater li = LayoutInflater.from(context);
-                    View promptsView = li.inflate(R.layout.object_prompt, null);
-                    TextView titre = (TextView) promptsView.findViewById(R.id.objet_promp_titre);
-                    titre.setText(((TextView) ((ViewGroup) ((ViewGroup)arg0).getChildAt(0))
-                            .getChildAt(0)).getText().toString());
+                    View promptsView = li.inflate(R.layout.prompt_object_detail, null);
+                    TextView nom_objet = (TextView) promptsView.findViewById(R.id
+                            .prompt_object_detail_nom);
+                    nom_objet.setText(o.getNom());
+                    TextView poids_objet = (TextView) promptsView.findViewById(R.id
+                            .prompt_object_detail_poids);
+                    poids_objet.setText("Poids: " + o.getPoids());
+                    TextView emplacement_objet = (TextView) promptsView.findViewById(R.id
+                            .prompt_object_detail_emplacement);
+                    emplacement_objet.setText("Emplacement: " + o.getEmplacement());
+                    TextView description_objet = (TextView) promptsView.findViewById(R.id
+                            .prompt_object_detail_description);
 
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                             context);
-
-                    // set prompts.xml to alertdialog builder
                     alertDialogBuilder.setView(promptsView);
 
-                    // set dialog message
                     alertDialogBuilder
                             .setCancelable(true)
                             .setPositiveButton("Ajouter",
@@ -204,18 +162,11 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
 
                     // show it
                     alertDialog.show();
-                    return true;
                 }
             });
 
             l.addView(tvnom);
-            l.addView(tvequip);
-            l.addView(tvpoids);
-
-            bigl.addView(l);
-            if (! o.getNote().equals(""))
-                bigl.addView(note);
-            container.addView(bigl);
+            container.addView(l);
         }
 
     }
@@ -236,7 +187,7 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
         if (v == this.gestionRichesse){
 
             li = LayoutInflater.from(context);
-            promptsView = li.inflate(R.layout.richesse_prompt, null);
+            promptsView = li.inflate(R.layout.prompt_richesse, null);
 
             final EditText tvp = (EditText) promptsView.findViewById(R.id.editPlatine);
             //tvp.setText("0");
@@ -295,7 +246,7 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
             alertDialog.show();
         }else if (v == ajoutObjet){
             li = LayoutInflater.from(context);
-            promptsView = li.inflate(R.layout.object_add_prompt, null);
+            promptsView = li.inflate(R.layout.prompt_object_add, null);
 
             final EditText tvnom = (EditText) promptsView.findViewById(R.id.ajout_objet_nom);
             final EditText tve = (EditText) promptsView.findViewById(R.id.ajout_objet_emplacement);

@@ -27,7 +27,7 @@ public class ClasseFragment extends Fragment {
     LinearLayout layout;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View classe = inflater.inflate(R.layout.classe_frag, container, false);
+        View classe = inflater.inflate(R.layout.frag_classe, container, false);
 
         this.name = /*((MainActivity) getActivity()).getSelectedTabTitle()*/"Roublard";
 
