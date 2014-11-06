@@ -1,4 +1,4 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.fragments;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -17,6 +17,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import lola.giovannini.lola.Classe;
+import lola.giovannini.lola.MainActivity;
+import lola.giovannini.lola.Personnage;
+import lola.giovannini.lola.R;
 
 /**
  * Created by giovannini on 10/18/14.

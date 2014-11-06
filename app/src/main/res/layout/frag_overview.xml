@@ -10,50 +10,32 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/overviewFragmentContainer2">
+        android:id="@+id/overviewFragmentContainer2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical|center_horizontal"
-        android:background="#466C79">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Carac"
-            android:id="@+id/overviewCaracTextView"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"/>
+            android:id="@+id/overviewSpinner"
+            android:spinnerMode="dropdown"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Race"
-            android:id="@+id/overviewRaceTextView"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Image"
-            android:id="@+id/overviewImageTextView"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/overviewFragmentContainer"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal">
+        <LinearLayout
+            android:id="@+id/overviewFragmentContainer"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal">
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

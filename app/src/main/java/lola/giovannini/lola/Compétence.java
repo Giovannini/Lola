@@ -19,7 +19,10 @@ public class Compétence {
             this.setNom(o.getString("nom"));
             this.setCc(o.getInt("cc") == 1);
             this.setRang(o.getInt("rang"));
-            this.setTotal(this.getRang() + o.getInt("divers") + perso.getCaractéristiques()
+            int divers = 0;
+            if (perso.getDivers().containsKey(this.nom))
+                divers = perso.getDivers().get(this.nom);
+            this.setTotal(this.getRang() + divers + perso.getCaractéristiques()
                     .getModificateur(o.getString("carac")));
         }catch(JSONException e){
             Log.e("Compétence", e.getMessage());

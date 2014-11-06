@@ -31,9 +31,11 @@ public class Personnage {
     /*Liste d'objets*/
     List<Objet> objets;
     /*Liste de particularités de race*/
+    List<ParticularitéRace> particularitéRaces;
     /*Liste de particularités de classe*/
     List<Classe> classes;
     /*Liste de dons*/
+    List<Don> dons;
     /*Liste de compétences*/
     List<Compétence> compétences;
     int competencesPoints;
@@ -58,6 +60,8 @@ public class Personnage {
         this.armures = new ArrayList<Armure>();
         this.objets = new ArrayList<Objet>();
         this.divers = new HashMap<String, Integer>();
+        this.dons = new ArrayList<Don>();
+        this.particularitéRaces = new ArrayList<ParticularitéRace>();
 
         //Log.d("Personnage", "Le parsing commence.");
         parse(this.obj);
@@ -117,13 +121,18 @@ public class Personnage {
                 }
             }
 
-            /* Compétences */
-            competencesPoints = obj.getInt("pointCompetences");
-            JSONArray competences = obj.getJSONArray("Compétences");
-            for (int i = 0; i<competences.length();i++){
-                JSONObject o = competences.getJSONObject(i);
-                Compétence c = new Compétence(o, this);
-                this.compétences.add(c);
+            /* Race */
+            JSONArray race = obj.getJSONArray("Race");
+            for (int i=0;i<race.length();i++){
+                ParticularitéRace pr = new ParticularitéRace(race.getJSONObject(i), this);
+                particularitéRaces.add(pr);
+            }
+
+            /* Dons */
+            JSONArray dons = obj.getJSONArray("Dons");
+            for (int i = 0; i<dons.length();i++){
+                Don d = new Don(dons.getJSONObject(i));
+                this.dons.add(d);
             }
 
             /* Armes */
@@ -140,6 +149,15 @@ public class Personnage {
                 JSONObject o = armures.getJSONObject(i);
                 Armure a = new Armure(o);
                 this.armures.add(a);
+            }
+
+            /* Compétences */
+            competencesPoints = obj.getInt("pointCompetences");
+            JSONArray competences = obj.getJSONArray("Compétences");
+            for (int i = 0; i<competences.length();i++){
+                JSONObject o = competences.getJSONObject(i);
+                Compétence c = new Compétence(o, this);
+                this.compétences.add(c);
             }
 
         }catch (JSONException e){
@@ -519,5 +537,17 @@ public class Personnage {
                     "Erreur JSON lors de l'utilisation d'un point de caractéristiques:\n"
                     + e.getMessage());
         }
+    }
+
+    public List<Don> getDons() {
+        return dons;
+    }
+
+    public List<ParticularitéRace> getParticularitéRaces() {
+        return particularitéRaces;
+    }
+
+    public MainActivity getMain() {
+        return main;
     }
 }

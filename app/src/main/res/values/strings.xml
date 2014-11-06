@@ -25,7 +25,7 @@
     <string name="character_sex">Féminin</string>
     <string name="poids">Poids:</string>
     <string name="character_weight">17kg</string>
-    <string name="titlePersonnage">Personnage</string>
+    <string name="titlePersonnage">PERSONNAGE</string>
     <string name="taille">Taille:</string>
     <string name="characterTaille">83cm</string>
     <string name="caract_taille">[P]</string>
@@ -80,5 +80,6 @@
     <string name="prnalite">Pénalité</string>
     <string name="psorts">% sorts</string>
     <string name="deplacement">Déplacements</string>
+    <string name="competences">COMPÉTENCES</string>
 
 </resources>

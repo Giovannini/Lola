@@ -1,4 +1,4 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.fragments.general;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import lola.giovannini.lola.MainActivity;
+import lola.giovannini.lola.Personnage;
+import lola.giovannini.lola.R;
+
 /**
  * Created by giovannini on 11/5/14.
  */
@@ -22,9 +26,6 @@ public class PersoDetailsFragment extends Fragment implements View.OnClickListen
 
     TextView valueNom, valueSexe , valuePoids, valueTaille, valueAlignement, valueNiveau, valueExperience, caracTaille;
     Button addXPButton;
-
-    TextView carac, race, image;
-    String currentTab;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View competences = inflater.inflate(R.layout.frag_details_perso, container, false);

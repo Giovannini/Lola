@@ -1,4 +1,4 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.fragments.general;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import lola.giovannini.lola.MainActivity;
+import lola.giovannini.lola.Personnage;
+import lola.giovannini.lola.R;
 
 /**
  * Created by giovannini on 11/5/14.

@@ -1,13 +1,15 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.fragments;
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,11 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import lola.giovannini.lola.Compétence;
+import lola.giovannini.lola.MainActivity;
+import lola.giovannini.lola.Personnage;
+import lola.giovannini.lola.R;
 
 
 /**
@@ -33,6 +40,11 @@ public class CompetencesFragment extends Fragment {
         layoutL = (LinearLayout) competences.findViewById(R.id.compLayoutLeft);
         layoutR = (LinearLayout) competences.findViewById(R.id.compLayoutRight);
         layoutB = (LinearLayout) competences.findViewById(R.id.compLayoutButton);
+
+        System.out.println(perso);
+        if(perso.getCompetencesPoints() <= 0){
+            layoutB.setVisibility(View.GONE);
+        }
 
         instanciateComp();
         Log.i("CompétencesFragment", "Ce fragment est créé.");
@@ -51,17 +63,16 @@ public class CompetencesFragment extends Fragment {
         for (final Compétence c : compétences){
             final String comp_name = c.getNom();
             TextView tvl = new TextView(context);
-            tvl.setTextSize(16.0f);
-            tvl.setPadding(10,21,10,17);
+            tvl.setTextSize(14.0f);
+            tvl.setPadding(13,23,5,19);
             TextView tvr = new TextView(context);
             tvr.setTextSize(16.0f);
-            tvr.setPadding(10,21,10,17);
+            tvr.setPadding(13,21,5,17);
 
             TextView b = new TextView(context);
             b.setText("+");
-            b.setTextSize(30.0f);
-            b.setPadding(5,5,5,5);
-            b.setGravity(Gravity.CENTER_HORIZONTAL);
+            b.setTextSize(22.0f);
+            b.setGravity(Gravity.CENTER);
             b.setLayoutParams((new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT)));
             b.setOnClickListener(new View.OnClickListener() {
@@ -70,12 +81,13 @@ public class CompetencesFragment extends Fragment {
                     addCompetencePoint(v, comp_name);
                 }
             });
-            if (perso.getCompetencesPoints() > 0){
-                b.setBackgroundColor(Color.parseColor("#2f8b31"));
-            }else{
-                b.setBackgroundColor(Color.parseColor("#2f2f2f"));
-                b.setVisibility(View.GONE);
-            }
+            b.setBackgroundResource(R.drawable.rounded_spinner);
+            Resources r = getResources();
+            b.setHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 47,
+                    r.getDisplayMetrics()) + 2);
+            b.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 47,
+                    r.getDisplayMetrics()) + 2);
+
             SpannableString content = new SpannableString(c.getNom());
             tvr.setText(""+c.getTotal());
             if(c.getTotal() >= perso.getNiveau()){
@@ -113,7 +125,7 @@ public class CompetencesFragment extends Fragment {
                 Log.d("CompetencesFragment.addCompetencePoint()", "Nouveau niveau: " + c.getRang
                         () + ".");
             }
-            perso.main.saveJson(perso.getObj());
+            perso.getMain().saveJson(perso.getObj());
             layoutB.removeAllViews();
             layoutL.removeAllViews();
             layoutR.removeAllViews();

@@ -36,9 +36,9 @@
     "Caracteristique": {
         "PvMax": 17,
         "Pv": 17,
-        "Force": 8,
+        "Force": 9,
         "Dextérité": 18,
-        "Constitution": 11,
+        "Constitution": 10,
         "Intelligence": 14,
         "Sagesse": 14,
         "Charisme": 18
@@ -57,301 +57,251 @@
     "Compétences":[
         {"nom":"Acrobatie",
         "rang": 5,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Art de la Magie",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Artisanat1()",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Artisanat2()",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Bluff",
         "rang": 7,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         },
         {"nom":"Concentration",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "con"
         },
         {"nom":"Connaissance (architecture)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance(souterrains)",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Connaissance(floklore local)",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Connaissance (géographie)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaisance (histoire)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance (mystères)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance (nature)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance (noblesse)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance (plans)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance (religion)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance (other1)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Connaissance (other2)",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "int"
         },
         {"nom":"Contrefaçon",
         "rang": 2,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Crochetage",
         "rang": 3,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Décryptage",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Déguisement",
         "rang": 3,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         },
         {"nom":"Déplacement silencieux",
         "rang": 7,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Désamorçage / Sabotage",
         "rang": 3,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Détection",
         "rang": 3,
-        "divers": 0,
         "cc": 1,
         "carac": "sag"
         },
         {"nom":"Diplomatie",
         "rang": 5,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         },
         {"nom":"Discrétion",
         "rang": 7,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Dressage",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "cha"
         },
         {"nom":"Equilibre",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Equitation",
         "rang": 1,
-        "divers": 0,
         "cc": 0,
         "carac": "dex"
         },
         {"nom":"Escalade",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "for"
         },
         {"nom":"Escamotage",
         "rang": 3,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Estimation",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Evasion",
         "rang": 5,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Fouille",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "int"
         },
         {"nom":"Intimidation",
         "rang": 3,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         },
         {"nom":"Langue",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "-"
         },
         {"nom":"Maîtrise des cordes",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "dex"
         },
         {"nom":"Natation",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "for"
         },
         {"nom":"Perception auditive",
         "rang": 5,
-        "divers": 0,
         "cc": 1,
         "carac": "sag"
         },
         {"nom":"Premiers secours",
         "rang": 1,
-        "divers": 0,
         "cc": 0,
         "carac": "sag"
         },
         {"nom":"Profession (libraire)",
         "rang": 2,
-        "divers": 0,
         "cc": 1,
         "carac": "sag"
         },
         {"nom":"Profession (autre)",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "sag"
         },
         {"nom":"Psychologie",
         "rang": 5,
-        "divers": 0,
         "cc": 1,
         "carac": "sag"
         },
         {"nom":"Renseignements",
         "rang": 3,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         },
         {"nom":"Représentation (danse)",
         "rang": 7,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         },
         {"nom":"Représentation (autre)",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         },
         {"nom":"Saut",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "for"
         },
         {"nom":"Survie",
         "rang": 0,
-        "divers": 0,
         "cc": 0,
         "carac": "sag"
         },
         {"nom":"Utilisation des objets magiques",
         "rang": 0,
-        "divers": 0,
         "cc": 1,
         "carac": "cha"
         }
@@ -503,14 +453,42 @@
             "conditions": "-"
         }
 
+    ],
+    "Race":[
+        {
+            "nom": "Petite taille",
+            "description": "Les halfelins sont des créatures de taille P. Ils gagnent donc un bonus de taille de +1 à leur classe d’armure et aux jets d’attaque, un malus de -1 à leur bonus de manœuvres offensives (BMO) et à leur degré de manœuvres défensives (DMD), ainsi qu’un bonus de taille de +4 aux tests de Discrétion.",
+            "bonus": "CA:1;Discrétion:4"
+        },
+        {
+            "nom": "Vitesse lente",
+            "description": "Les halfelins possèdent une vitesse de déplacement de base de 6 mètres (4 cases).",
+            "bonus": ""
+        },
+        {
+            "nom": "Sans peur",
+            "description": "Les halfelins reçoivent un bonus racial de +2 à tous les jets de sauvegarde contre la terreur. Ce bonus se cumule avec celui provenant de la chance des halfelins.",
+            "bonus": ""
+        },
+        {
+            "nom": "Chance des halfelins",
+            "description": "Les halfelins reçoivent un bonus racial de +1 à tous les jets de sauvegarde.",
+            "bonus": "SAUVVIG:1;SAUVREF:1;SAUVVOL:1"
+        },
+        {
+            "nom": "Sens aiguisés",
+            "description": "Les halfelins reçoivent un bonus racial de +2 à tous les tests de Perception.",
+            "bonus": "PerceptionAuditive:2"
+        },
+        {
+            "nom": "Bon équilibre",
+            "description": "Les halfelins reçoivent un bonus racial de +2 à tous les tests d’Acrobaties et d’Escalade.",
+            "bonus": "Escalade:2;Acrobatie:2"
+        },
+        {
+            "nom": "Armes familières",
+            "description": "Les halfelins sont formés au maniement des frondes et considèrent toutes les armes dont le nom comporte le mot «halfelin» comme des armes de guerre.",
+            "bonus": ""
+        }
     ]
-
-    /*Au level up
-        * tous les 4 niveaux point de carac
-        * dons tous les 3 niveaux
-        * parfois des talents
-            * Les talents seront dans la classe
-        * bba
-        * sauvegarde
-    */
 }

@@ -3,7 +3,9 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:background="@drawable/layout_shadow"
-              android:id="@+id/layout_race">
+              android:id="@+id/layout_don"
+              android:layout_marginTop="5dp"
+              android:layout_marginBottom="5dp"
+              android:background="@drawable/layout_shadow">
 
 </LinearLayout>

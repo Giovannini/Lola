@@ -1,4 +1,4 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -20,6 +20,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.List;
+
+import lola.giovannini.lola.MainActivity;
+import lola.giovannini.lola.Objet;
+import lola.giovannini.lola.Personnage;
+import lola.giovannini.lola.R;
 
 /**
  * Created by giovannini on 10/17/14.
@@ -121,7 +126,7 @@ public class EquipementFragment extends Fragment implements View.OnClickListener
                                                 i++;
                                             }
                                             perso.getObjets().get(i).add();
-                                            perso.main.saveJson(perso.getObj());
+                                            perso.getMain().saveJson(perso.getObj());
 
                                             container.removeAllViews();
                                             getObjets();
