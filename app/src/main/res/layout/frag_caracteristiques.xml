@@ -10,7 +10,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout"
-        android:background="@drawable/layout_shadow"
         android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentTop="true"
@@ -111,8 +110,10 @@
                 android:textColor="#000000"
                 android:background="#ffffff"
                 android:paddingLeft="13dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"
+                android:paddingRight="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,8 +124,10 @@
                 android:textColor="#000000"
                 android:background="#ffffff"
                 android:paddingLeft="13dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"
+                android:paddingRight="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -135,8 +138,10 @@
                 android:textColor="#000000"
                 android:background="#ffffff"
                 android:paddingLeft="13dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"
+                android:paddingRight="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -147,8 +152,10 @@
                 android:textColor="#000000"
                 android:background="#ffffff"
                 android:paddingLeft="13dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"
+                android:paddingRight="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,8 +166,10 @@
                 android:textColor="#000000"
                 android:background="#ffffff"
                 android:paddingLeft="13dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"
+                android:paddingRight="5dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -171,8 +180,10 @@
                 android:textColor="#000000"
                 android:background="#ffffff"
                 android:paddingLeft="13dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"
+                android:paddingRight="5dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -191,7 +202,10 @@
                 android:textColor="#000000"
                 android:gravity="right"
                 android:paddingRight="13dp"
-                android:padding="5dp"/>
+                android:paddingLeft="13dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"/>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -202,7 +216,10 @@
                 android:textColor="#000000"
                 android:gravity="right"
                 android:paddingRight="13dp"
-                android:padding="5dp"/>
+                android:paddingLeft="13dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"/>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -213,7 +230,10 @@
                 android:textColor="#000000"
                 android:gravity="right"
                 android:paddingRight="13dp"
-                android:padding="5dp"/>
+                android:paddingLeft="13dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"/>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -224,7 +244,10 @@
                 android:textColor="#000000"
                 android:gravity="right"
                 android:paddingRight="13dp"
-                android:padding="5dp"/>
+                android:paddingLeft="13dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"/>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -235,7 +258,10 @@
                 android:textColor="#000000"
                 android:gravity="right"
                 android:paddingRight="13dp"
-                android:padding="5dp"/>
+                android:paddingLeft="13dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"/>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -246,7 +272,10 @@
                 android:textColor="#000000"
                 android:gravity="right"
                 android:paddingRight="13dp"
-                android:padding="5dp"/>
+                android:paddingLeft="13dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="14dp"/>
         </LinearLayout>
     </LinearLayout>
 

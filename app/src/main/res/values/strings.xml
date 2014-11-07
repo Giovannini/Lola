@@ -44,12 +44,12 @@
     <string name="charisme">Charisme:</string>
     <string name="addXP">Gain d\'expérience</string>
     <string name="titleParticularite">Particularités de classe</string>
-    <string name="titre_armes_nom">Arme</string>
+    <string name="titre_armes_nom">ARME</string>
     <string name="totre_arme_bonus">Attaque</string>
     <string name="titre_arme_dommages">Dommages</string>
     <string name="titre_arme_critique">Critique</string>
     <string name="titre_arme_portee">Portée</string>
-    <string name="title_armure_nom">Armure</string>
+    <string name="title_armure_nom">ARMURE</string>
     <string name="title_armure_ca">Bonus CA</string>
     <string name="title_armure_dex">DEX max</string>
     <string name="title_armure_penalite">Pénalité</string>
@@ -60,8 +60,8 @@
     <string name="PV">PV</string>
     <string name="heal">Soin</string>
     <string name="degat">Dégât</string>
-    <string name="bonusdebasealattaque">Bonus de base à l\'attaque</string>
-    <string name="classdarmure">Classe d\'armure</string>
+    <string name="bonusdebasealattaque">BONUS DE BASE À L\'ATTAQUE</string>
+    <string name="classdarmure">CLASSE D\'ARMURE</string>
     <string name="ajouter">Ajouter</string>
     <string name="retirer">Retirer</string>
     <string name="val_dé_init">Valeur du dé d\'initiative</string>
@@ -81,5 +81,6 @@
     <string name="psorts">% sorts</string>
     <string name="deplacement">Déplacements</string>
     <string name="competences">COMPÉTENCES</string>
+    <string name="title_initiative">INITIATIVE</string>
 
 </resources>

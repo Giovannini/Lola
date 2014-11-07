@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_shadow">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:id="@+id/linearLayout"
+            android:background="@drawable/textlinetop"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="2dp">
+
+            <TextView
+                android:layout_width="192dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/bonusdebasealattaque"
+                android:id="@+id/textView4"
+                android:textColor="#888888"
+                android:gravity="center_vertical"
+                android:paddingBottom="15dp"
+                android:paddingLeft="13dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/classdarmure"
+                android:id="@+id/textView5"
+                android:textColor="#888888"
+                android:gravity="center_vertical|right"
+                android:paddingBottom="15dp"
+                android:paddingRight="13dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:id="@+id/linearLayout2">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.93"
+                android:layout_marginLeft="2dp">
+
+                <TextView
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Mélée (FOR)"
+                    android:id="@+id/title_melee"
+                    android:textColor="#222222"
+                    android:paddingLeft="13dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Distance (DEX)"
+                    android:id="@+id/titleDistance"
+                    android:textColor="#222222"
+                    android:paddingLeft="13dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="0"
+                    android:id="@+id/bba_melee_value"
+                    android:textColor="#222222"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="0"
+                    android:id="@+id/bba_distance_value"
+                    android:textColor="#222222"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="93dp"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:id="@+id/valeurCA"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="#222222"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

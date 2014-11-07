@@ -9,20 +9,25 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/containerArmeArmure">
+        android:id="@+id/containerArmeArmure"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:id="@+id/combatContainerArme">
+            android:id="@+id/combatContainerArme"
+            android:layout_marginBottom="5dp">
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/combatContainerArmure">
+            android:id="@+id/combatContainerArmure"
+            >
 
         </LinearLayout>
 
@@ -31,167 +36,32 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Initiative"
-            android:id="@+id/textView"
-            android:background="#8e282b"
-            android:textColor="#ffffff"
-            android:gravity="center_horizontal"/>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:weightSum="1">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/buttonInitiative"
-                android:id="@+id/buttonInitiative"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="0"
-                android:id="@+id/initiativeValue"
-                android:layout_weight="0.38"
-                android:gravity="right"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/PV"
-        android:id="@+id/textView3"
-        android:autoText="false"
-        android:background="#8e282b"
-        android:textColor="#ffffff"
-        android:gravity="center_horizontal"/>
+        android:id="@+id/combatContainerInitiative"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/heal"
-            android:id="@+id/healButton"
-            android:background="#2f8b31"
-            android:layout_weight="0.15"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="100"
-            android:id="@+id/PVTextView"
-            android:layout_weight="0.72"
-            android:gravity="center_vertical|center_horizontal"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/degat"
-            android:id="@+id/buttonDegat"
-            android:background="#8e282b"
-            android:layout_weight="0.15"/>
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1">
-
-        <TextView
-            android:layout_width="192dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/bonusdebasealattaque"
-            android:id="@+id/textView4"
-            android:background="#8e282b"
-            android:textColor="#ffffff"
-            android:gravity="center_vertical|center_horizontal"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/classdarmure"
-            android:id="@+id/textView5"
-            android:background="#8e282b"
-            android:textColor="#ffffff"
-            android:gravity="center_horizontal"
-            />
+        android:id="@+id/combatContainerPV"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp">
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.93">
-
-            <TextView
-                android:layout_width="154dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Mélée (FOR)"
-                android:id="@+id/title_melee"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Distance (DEX)"
-                android:id="@+id/titleDistance"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="0"
-                android:id="@+id/bba_melee_value"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="0"
-                android:id="@+id/bba_distance_value"/>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="117dp"
-            android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="0"
-            android:id="@+id/valeurCA"
-            android:gravity="center_vertical|center_horizontal"/>
+        android:id="@+id/combatContainerBbaCa"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp">
     </LinearLayout>
 
 </LinearLayout>
