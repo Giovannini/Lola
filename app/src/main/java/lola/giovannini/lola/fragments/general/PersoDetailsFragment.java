@@ -28,7 +28,7 @@ public class PersoDetailsFragment extends Fragment implements View.OnClickListen
     Button addXPButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View competences = inflater.inflate(R.layout.frag_details_perso, container, false);
+        View competences = inflater.inflate(R.layout.frag_overview_details_perso, container, false);
 
         this.perso = ((MainActivity) getActivity()).getPerso();
         findViewsPersoInfos(competences);

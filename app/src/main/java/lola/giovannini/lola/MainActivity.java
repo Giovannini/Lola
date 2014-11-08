@@ -6,28 +6,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import lola.giovannini.lola.fragments.ClasseFragment;
-import lola.giovannini.lola.fragments.combat.CombatFragment;
-import lola.giovannini.lola.fragments.CompetencesFragment;
-import lola.giovannini.lola.fragments.EquipementFragment;
-import lola.giovannini.lola.fragments.general.OverviewFragment;
 
 
 public class MainActivity extends FragmentActivity {

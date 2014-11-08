@@ -4,25 +4,12 @@
     "Classes" : [
         {
             "Nom": "Roublard",
-            "Niveau" : 5,
-            "Part":{
-                "Armes et armures": "Le roublard est formé au maniement de toutes les armes courantes, des arbalètes de poing, des arcs courts, des épées courtes, des matraques et des rapières. Il est également formé au port des rumres légères mais pas à l'utilisation des boucliers.",
-                "Attaque sournoise": "Lorsqu’un roublard attaque son adversaire dans une situation où ce dernier est incapable de se défendre efficacement, il peut lui infliger des dégâts supplémentaires en touchant un point sensible. L’attaque du roublard inflige des dégâts supplémentaires lorsque sa cible se trouve dans un cas de figure lui ôtant son bonus de Dextérité à la CA (qu’elle en ait un ou pas) ou qu’elle est prise en tenaille par le roublard et un compagnon de celui-ci. Si le roublard obtient un coup critique sur une attaque sournoise, ces dégâts supplémentaires ne sont pas multipliés. Une attaque à distance ne peut être une attaque sournoise que si la cible se trouve à 9 m (6 cases) ou moins. S’il utilise une arme qui inflige des dégâts non létaux (comme une matraque, un fouet ou une attaque à mains nues), le personnage peut porter une attaque sournoise infligeant elle aussi des dégâts non létaux. Il ne peut pas choisir cette option avec une arme occasionnant normalement des dégâts létaux (même en acceptant une pénalité de -4 au jet d’attaque). Le roublard ne peut tenter une attaque sournoise que contre un adversaire qu’il peut observer suffisamment pour en repérer les points faibles et dont il peut toucher les organes vitaux. Les attaques sournoises sont impossibles lorsque la cible bénéficie d’un camouflage.", "Recherche des pièges": "Les roublards ajoutent la moitié de leur niveau (au minimum +1) aux tests de Perception destinés à repérer des pièges ainsi qu’aux tests de Sabotage. Seul un roublard peut utiliser la compétence Sabotage pour désarmer les pièges magiques.",
-                "Esquive totale (Ext)": "L’agilité phénoménale d’un roublard de niveau 2 lui permet d’esquiver les attaques magiques ou inhabituelles. S’il réussit un jet de Réflexes contre une attaque dont les dégâts devraient être réduits de moitié en cas de jet de Réflexes réussi, il évite l’attaque et ne subit pas le moindre dégât. Le roublard bénéficie de cet avantage uniquement s’il porte une armure légère ou aucune armure. Un roublard sans défense ne bénéficie pas des avantages de l’esquive totale.",
-                "Sens des pièges (Ext)": "À partir du niveau 3, le roublard acquiert un sens intuitif lui permettant d’éviter les dangers des pièges, ce qui se traduit par un bonus de +1 aux jets de Réflexes effectués pour éviter les pièges et par un bonus d’esquive de +1 à la CA contre les attaques déclenchées par des pièges. Ces bonus passent à +2 lorsque le roublard atteint le niveau 6, à +3 lorsqu’il atteint le niveau 9, à +4 lorsqu’il atteint le niveau 12, à +5 lorsqu'il atteint le niveau 15 et enfin à +6 lorsqu’il atteint le niveau 18. Les bonus de sens des pièges provenant de classes différentes se cumulent entre eux.",
-                "Esquive instinctive (Ext)": "Au niveau 4, le roublard gagne la capacité de réagir aux dangers avant même que ses sens les perçoivent. Il ne peut pas être pris au dépourvu. De plus, il conserve son bonus de Dextérité à la classe d’armure lorsqu’il est attaqué par un adversaire invisible. La règle normale s’applique cependant lorsqu’il est immobilisé : dans ce cas, il perd son bonus de Dextérité à la classe d’armure. Un roublard disposant de cette capacité perd également son bonus de Dextérité à la classe d’armure si un adversaire parvient à réaliser une feinte en combat à son encontre. Si un roublard possède déjà la capacité d’esquive instinctive (grâce à une autre classe par exemple), il gagne à la place la capacité d’esquive instinctive supérieure.",
-                "Esquive Instinctive Supérieure (Ext)": "À partir du niveau 8, un roublard ne peut plus être pris en tenaille. Un autre roublard ne peut donc pas utiliser ses capacités pour lui porter une attaque sournoise en le prenant en tenaille, à moins de posséder au moins quatre niveaux de roublard de plus que lui. Si le personnage dispose déjà de la capacité d’esquive instinctive (voir plus haut) grâce à une autre classe, les niveaux de toutes les classes qui lui donnent cette capacité se cumulent pour déterminer le nombre de niveaux de roublard qu’un attaquant doit posséder pour pouvoir le prendre en tenaille."
-            },
-            "pcpn": 8
-        },
-        {
-            "Nom": "Maître des Ombres",
-            "Niveau" : 0,
-            "pcpn": 6
+            "Niveau" : 5
         }
     ],
     "Alignement" : "Chaotique neutre",
     "Niveaux" : 5,
+    "levelupclass": 0,
     "XP": 12480,
     "MalusXP": 0,
     "Sexe": "Féminin",
@@ -53,6 +40,7 @@
     "bonusTaille":1,
     "pointCompetences": 0,
     "pointsCaractéristiques": 0,
+    "pointDon": 0,
     "initiative": 0,
     "Compétences":[
         {"nom":"Acrobatie",
@@ -312,28 +300,40 @@
         "dommages": "1D3",
         "portée": "15m",
         "critique": "x2",
-        "bonus": ""
+        "bonus": "",
+        "taille": "",
+        "type": "",
+        "poids": ""
         },
         {
         "nom": "Dague",
         "dommages": "1D3",
         "portée": "3m",
         "critique": "19-20 x2",
-        "bonus": ""
+        "bonus": "",
+        "taille": "",
+        "type": "",
+        "poids": ""
         },
         {
         "nom": "Dague Froid Intense",
         "dommages": "1D3 + 1",
         "portée": "3m",
         "critique": "19-20 x2",
-        "bonus": "+1D6 froid ; critique + (facteur critique - 1)D10"
+        "bonus": "+1D6 froid ; critique + (facteur critique - 1)D10",
+        "taille": "",
+        "type": "",
+        "poids": ""
         },
         {
         "nom": "Dague de maître",
         "dommages": "1D3 + 1",
         "portée": "3m",
         "critique": "19-20 x2",
-        "bonus": ""
+        "bonus": "",
+        "taille": "",
+        "type": "",
+        "poids": ""
         }
     ],
     "Armures":[

@@ -1,6 +1,5 @@
 package lola.giovannini.lola.fragments.general;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,17 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import lola.giovannini.lola.MainActivity;
-import lola.giovannini.lola.ParticularitéRace;
+import lola.giovannini.lola.Particularité;
 import lola.giovannini.lola.Personnage;
 import lola.giovannini.lola.R;
 
@@ -33,7 +28,7 @@ public class RaceFragment extends Fragment {
     LinearLayout ll;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View race = inflater.inflate(R.layout.frag_race, container, false);
+        View race = inflater.inflate(R.layout.frag_overview_race, container, false);
 
         perso = ((MainActivity) getActivity()).getPerso();
         ll = (LinearLayout) race.findViewById(R.id.layout_race);
@@ -46,8 +41,8 @@ public class RaceFragment extends Fragment {
 
     private void retrieveData(){
         final Context context = getActivity();
-        List<ParticularitéRace> races = perso.getParticularitéRaces();
-        for (final ParticularitéRace race : races){
+        List<Particularité> races = perso.getParticularitéRaces();
+        for (final Particularité race : races){
             TextView tv = new TextView(context);
             tv.setText(race.getNom());
             tv.setTextColor(Color.parseColor("#222222"));

@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import lola.giovannini.lola.fragments.ClasseFragment;
+import lola.giovannini.lola.fragments.classe.ClasseFragment;
 import lola.giovannini.lola.fragments.CompetencesFragment;
-import lola.giovannini.lola.fragments.EquipementFragment;
+import lola.giovannini.lola.fragments.objets.EquipementFragment;
 import lola.giovannini.lola.fragments.combat.CombatFragment;
 import lola.giovannini.lola.fragments.general.OverviewFragment;
 

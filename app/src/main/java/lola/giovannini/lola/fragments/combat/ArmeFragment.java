@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +20,7 @@ import org.json.JSONException;
 import java.util.List;
 
 import lola.giovannini.lola.Arme;
+import lola.giovannini.lola.Armure;
 import lola.giovannini.lola.MainActivity;
 import lola.giovannini.lola.Personnage;
 import lola.giovannini.lola.R;
@@ -25,7 +28,7 @@ import lola.giovannini.lola.R;
 /**
  * Created by giovannini on 11/6/14.
  */
-public class ArmeFragment extends Fragment {
+public class ArmeFragment extends Fragment implements View.OnClickListener{
     String CLASS_NAME = "ArmeFragment";
 
     /*Personnage*/
@@ -51,6 +54,7 @@ public class ArmeFragment extends Fragment {
         arme_nom = (LinearLayout) combat.findViewById(R.id.layout_arme_nom);
 
         bouton_add_arme = (TextView) combat.findViewById(R.id.ajoutArmeBouton);
+        bouton_add_arme.setOnClickListener(this);
     }
 
     private void getArmesInfos(){
@@ -60,9 +64,8 @@ public class ArmeFragment extends Fragment {
             ajoutArmeVue(a);
         }
     }
-    private void ajoutArme(String nom, String dommages, String critiques, String portee,
-                           String bonus){
-        Arme a = new Arme(nom, dommages, critiques, portee, bonus);
+
+    private void ajoutArme(Arme a){
         perso.addWeapon(a);
 
         ajoutArmeVue(a);
@@ -136,9 +139,7 @@ public class ArmeFragment extends Fragment {
                         .setPositiveButton("Éditer",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        /**TODO
-                                         * Ouvrir un second dialogue d'édition
-                                         */
+                                       openPromptEdit(a);
                                     }
                                 })
                         .setNegativeButton("Retirer",
@@ -157,5 +158,137 @@ public class ArmeFragment extends Fragment {
         });
 
         arme_nom.addView(tv1);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == bouton_add_arme){
+            openPromptAddArme();
+        }
+    }
+
+    public void openPromptAddArme(){
+        final Context context = getActivity();
+
+        LayoutInflater li = LayoutInflater.from(context);
+        View promptsView = li.inflate(R.layout.prompt_ajout_arme, null);
+        final EditText nom_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_nom);
+        final EditText attaque_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_bonus);
+        final EditText dommages_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_dommages);
+        final EditText critique_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_critique);
+        final EditText portee_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_portee);
+        final EditText taille_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_taille);
+        final EditText type_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_type);
+        final EditText poids_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_poids);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder.setView(promptsView);
+
+        alertDialogBuilder
+                .setCancelable(true)
+                .setPositiveButton("Ajouter",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                if (! nom_arme.getText().equals("")){
+                                    Arme a = new Arme(
+                                            nom_arme.getText().toString(),
+                                            attaque_arme.getText().toString(),
+                                            dommages_arme.getText().toString(),
+                                            critique_arme.getText().toString(),
+                                            portee_arme.getText().toString(),
+                                            taille_arme.getText().toString(),
+                                            type_arme.getText().toString(),
+                                            poids_arme.getText().toString());
+                                    ajoutArme(a);
+                                }else{
+                                    Toast.makeText(context, "Le nom de l'arme n'a pas été " +
+                                                    "rempli. Ajout annulé",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
+
+    public void openPromptEdit(final Arme a)  {
+        final Context context = getActivity();
+
+        LayoutInflater li = LayoutInflater.from(context);
+        View promptsView = li.inflate(R.layout.prompt_ajout_arme, null);
+        final EditText nom_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_nom);
+        nom_arme.setText(a.getNom());
+        final EditText attaque_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_bonus);
+        attaque_arme.setText(a.getBonus());
+        final EditText dommages_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_dommages);
+        dommages_arme.setText(a.getDommages());
+        final EditText critique_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_critique);
+        critique_arme.setText(a.getCritiques());
+        final EditText portee_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_portee);
+        portee_arme.setText(a.getPortée());
+        final EditText taille_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_taille);
+        taille_arme.setText(a.getTaille());
+        final EditText type_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_type);
+        type_arme.setText(a.getType());
+        final EditText poids_arme = (EditText) promptsView.findViewById(R.id
+                .arme_prompt_poids);
+        poids_arme.setText(a.getPoids());
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder.setView(promptsView);
+
+        alertDialogBuilder
+                .setCancelable(true)
+                .setPositiveButton("Fin de l'édition",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                if (! nom_arme.getText().equals("")){
+                                    a.setNom(nom_arme.getText().toString());
+                                    a.setBonus(attaque_arme.getText().toString());
+                                    a.setDommages(dommages_arme.getText().toString());
+                                    a.setCritiques(critique_arme.getText().toString());
+                                    a.setPortée(portee_arme.getText().toString());
+                                    a.setTaille(taille_arme.getText().toString());
+                                    a.setType(type_arme.getText().toString());
+                                    a.setPoids(poids_arme.getText().toString());
+
+                                    perso.getMain().saveJson(perso.getObj());
+
+                                    arme_nom.removeAllViews();
+                                    getArmesInfos();
+                                }else{
+                                    Toast.makeText(context, "Le nom de l'arme n'a pas été " +
+                                                    "rempli. Édition annulée",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 }

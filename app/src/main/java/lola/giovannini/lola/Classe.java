@@ -7,90 +7,57 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 
-public class Classe {
+public abstract class Classe {
     String nom;
     int niveau;
+    Personnage p;
     int points_de_compétence_par_niveau;
-    Map<String, String> particularités;
 
-    Personnage perso;
     JSONObject obj;
 
     public Classe() {
-        particularités = new HashMap<String, String>();
     }
 
-    public Classe(JSONObject o, Personnage p){
-        this();
+    public Classe(String nom, JSONObject o, Personnage p){
+        this.nom = nom;
         this.obj = o;
-        this.perso = p;
-        try{
-            int niveau = o.getInt("Niveau");
-            if (niveau > 0) {//Si le personnage possède des caractéristiques de la classe
-                this.nom = (o.getString("Nom"));
-                this.niveau = niveau;
-                this.points_de_compétence_par_niveau = o.getInt("pcpn");
-                if (o.has("Part")) {
-                    JSONObject parts = o.getJSONObject("Part");
-                    Iterator<String> keys = parts.keys();
-                    while (keys.hasNext()) {
-                        String key = keys.next();
-                        this.addParticularité(key, parts.getString(key));
-                    }
-                }
-            }
-        }catch(JSONException e){
-            Log.e("Classe", e.getMessage());
-        }
+        this.p = p;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public int getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(int niveau) {
-        this.niveau = niveau;
-    }
-
-    public Map<String, String> getParticularités() {
-        return particularités;
-    }
-
-    public void setParticularités(Map<String, String> particularités) {
-        this.particularités = particularités;
-    }
-
-    public void addParticularité(String key, String value){
-        this.particularités.put(key, value);
-    }
-
-    public void addNiveau(){
+    public void addNiveau() {
+        System.out.println("Classe.addNiveau()");
         this.niveau++;
+        p.useLevelUpClassPoint();
         try {
             this.obj.put("Niveau", this.niveau);
-            perso.addPointCompetence(this.points_de_compétence_par_niveau
-                                        + perso.getCaractéristiques().getModificateur("int"));
-            if (this.niveau % 3 == 0){
-                //Gain d'un don
-            }
-            if(this.niveau % 4 == 0){
-                //gain d'un point de caractéristique
-                this.perso.addPointCaractéristique();
-            }
+            p.addPointCompetence(this.points_de_compétence_par_niveau
+                    + p.getCaractéristiques().getModificateur("int"));
+
             //La sauvegarde se fait plus tard, dans la classe Personnage.
         }catch (JSONException e){
             Log.e("Class.addNiveau()", "Erreur JSON en ajoutant un niveau.");
         }
+        initParts();
     }
+
+    public abstract List<Particularité> getParticularités();
+
+    public abstract int getNiveau();
+
+    public abstract int[] getBonusBBA();
+    public abstract int getBonusRéflexes();
+    public abstract int getBonusVigueur();
+    public abstract int getBonusVolonté();
+    public abstract JSONObject getObj();
+    public abstract int getImage();
+
+    protected abstract void initParts();
 }

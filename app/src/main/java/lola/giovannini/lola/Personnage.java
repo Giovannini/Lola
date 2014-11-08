@@ -19,8 +19,9 @@ public class Personnage {
 
     MainActivity main;
 
-    String nom, race, classe, alignement, sexe, peau, cheveux, yeux, religion;
+    String nom, race, alignement, sexe, peau, cheveux, yeux, religion;
     int niveau, expérience, malusXP, age, poids, taille, bba, bonusTaille;
+    int levelUpClass;
     /*Caractéristiques*/
     Caractéristiques caractéristiques;
     int valeurInitiative;
@@ -31,15 +32,17 @@ public class Personnage {
     /*Liste d'objets*/
     List<Objet> objets;
     /*Liste de particularités de race*/
-    List<ParticularitéRace> particularitéRaces;
+    List<Particularité> particularitéRaces;
     /*Liste de particularités de classe*/
     List<Classe> classes;
+    List<Particularité> allClassParts;
     /*Liste de dons*/
     List<Don> dons;
     /*Liste de compétences*/
     List<Compétence> compétences;
     int competencesPoints;
     int pointCaractéristiques;
+    int pointDon;
     /*Map Bonus divers*/
     Map<String, Integer> divers;
     /*Argent*/
@@ -61,7 +64,8 @@ public class Personnage {
         this.objets = new ArrayList<Objet>();
         this.divers = new HashMap<String, Integer>();
         this.dons = new ArrayList<Don>();
-        this.particularitéRaces = new ArrayList<ParticularitéRace>();
+        this.particularitéRaces = new ArrayList<Particularité>();
+        this.allClassParts = new ArrayList<Particularité>();
 
         //Log.d("Personnage", "Le parsing commence.");
         parse(this.obj);
@@ -86,6 +90,8 @@ public class Personnage {
             this.setCheveux(obj.getString("Cheveux"));
             this.setYeux(obj.getString("Yeux"));
             this.setReligion(obj.getString("Religion"));
+
+            this.levelUpClass = obj.getInt("levelupclass");
 
             /* Objets */
             JSONArray objets = obj.getJSONArray("Equipement");
@@ -115,20 +121,29 @@ public class Personnage {
             JSONArray classes = obj.getJSONArray("Classes");
             for (int i=0;i<classes.length();i++) {
                 JSONObject json = classes.getJSONObject(i);
-                if (json.getInt("Niveau") > 0){
-                    Classe c = new Classe(json, this);
+                System.out.println("Traitement de la classe "+ json.getString("Nom"));
+                Classe c = null;
+                if (json.getString("Nom").equals("Roublard")){
+                    System.out.println("Création de la classe Roublard");
+                    c = new ClasseRoublard(json, this);
                     this.classes.add(c);
+                }else if (json.getString("Nom").equals("Maître des ombres")){
+                    /**TODO
+                     * Maître des ombres
+                     */
                 }
+                this.allClassParts.addAll(c.getParticularités());
             }
 
             /* Race */
             JSONArray race = obj.getJSONArray("Race");
             for (int i=0;i<race.length();i++){
-                ParticularitéRace pr = new ParticularitéRace(race.getJSONObject(i), this);
+                Particularité pr = new Particularité(race.getJSONObject(i), this);
                 particularitéRaces.add(pr);
             }
 
             /* Dons */
+            this.pointDon = obj.getInt("pointDon");
             JSONArray dons = obj.getJSONArray("Dons");
             for (int i = 0; i<dons.length();i++){
                 Don d = new Don(dons.getJSONObject(i));
@@ -180,14 +195,6 @@ public class Personnage {
 
     private void setRace(String race) {
         this.race = race;
-    }
-
-    public String getClasse() {
-        return classe;
-    }
-
-    public void setClasse(String classe) {
-        this.classe = classe;
     }
 
     public String getAlignement() {
@@ -248,13 +255,21 @@ public class Personnage {
 
     public void levelUp(){
         this.niveau++;
-        if (this.getClasses().size() == 1) {
-            this.getClasses().get(0).addNiveau();
-            try {
-                this.obj.put("Niveaux", this.niveau);
-            } catch (JSONException e) {
-                Log.e("Personnage.levelUp()", e.getMessage());
-            }
+        this.addLevelUpClassPoint();
+        if (this.niveau % 3 == 0){
+            this.pointDon ++;
+        }
+        if(this.niveau % 4 == 0){
+            //gain d'un point de caractéristique
+            this.addPointCaractéristique();
+        }
+
+        try {
+            this.obj.put("Niveaux", this.niveau);
+            this.obj.put("pointDon", this.pointDon);
+            this.obj.put("levelupclass", this.levelUpClass);
+        } catch (JSONException e) {
+            Log.e("Personnage.levelUp()", e.getMessage());
         }
     }
 
@@ -543,8 +558,86 @@ public class Personnage {
         return dons;
     }
 
-    public List<ParticularitéRace> getParticularitéRaces() {
+    public int getPointDon() {
+        return pointDon;
+    }
+
+    public void ajoutDon(Don d) {
+        try {
+            this.getDons().add(d); //Ajout du don à la liste des dons du personnage.
+
+            this.getObj().getJSONArray("Dons").put(d.getObj());//Ajout de l'arme au fichier JSON.
+            main.saveJson(this.obj);//Sauvegarde du JSON
+
+            Log.i(CLASS_NAME + ".ajoutDon()", "Don " + d.getNom() + " ajouté.");
+        }catch (JSONException e){
+            Log.e(CLASS_NAME + ".ajoutDon()", "Problem adding the gift " + nom + ":\n" + e
+                    .getMessage());
+        }
+    }
+
+    public void useDonPoint(){
+        this.pointDon--;
+        try {
+            //Notification de l'utilisation dans le fichier JSON.
+            this.getObj().put("pointDon", this.pointDon);
+            main.saveJson(this.obj);//Sauvegarde du JSON
+
+            Log.i(CLASS_NAME + ".useDonPoint()", "Utilisation d'un point de don.");
+        }catch (JSONException e){
+            Log.e(CLASS_NAME + ".useDonPoint()",
+                    "Erreur JSON lors de l'utilisation d'un point de don:\n" + e.getMessage());
+        }
+    }
+
+    public void addLevelUpClassPoint(){
+        this.levelUpClass++;
+        try {
+            this.obj.put("levelupclass", this.levelUpClass);
+            main.saveJson(this.obj);
+        }catch (JSONException e){
+            Log.e("Personnage.addLevelUpClassPoint", "Erreur JSON à l'a jout d'un point LU.\n" +
+                    e.getMessage());
+        }
+        Log.d("Personnage.addLevelUpClassPoint", "Ajout d'un point LU: " + this.levelUpClass);
+    }
+
+    public void useLevelUpClassPoint(){
+        this.levelUpClass--;
+        try {
+            this.obj.put("levelupclass", this.levelUpClass);
+            main.saveJson(this.obj);
+        }catch (JSONException e){
+            Log.e("Personnage.addLevelUpClassPoint", "Erreur JSON au retranchement d'un point LU" +
+                    ".\n" + e.getMessage());
+        }
+        Log.d("Personnage.addLevelUpClassPoint", "Retranchement d'un point LU: " + this
+                .levelUpClass);
+    }
+
+    public int getLevelUpClass() {
+        return levelUpClass;
+    }
+
+    public List<Particularité> getParticularitéRaces() {
         return particularitéRaces;
+    }
+
+    public List<Particularité> getAllClassParts() {
+        return allClassParts;
+    }
+
+    public void multiclassage(String nomClasse){
+        JSONObject o = new JSONObject();
+        try {
+            o.put("Nom", nomClasse);
+            o.put("Niveau", 1);
+        }catch (JSONException e){
+
+        }
+        if (nomClasse.toLowerCase().equals("maître des ombres")){
+            this.classes.add(new ClasseMaîtreDesOmbres(o, this));
+        }
     }
 
     public MainActivity getMain() {

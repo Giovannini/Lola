@@ -22,13 +22,25 @@
             android:background="@drawable/textlinetop">
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/title_armure_nom"
                 android:id="@+id/title_armure_nom"
                 android:textColor="#888888"
                 android:paddingLeft="13dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                android:text="@string/plus"
+                android:id="@+id/ajoutArmureBouton"
+                android:gravity="right"
+                android:paddingRight="13dp"
+                android:textColor="#888888"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"/>
 

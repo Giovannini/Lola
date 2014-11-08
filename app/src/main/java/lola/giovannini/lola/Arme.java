@@ -9,19 +9,25 @@ import org.json.JSONObject;
  * Created by giovannini on 10/20/14.
  */
 public class Arme {
-    String nom, bonus, dommages, critiques, portée;
+    /**TODO
+     * modify JSON on setters
+     */
+    String nom, bonus, dommages, critiques, portée, taille, type, poids;
     JSONObject obj;
 
     public Arme() {
     }
 
     public Arme(String nom, String dommages, String critiques, String portee,
-                String bonus){
+                String bonus, String taille, String type, String poids){
         this.nom = nom;
         this.dommages = dommages;
         this.critiques = critiques;
         this.portée = portee;
         this.bonus = bonus;
+        this.taille = taille;
+        this.type = type;
+        this.poids = poids;
 
         try {
             JSONObject o = new JSONObject();
@@ -30,6 +36,9 @@ public class Arme {
             o.put("portée", portee);
             o.put("critique", critiques);
             o.put("bonus", bonus);
+            o.put("taille", taille);
+            o.put("type", type);
+            o.put("poids", poids);
 
             this.obj = o;
         }catch (JSONException e){
@@ -56,6 +65,11 @@ public class Arme {
 
     public void setNom(String nom) {
         this.nom = nom;
+        try{
+            this.obj.put("nom", nom);
+        }catch (JSONException e){
+            Log.e("Armure.setNom()", e.getMessage());
+        }
     }
 
     public String getBonus() {
@@ -64,6 +78,11 @@ public class Arme {
 
     public void setBonus(String bonus) {
         this.bonus = bonus;
+        try{
+            this.obj.put("bonus", bonus);
+        }catch (JSONException e){
+            Log.e("Armure.setBonus()", e.getMessage());
+        }
     }
 
     public String getDommages() {
@@ -72,6 +91,11 @@ public class Arme {
 
     public void setDommages(String dommages) {
         this.dommages = dommages;
+        try{
+            this.obj.put("dommages", dommages);
+        }catch (JSONException e){
+            Log.e("Armure.setDommages()", e.getMessage());
+        }
     }
 
     public String getCritiques() {
@@ -80,6 +104,11 @@ public class Arme {
 
     public void setCritiques(String critiques) {
         this.critiques = critiques;
+        try{
+            this.obj.put("critique", critiques);
+        }catch (JSONException e){
+            Log.e("Armure.setCritiques()", e.getMessage());
+        }
     }
 
     public String getPortée() {
@@ -88,6 +117,50 @@ public class Arme {
 
     public void setPortée(String portée) {
         this.portée = portée;
+        try{
+            this.obj.put("portée", portée);
+        }catch (JSONException e){
+            Log.e("Armure.setPirtée()", e.getMessage());
+        }
+    }
+
+    public String getTaille() {
+        return taille;
+    }
+
+    public void setTaille(String taille) {
+        this.taille = taille;
+        try{
+            this.obj.put("taille", taille);
+        }catch (JSONException e){
+            Log.e("Armure.setTaille()", e.getMessage());
+        }
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+        try{
+            this.obj.put("type", type);
+        }catch (JSONException e){
+            Log.e("Armure.setType()", e.getMessage());
+        }
+    }
+
+    public String getPoids() {
+        return poids;
+    }
+
+    public void setPoids(String poids)  {
+        this.poids = poids;
+        try{
+            this.obj.put("poids", poids);
+        }catch (JSONException e){
+            Log.e("Armure.setPoids()", e.getMessage());
+        }
     }
 
     public JSONObject getObj() {

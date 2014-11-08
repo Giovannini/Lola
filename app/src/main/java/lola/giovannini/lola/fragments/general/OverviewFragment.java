@@ -1,7 +1,6 @@
 package lola.giovannini.lola.fragments.general;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,9 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +18,7 @@ import java.util.List;
 import lola.giovannini.lola.MainActivity;
 import lola.giovannini.lola.Personnage;
 import lola.giovannini.lola.R;
+import lola.giovannini.lola.fragments.MySpinnerAdapter;
 
 /**
  * Created by giovannini on 10/17/14.
@@ -34,6 +32,8 @@ public class OverviewFragment extends Fragment {
         View competences = inflater.inflate(R.layout.frag_overview, container, false);
 
         this.perso = ((MainActivity) getActivity()).getPerso();
+
+        getActivity().getActionBar().setTitle("Général");
 
         spinner = (Spinner) competences.findViewById(R.id.overviewSpinner);
         List<String> frag_names = new ArrayList<String>();

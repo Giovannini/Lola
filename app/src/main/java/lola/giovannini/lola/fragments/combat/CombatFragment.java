@@ -17,6 +17,8 @@ public class CombatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View combat = inflater.inflate(R.layout.frag_combat, container, false);
 
+        getActivity().getActionBar().setTitle("Combat");
+
         getArmeFragment();
         getArmureFragment();
         getInitiativeFragment();

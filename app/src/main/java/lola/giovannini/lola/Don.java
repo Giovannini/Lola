@@ -13,12 +13,30 @@ import java.util.Map;
  */
 public class Don {
     String nom, effet, conditions;
+    JSONObject obj;
 
     public Don(){
 
     }
 
+    public Don(String nom, String effet, String conditions){
+        this.nom = nom;
+        this.effet = effet;
+        this.conditions = conditions;
+
+        this.obj = new JSONObject();
+        try {
+            obj.put("nom", nom);
+            obj.put("effet", effet);
+            obj.put("conditions", conditions);
+        }catch (JSONException e){
+            Log.e("Don",
+                    "Erreur JSON lors de l'ajout du don:\n" + e.getMessage());
+        }
+    }
+
     public Don(JSONObject o){
+        this.obj = o;
         try {
             nom = o.getString("nom");
             effet = o.getString("effet");
@@ -57,5 +75,9 @@ public class Don {
 
     public void setConditions(String conditions) {
         this.conditions = conditions;
+    }
+
+    public JSONObject getObj() {
+        return obj;
     }
 }

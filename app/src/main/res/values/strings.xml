@@ -30,7 +30,7 @@
     <string name="characterTaille">83cm</string>
     <string name="caract_taille">[P]</string>
     <string name="title_equipement">Equipement</string>
-    <string name="titleRichesses">Richesses</string>
+    <string name="titleRichesses">RICHESSE</string>
     <string name="platine">Platine:</string>
     <string name="or">Or:</string>
     <string name="argent">Argent:</string>
@@ -82,5 +82,11 @@
     <string name="deplacement">Déplacements</string>
     <string name="competences">COMPÉTENCES</string>
     <string name="title_initiative">INITIATIVE</string>
+    <string name="titleobjet">OBJETS</string>
+    <string name="type">Type:</string>
+    <string name="classedarmure">Classe d\'armure</string>
+    <string name="multiclassage">Multiclassage</string>
+    <string name="maitredesombres">Maître des Ombres</string>
+    <string name="ombrageur">Ombrageur</string>
 
 </resources>

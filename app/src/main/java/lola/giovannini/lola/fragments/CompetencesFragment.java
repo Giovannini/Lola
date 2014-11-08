@@ -34,8 +34,10 @@ public class CompetencesFragment extends Fragment {
     Personnage perso;
     LinearLayout layoutL, layoutR, layoutB;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View competences = inflater.inflate(R.layout.frag_competences, container, false);
+        View competences = inflater.inflate(R.layout.frag_overview_competences, container, false);
         perso = ((MainActivity) getActivity()).getPerso();
+
+        getActivity().getActionBar().setTitle("Compétences");
 
         layoutL = (LinearLayout) competences.findViewById(R.id.compLayoutLeft);
         layoutR = (LinearLayout) competences.findViewById(R.id.compLayoutRight);

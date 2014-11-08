@@ -8,15 +8,27 @@ import org.json.JSONObject;
 /**
  * Created by giovannini on 11/6/14.
  */
-public class ParticularitéRace {
+public class Particularité {
     String nom, description;
     JSONObject obj;
 
-    public ParticularitéRace(){
+    public Particularité(){}
 
+    public Particularité(String nom, String description){
+        this.nom = nom;
+        this.description = description;
+        this.obj = new JSONObject();
+        try{
+            this.obj.put("nom", this.nom);
+            this.obj.put("description", this.description);
+            this.obj.put("bonus", "");
+        }catch (JSONException e){
+            Log.e("Particularité()", "Erreur JSON lors de la création d'une particularité.\n"
+                    + e.getMessage());
+        }
     }
 
-    public ParticularitéRace(JSONObject o, Personnage p){
+    public Particularité(JSONObject o, Personnage p){
         this.obj = o;
         try
         {
@@ -56,5 +68,9 @@ public class ParticularitéRace {
 
     public JSONObject getObj() {
         return obj;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

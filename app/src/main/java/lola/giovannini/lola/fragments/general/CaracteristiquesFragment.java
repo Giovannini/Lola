@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,7 +26,7 @@ public class CaracteristiquesFragment extends Fragment {
     boolean ajoutPointCaractéristiquePossible;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View caractéristiques = inflater.inflate(R.layout.frag_caracteristiques, container, false);
+        View caractéristiques = inflater.inflate(R.layout.frag_overview_caracteristiques, container, false);
 
         this.perso = ((MainActivity) getActivity()).getPerso();
         this.ajoutPointCaractéristiquePossible = false;

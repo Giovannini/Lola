@@ -9,6 +9,9 @@ import org.json.JSONObject;
  * Created by giovannini on 10/20/14.
  */
 public class Armure {
+    /**TODO
+     * modify JSON on setters
+     */
     String nom, ca, dex, pénalité, sorts, déplacement, poids;
     JSONObject obj;
 
@@ -24,6 +27,20 @@ public class Armure {
         this.poids = poids;
         this.sorts = sorts;
         this.déplacement = déplacement;
+        try {
+            JSONObject o = new JSONObject();
+            o.put("nom", nom);
+            o.put("ca", ca);
+            o.put("dex", dex);
+            o.put("penalite", pénalité);
+            o.put("sorts", sorts);
+            o.put("deplacement", déplacement);
+            o.put("poids", poids);
+
+            this.obj = o;
+        }catch (JSONException e){
+            Log.e("Armure()", "Erreur JSON lors de la création d'une armure.");
+        }
     }
 
     public Armure(JSONObject o){
@@ -47,6 +64,11 @@ public class Armure {
 
     public void setNom(String nom) {
         this.nom = nom;
+        try{
+            this.obj.put("nom", nom);
+        }catch (JSONException e){
+            Log.e("Armure.setNom()", e.getMessage());
+        }
     }
 
     public String getCa() {
@@ -55,6 +77,11 @@ public class Armure {
 
     public void setCa(String ca) {
         this.ca = ca;
+        try{
+            this.obj.put("ca", ca);
+        }catch (JSONException e){
+            Log.e("Armure.setCa()", e.getMessage());
+        }
     }
 
     public String getDex() {
@@ -63,6 +90,11 @@ public class Armure {
 
     public void setDex(String dex) {
         this.dex = dex;
+        try{
+            this.obj.put("dex", dex);
+        }catch (JSONException e){
+            Log.e("Armure.setDex()", e.getMessage());
+        }
     }
 
     public String getPénalité() {
@@ -71,6 +103,11 @@ public class Armure {
 
     public void setPénalité(String pénalité) {
         this.pénalité = pénalité;
+        try{
+            this.obj.put("penalite", pénalité);
+        }catch (JSONException e){
+            Log.e("Armure.setPénalité()", e.getMessage());
+        }
     }
 
     public String getSorts() {
@@ -79,6 +116,11 @@ public class Armure {
 
     public void setSorts(String sorts) {
         this.sorts = sorts;
+        try{
+            this.obj.put("sorts", sorts);
+        }catch (JSONException e){
+            Log.e("Armure.setSorts()", e.getMessage());
+        }
     }
 
     public String getDéplacement() {
@@ -87,6 +129,11 @@ public class Armure {
 
     public void setDéplacement(String déplacement) {
         this.déplacement = déplacement;
+        try{
+            this.obj.put("deplacements", déplacement);
+        }catch (JSONException e){
+            Log.e("Armure.setDéplacement()", e.getMessage());
+        }
     }
 
     public String getPoids() {
@@ -95,13 +142,14 @@ public class Armure {
 
     public void setPoids(String poids) {
         this.poids = poids;
+        try{
+            this.obj.put("poids", poids);
+        }catch (JSONException e){
+            Log.e("Armure.setPoids()", e.getMessage());
+        }
     }
 
     public JSONObject getObj() {
         return obj;
-    }
-
-    public void setObj(JSONObject obj) {
-        this.obj = obj;
     }
 }
