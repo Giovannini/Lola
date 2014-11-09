@@ -17,15 +17,13 @@ public class CombatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View combat = inflater.inflate(R.layout.frag_combat, container, false);
 
-        getActivity().getActionBar().setTitle("Combat");
-
         getArmeFragment();
         getArmureFragment();
         getInitiativeFragment();
         getPVFragment();
         getBBACAFragment();
 
-        Log.i(CLASS_NAME, "Ce fragment est créé.");
+        Log.i(CLASS_NAME, "Le fragment combat est créé.");
         return combat;
     }
 

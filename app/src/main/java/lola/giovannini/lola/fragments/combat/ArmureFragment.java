@@ -44,7 +44,7 @@ public class ArmureFragment extends Fragment implements View.OnClickListener{
         initViews(armure);
         getArmuresInfos();
 
-        Log.i("CombatFragment", "Ce fragment est créé.");
+        Log.i("CombatFragment", "Le fragment Armure est créé.");
         return armure;
     }
 

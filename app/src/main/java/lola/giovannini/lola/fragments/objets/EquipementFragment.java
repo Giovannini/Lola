@@ -38,12 +38,10 @@ public class EquipementFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View equipement = inflater.inflate(R.layout.frag_objets, container, false);
 
-        getActivity().getActionBar().setTitle("Équipement");
-
         getListeFragment();
         getRichesseFragment();
 
-        Log.i("EquipementFragment", "Ce fragment est créé.");
+        Log.i("EquipementFragment", "Le fragment Équipement est créé.");
         return equipement;
     }
 

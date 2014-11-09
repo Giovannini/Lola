@@ -16,19 +16,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/prompt_multiclassage_radioGroup">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/maitredesombres"
-            android:id="@+id/radioButtonMDO"
-            android:checked="true"/>
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ombrageur"
-            android:id="@+id/radioButtonOmbrageur"
-            android:checked="false"/>
-
     </RadioGroup>
 </LinearLayout>

@@ -633,14 +633,29 @@ public class Personnage {
             o.put("Nom", nomClasse);
             o.put("Niveau", 1);
         }catch (JSONException e){
-
+            Log.e(CLASS_NAME + ".multiclassage()",
+                    "Erreur JSON lors de la création de l'objet de classe.\n" + e.getMessage());
         }
         if (nomClasse.toLowerCase().equals("maître des ombres")){
-            this.classes.add(new ClasseMaîtreDesOmbres(o, this));
+            Classe newClass = new ClasseMaîtreDesOmbres(o, this);
+            this.classes.add(newClass);
+            newClass.addPointCompetences();
+            try {
+                this.obj.getJSONArray("Classes").put(o);
+                main.saveJson(this.obj);
+            }catch (JSONException e){
+                Log.e(CLASS_NAME + "multiclassage()",
+                        "Erreur JSON lors de l'ajout de la nouvelle classe au fichier JSON.\n" +
+                                e.getMessage());
+            }
         }
     }
 
     public MainActivity getMain() {
         return main;
+    }
+
+    public void saveJSON(){
+        this.main.saveJson(this.obj);
     }
 }

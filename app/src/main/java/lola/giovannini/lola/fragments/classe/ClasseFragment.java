@@ -19,6 +19,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -76,10 +79,10 @@ public class ClasseFragment extends Fragment {
             }
 
         });
-        this.classeCourante =perso.getClasses().get(0);
+        this.classeCourante = perso.getClasses().get(0);
         getClasse(this.classeCourante);
 
-        Log.i(CLASS_NAME, "Ce fragment est créé.");
+        Log.i(CLASS_NAME, "Le fragment Classe est créé.");
         return classe;
     }
 
@@ -90,7 +93,7 @@ public class ClasseFragment extends Fragment {
     }
 
     private void getClasse(Classe c){
-        Log.i(CLASS_NAME + this.name, "Affichage de la classe " + c.getNom());
+        Log.i(CLASS_NAME, "Affichage de la classe " + c.getNom());
         final Context context = getActivity();
 
         TextView niveau = new TextView(context);
@@ -103,8 +106,9 @@ public class ClasseFragment extends Fragment {
 
         for(final Particularité part : parts){
             TextView title = new TextView(context);
+            final String nom = part.getNom();
 
-            title.setText(part.getNom());
+            title.setText(nom);
             title.setTextColor(Color.parseColor("#222222"));
             title.setTextSize(14.0f);
             title.setPadding(13, 23, 5, 19);
@@ -112,7 +116,11 @@ public class ClasseFragment extends Fragment {
             title.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    popupDescription(part);
+                    if (nom.contains("Talent")){
+                        popupTalent();
+                    }else {
+                        popupDescription(part);
+                    }
                 }
             });
 
@@ -121,7 +129,7 @@ public class ClasseFragment extends Fragment {
     }
 
     private void changeClasse(Classe c){
-        System.out.println("Changement de classe");
+        Log.i(CLASS_NAME + "changeClasse()", "Changement de classe");
         this.classeCourante = c;
         this.layout.removeAllViews();
         this.containerNiveau.removeAllViews();
@@ -129,18 +137,17 @@ public class ClasseFragment extends Fragment {
     }
 
     public void ajoutBoutonLevelUp(){
-        System.out.println("Il reste " + perso.getLevelUpClass() + " point de lu.");
         if (perso.getLevelUpClass() > 0) {
+        //Si un point de LU a été généré, les boutons sont affichés
             final Context context = getActivity();
             TextView levelup = new TextView(context);
             levelup.setText("Level up");
-            levelup.setTextColor(Color.parseColor("#222222"));
+            levelup.setTextColor(Color.parseColor("#466C79"));
             levelup.setTextSize(14.0f);
             levelup.setPadding(13, 23, 5, 19);
             levelup.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println("Clic sur level up");
                     classeCourante.addNiveau();
                     changeClasse(classeCourante);
                 }
@@ -151,7 +158,7 @@ public class ClasseFragment extends Fragment {
             if (perso.getClasses().size() == 1){
                 TextView multiclasse = new TextView(context);
                 multiclasse.setText("Multiclassage");
-                multiclasse.setTextColor(Color.parseColor("#222222"));
+                multiclasse.setTextColor(Color.parseColor("#466C79"));
                 multiclasse.setTextSize(14.0f);
                 multiclasse.setPadding(13, 23, 5, 19);
 
@@ -159,6 +166,7 @@ public class ClasseFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         popUpMulticlasse();
+                        changeClasse(classeCourante);
                     }
                 });
 
@@ -187,6 +195,7 @@ public class ClasseFragment extends Fragment {
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+
                             }
                         });
 
@@ -200,9 +209,16 @@ public class ClasseFragment extends Fragment {
     private void popUpMulticlasse(){
         final Context context = getActivity();
         LayoutInflater li = LayoutInflater.from(context);
-        View promptsView = li.inflate(R.layout.prompt_multiclassage, null);
+        final View promptsView = li.inflate(R.layout.prompt_multiclassage, null);
         final RadioGroup rg = (RadioGroup) promptsView.findViewById(R.id
                 .prompt_multiclassage_radioGroup);
+        RadioButton rb_mdo = new RadioButton(context);
+        rb_mdo.setText("Maître des ombres");
+        rb_mdo.setSelected(true);
+        rg.addView(rb_mdo);
+        RadioButton rb_o = new RadioButton(context);
+        rb_o.setText("Ombrageur");
+        rg.addView(rb_o);
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
@@ -213,10 +229,73 @@ public class ClasseFragment extends Fragment {
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
-                                RadioButton rb = (RadioButton) rg.getChildAt(rg
+                                RadioButton rb = (RadioButton) promptsView.findViewById(rg
                                         .getCheckedRadioButtonId());
-                                perso.multiclassage(rb.getText().toString());
+                                String newClasseName = rb.getText().toString();
+                                perso.multiclassage(newClasseName);
+                                perso.useLevelUpClassPoint();
+
+                                List<String> frag_names = new ArrayList<String>();
+                                for (Classe c : perso.getClasses()){
+                                    if(c.getNom().equals(newClasseName))
+                                        classeCourante = c;
+                                    frag_names.add(c.getNom().toUpperCase());
+                                }
+                                ((MySpinnerAdapter) spinner.getAdapter()).update_frag_names(frag_names);
+                            }
+                        });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+    }
+
+    private void popupTalent(){
+        final Context context = getActivity();
+        LayoutInflater li = LayoutInflater.from(context);
+        final View promptsView = li.inflate(R.layout.prompt_multiclassage, null);
+        final RadioGroup rg = (RadioGroup) promptsView.findViewById(R.id
+                .prompt_multiclassage_radioGroup);
+        for(Particularité p : classeCourante.getTalents()){
+            RadioButton rb = new RadioButton(context);
+            rb.setText(p.getNom());
+            rg.addView(rb);
+        }
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder.setView(promptsView);
+
+        alertDialogBuilder
+                .setCancelable(true)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                RadioButton rb = (RadioButton) promptsView.findViewById(rg
+                                        .getCheckedRadioButtonId());
+                                String newTalentName = rb.getText().toString();
+                                int i = 0;
+                                while( ! classeCourante.getTalents().get(i).getNom().equals
+                                        (newTalentName))
+                                    i++;
+
+                                Particularité newTalent = classeCourante.getTalents().get(i);
+                                JSONObject obj_talent = new JSONObject();
+                                try {
+                                    obj_talent.put("nom", newTalent.getNom());
+                                    obj_talent.put("description", newTalent.getDescription());
+
+                                    perso.getObj().getJSONArray("Talents").put(obj_talent);
+                                    perso.saveJSON();
+                                    classeCourante.initParts();
+                                    changeClasse(classeCourante);
+                                }catch (JSONException e){
+                                    Log.e(CLASS_NAME + ".popupTalent()",
+                                            "Erreur JSON lors de l'ajout d'un nouveau talent.\n"
+                                                    + e.getMessage());
+                                }
                             }
                         });
 

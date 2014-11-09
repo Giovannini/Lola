@@ -45,7 +45,7 @@ public class ObjetFragment extends Fragment implements View.OnClickListener{
 
         getObjets();
 
-        Log.i(CLASS_NAME, "Ce fragment est créé.");
+        Log.i(CLASS_NAME, "Le fragment Objets est créé.");
         return objet;
     }
 

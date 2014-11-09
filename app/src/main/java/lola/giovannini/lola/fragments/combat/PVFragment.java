@@ -28,7 +28,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 11/7/14.
  */
 public class PVFragment extends Fragment implements View.OnClickListener{
-    String CLASS_NAME = "CombatFragment";
+    String CLASS_NAME = "PVFragment";
     /*Personnage*/
     Personnage perso;
     /*Buttons*/
@@ -46,7 +46,7 @@ public class PVFragment extends Fragment implements View.OnClickListener{
 
         setButtonsAction();
 
-        Log.i("CombatFragment", "Ce fragment est créé.");
+        Log.i(CLASS_NAME, "Le fragment de gestion des PV est créé.");
         return combat;
     }
 
@@ -75,7 +75,7 @@ public class PVFragment extends Fragment implements View.OnClickListener{
                     perso.getObj().put("Pv", perso.getCaractéristiques().getPv());
                     perso.getMain().saveJson(perso.getObj());
                 } catch (JSONException e) {
-                    Log.e("CombatFragment", e.getMessage());
+                    Log.e(CLASS_NAME, e.getMessage());
                 }
             }
         } else if (v == bouton_soin) {
@@ -86,7 +86,7 @@ public class PVFragment extends Fragment implements View.OnClickListener{
                     perso.getObj().put("Pv", perso.getCaractéristiques().getPv());
                     perso.getMain().saveJson(perso.getObj());
                 } catch (JSONException e) {
-                    Log.e("CombatFragment", e.getMessage());
+                    Log.e(CLASS_NAME, e.getMessage());
                 }
             }
         }

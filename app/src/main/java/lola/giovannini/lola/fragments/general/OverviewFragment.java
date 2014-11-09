@@ -33,8 +33,6 @@ public class OverviewFragment extends Fragment {
 
         this.perso = ((MainActivity) getActivity()).getPerso();
 
-        getActivity().getActionBar().setTitle("Général");
-
         spinner = (Spinner) competences.findViewById(R.id.overviewSpinner);
         List<String> frag_names = new ArrayList<String>();
         frag_names.add("CARACTÉRISTIQUES");

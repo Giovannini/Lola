@@ -2,6 +2,7 @@ package lola.giovannini.lola;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,9 +13,11 @@ import java.util.List;
  * Created by giovannini on 11/8/14.
  */
 public class ClasseRoublard extends Classe {
+    String CLASS_NAME = "ClasseRoublard";
     Personnage p;
     JSONObject obj;
     int image;
+    int nbTalents;
 
     int[][] bonusBBA;
     int[] bonusRéflexes;
@@ -23,6 +26,7 @@ public class ClasseRoublard extends Classe {
 
     Particularité[][] allParts;
     List<Particularité> parts;
+    List<Particularité> talents;
 
     public ClasseRoublard(JSONObject o, Personnage p){
         super("Roublard", o, p);
@@ -31,7 +35,7 @@ public class ClasseRoublard extends Classe {
         try {
             this.niveau = o.getInt("Niveau");
         }catch (JSONException e){
-            Log.e("ClasseRoublard: ", "Erreur JSON en lisant le niveau.\n" + e.getMessage());
+            Log.e(CLASS_NAME + ": ", "Erreur JSON en lisant le niveau.\n" + e.getMessage());
         }
         this.parts = new ArrayList<Particularité>();
         this.points_de_compétence_par_niveau = 8;
@@ -41,7 +45,88 @@ public class ClasseRoublard extends Classe {
         initVigVol();
 
         initParts();
+        initTalents();
         image = R.drawable.roublard;
+    }
+
+    private void initTalents(){
+        this.talents = new ArrayList<Particularité>();
+        talents.add(new Particularité(
+                "Astuce de ninja",
+                "Un roublard qui prend ce talent peut choisir une astuce de ninja. Le roublard ne peut pas choisir une astuce de ninja qui porte le même nom qu’un talent de roublard. Il peut choisir une astuce qui demande des points de ki mais ne pourra pas l’utiliser à moins de posséder le talent réserve de ki. Un roublard peut choisir ce talent à plusieurs reprises."
+        ));
+        talents.add(new Particularité(
+                "Attaque sanglante",
+                "Ce talent permet au roublard de faire saigner la victime de son attaque sournoise. Chaque round, la cible subit un nombre de points de dégâts égal au nombre de dés d’attaque sournoise du roublard (par exemple 4 points de saignement dans le cas d’une attaque sournoise à +4d6). Ces dégâts se produisent chaque round au début du tour de la cible. Le saignement peut être arrêté par un test de Premiers secours (DD 15) ou par n’importe quel effet qui permet de récupérer des points de vie perdus. Les dégâts de saignement infligés par ce talent ne sont pas cumulatifs. Ils ignorent toutes les réductions de dégâts."
+        ));
+        talents.add(new Particularité(
+                "Beau parleur",
+                "Une fois par jour, le roublard peut lancer deux dés au cours d’un test de Bluff et choisir le meilleur résultat des deux. Il doit décider d’utiliser ce talent avant le test de Bluff . Le roublard gagne une utilisation quotidienne supplémentaire de ce talent par tranche de 5 niveaux de roublard qu’il possède. "
+        ));
+        talents.add(new Particularité(
+                "Botte secrète",
+                "Ce talent permet au roublard de gagner un don de combat supplémentaire."
+        ));
+        talents.add(new Particularité(
+                "Brouiller les pistes",
+                "Quand un individu raconte un évènement, le roublard fait un test opposé de " +
+                        "Diplomatie pour habilement ponctuer le cours de l’histoire de commentaires ou d’affirmations, troublant ainsi la capacité du conteur à se rappeler des détails spécifiques ou exacts. Si le roublard réussit, la cible ne réalise pas que les interjections du roublard l’ont embrouillée. Néanmoins, si le roublard échoue, la cible a droit à un test de Psychologie (DD égal au test de Diplomatie raté du roublard) pour s’apercevoir que celui-ci a délibérément tenté d’embrouiller son récit. " +
+                        "Tous les roublards qui répondent aux conditions requises indiquées peuvent prendre ce nouveau talent de roublard, mais ils sont plus courants chez les kitsune."
+        ));
+        talents.add(new Particularité(
+                "Contacts au marché noir",
+                "Grâce à ce talent, le roublard peut obtenir de meilleurs objets magiques grâce à" +
+                        " ses contacts au marché noir. Il considère toutes les villes comme d’une" +
+                        " taille de plus qu’elles ne le sont réellement quand il s’agit de " +
+                        "déterminer la valeur de base maximale (en pièces d’or) des objets à " +
+                        "vendre, ainsi que le nombre d’objets magiques mineurs, " +
+                        "moyens et majeurs à disposition. Si la ville est déjà une capitale, " +
+                        "il a accès à tous les objets mineurs et moyens et à 3d8 objets majeurs. " +
+                        "Un test de Diplomatie réussi lui permet de faire comme si la ville était" +
+                        " de deux tailles de plus qu’elle ne l’est. Si la ville est déjà une " +
+                        "capitale et que le roublard réussit son test, " +
+                        "il a accès à la totalité des objets magiques. Si la ville est déjà une " +
+                        "grande cité et qu’il réussit son test, il a accès à tous les objets " +
+                        "mineurs et moyens et à 3d8 objets majeurs. " +
+                        "Un test réussi lui permet aussi de vendre des objets volés sur le marché" +
+                        " noir. S’il rate le test de 5 ou plus, il fait peur aux acteurs du " +
+                        "marché et traite la ville normalement pendant 1 semaine. De plus, " +
+                        "les chefs du marché noir risquent d’avertir les autorités de sa " +
+                        "présence, en guise de représailles pour avoir perturbé le marché ou pour" +
+                        " détourner l’attention de leurs activités illicites. " +
+                        "Le DD du test dépend de la taille de l’agglomération et figure dans la table ci-contre."
+        ));
+        talents.add(new Particularité(
+                "Défense Offensive",
+                "Lorsqu’un roublard disposant de ce talent porte contre une créature une attaque de corps à corps qui inflige des dégâts d’attaque sournoise, il gagne un bonus d’esquive de +1 à la CA pour chaque dé d’attaque sournoise utilisé contre cette créature pendant 1 round."
+        ));
+        talents.add(new Particularité(
+                "Discret et rapide",
+                "Ce talent permet au roublard d’utiliser la compétence de Discrétion en se déplaçant à sa vitesse normale (non réduite) sans pénalité."
+        ));
+        talents.add(new Particularité(
+                "Faux ami",
+                "Un roublard qui possède ce talent reçoit un bonus de +4 à ses tests de Bluff " +
+                        "pour convaincre quelqu’un qu’il n’a jamais rencontré ou connaît mal qu’ils se sont déjà rencontrés ou se connaissent bien. " +
+                        "Tous les roublards qui répondent aux conditions requises indiquées peuvent prendre ce nouveau talent de roublard, mais ils sont plus courants chez les kitsune."
+        ));
+        talents.add(new Particularité(
+                "Oeil de l'archer",
+                "Un roublard disposant de ce talent peut appliquer ses dégâts d’attaque sournoise aux attaques à distance visant des cibles situées dans un rayon de 9 mètres (6 c) et bénéficiant d’un camouflage simple. Les cibles qui bénéficient d’un camouflage total restent immunisées aux attaques sournoises."
+        ));
+        talents.add(new Particularité(
+                "Sournois",
+                "Un roublard qui dispose de ce talent gagne un bonus de circonstances de +4 aux tests d’Escamotage quand il essaie de dissimuler une arme. De plus, s’il fait une attaque sournoise pendant le round de surprise à l’aide d’une arme cachée dont son adversaire ignore l’existence, il n’a pas besoin de lancer les dés de dégâts supplémentaires : l’attaque sournoise inflige automatiquement le maximum. Chaque jour, il peut utiliser ce talent un nombre de fois égal à son modificateur de Charisme (0 au minimum)."
+        ));
+        talents.add(new Particularité(
+                "Subtilisation au combat",
+                "Un roublard disposant de ce talent gagne Science de la subtilisation comme don supplémentaire."
+        ));
+
+        for (Particularité p : parts) {
+            if(talents.contains(p))
+                talents.remove(p);
+        }
     }
 
     private void initAllParts(){
@@ -143,42 +228,67 @@ public class ClasseRoublard extends Classe {
         this.bonusVolonté = v;
     }
 
-    protected void initParts(){
+    public void initParts(){
+        Log.i(CLASS_NAME + ".initParts()",
+                "Initialisation des particularités:");
+        this.nbTalents = 0;
         this.parts.clear();
         for (int i = 0; i<this.niveau;i++){
-            Log.i("ClassRoublard: ", "Particularités de niveau " + (i + 1));
+
             Particularité[] ps = this.allParts[i];
             for (Particularité p : ps){
-                Log.i("ClasseRoublard.initParts()",
+                Log.i(CLASS_NAME + ".initParts()",
                         "Ajout de la particulatité " + p.getNom());
                 if (p.getNom().contains("Attaque sournoise") && i > 0){
                     /*
                      * Modifier le nom de l'attaque sournoise pour lui rajouter un dé
                      * On sait qu'il s'agit du premier élément ajouté dans la liste.
                     */
-                    Log.i("ClasseRoublard.initParts()",
+                    Log.i(CLASS_NAME + ".initParts()",
                             p.getNom() + " remplacera " + this.parts.get(0).getNom());
                     this.parts.get(0).setNom(p.getNom());
-                }else if (p.getNom().contains("Sens des pièges") && i > 2){
-                    System.out.println("Bah oui!");
+                }else if (p.getNom().contains("Sens des pièges") && i > 2) {
                     /*
                      * Modifier le nom de sens des pièges pour lui rajouter un point.
                     */
                     int k = 0;
-                    while (! this.parts.get(k).getNom().contains("Sens des pièges")){
+                    while (!this.parts.get(k).getNom().contains("Sens des pièges")) {
                         k++;
                     }
-                    Log.i("ClasseRoublard.initParts()",
+                    Log.i(CLASS_NAME + ".initParts()",
                             p.getNom() + " remplacera " + this.parts.get(k).getNom());
                     this.parts.get(k).setNom(p.getNom());
-                }else if (p.getNom().equals("Talent de roublard")){
-                    //Choix d'un talent parmis une liste.
-                }else if (p.getNom().equals("Talent de maître roublard")){
-                    //Choix d'un talent parmis une liste.
+                }else if(p.getNom().contains("Talent de")) {
+                    this.nbTalents++;
                 }else{
+                /*
+                 * Les talents sont aussi ajoutés à la liste. On pourra spécifier celui
+                 * que l'on souhaite en cliquant sur un "Talent" vide dans le menu.
+                 */
                     this.parts.add(p);
                 }
             }
+        }
+        try {
+            JSONArray talents = p.getObj().getJSONArray("Talents");
+            int l = talents.length();
+            for (int i = 0; i < this.nbTalents; i++) {
+                Particularité talent;
+                if (i<l) {
+                    JSONObject t = talents.getJSONObject(i);
+                     talent = new Particularité(
+                            t.getString("nom"),
+                            t.getString("description"));
+                    Log.d(CLASS_NAME, "Talent ajouté: " + talent.getNom());
+                }else{
+                    talent = new Particularité("Talent", "");
+                    Log.d(CLASS_NAME, "Talent vide ajouté.");
+                }
+                this.parts.add(talent);
+            }
+        }catch (JSONException e) {
+            Log.e(CLASS_NAME + ".initParts()",
+                    "Erreur JSON en lisant les talents.\n" + e.getMessage());
         }
     }
 
@@ -218,5 +328,15 @@ public class ClasseRoublard extends Classe {
     @Override
     public int getImage() {
         return image;
+    }
+
+    @Override
+    public int getPoints_de_compétence_par_niveau() {
+        return points_de_compétence_par_niveau;
+    }
+
+    @Override
+    public List<Particularité> getTalents() {
+        return this.talents;
     }
 }

@@ -117,7 +117,7 @@ public class ClasseMaîtreDesOmbres  extends Classe {
         this.bonusVolonté = v;
     }
 
-    protected void initParts(){
+    public void initParts(){
         this.parts.clear();
         Log.i(CLASS_NAME + ": ", "initialisation des particularité");
         for (int i = 0; i<this.niveau;i++){
@@ -197,4 +197,16 @@ public class ClasseMaîtreDesOmbres  extends Classe {
     public int getImage() {
         return image;
     }
+
+    @Override
+    public int getPoints_de_compétence_par_niveau() {
+        return points_de_compétence_par_niveau;
+    }
+
+    @Override
+    public List<Particularité> getTalents() {
+        return null;
+    }
+
+
 }

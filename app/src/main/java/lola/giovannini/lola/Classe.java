@@ -38,8 +38,7 @@ public abstract class Classe {
         p.useLevelUpClassPoint();
         try {
             this.obj.put("Niveau", this.niveau);
-            p.addPointCompetence(this.points_de_compétence_par_niveau
-                    + p.getCaractéristiques().getModificateur("int"));
+            addPointCompetences();
 
             //La sauvegarde se fait plus tard, dans la classe Personnage.
         }catch (JSONException e){
@@ -48,6 +47,10 @@ public abstract class Classe {
         initParts();
     }
 
+    public void addPointCompetences(){
+        p.addPointCompetence(this.getPoints_de_compétence_par_niveau()
+                + p.getCaractéristiques().getModificateur("int"));
+    }
     public abstract List<Particularité> getParticularités();
 
     public abstract int getNiveau();
@@ -58,6 +61,7 @@ public abstract class Classe {
     public abstract int getBonusVolonté();
     public abstract JSONObject getObj();
     public abstract int getImage();
-
-    protected abstract void initParts();
+    public abstract int getPoints_de_compétence_par_niveau();
+    public abstract List<Particularité> getTalents();
+    public abstract void initParts();
 }

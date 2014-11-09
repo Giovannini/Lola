@@ -37,19 +37,16 @@ public class CompetencesFragment extends Fragment {
         View competences = inflater.inflate(R.layout.frag_overview_competences, container, false);
         perso = ((MainActivity) getActivity()).getPerso();
 
-        getActivity().getActionBar().setTitle("Compétences");
-
         layoutL = (LinearLayout) competences.findViewById(R.id.compLayoutLeft);
         layoutR = (LinearLayout) competences.findViewById(R.id.compLayoutRight);
         layoutB = (LinearLayout) competences.findViewById(R.id.compLayoutButton);
 
-        System.out.println(perso);
         if(perso.getCompetencesPoints() <= 0){
             layoutB.setVisibility(View.GONE);
         }
 
         instanciateComp();
-        Log.i("CompétencesFragment", "Ce fragment est créé.");
+        Log.i("CompétencesFragment", "Le fragment Compétences est créé.");
         return competences;
     }
 
@@ -73,22 +70,14 @@ public class CompetencesFragment extends Fragment {
 
             TextView b = new TextView(context);
             b.setText("+");
-            b.setTextSize(22.0f);
-            b.setGravity(Gravity.CENTER);
-            b.setLayoutParams((new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT)));
+            b.setTextSize(16.0f);
+            b.setPadding(13,21,5,17);
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     addCompetencePoint(v, comp_name);
                 }
             });
-            b.setBackgroundResource(R.drawable.rounded_spinner);
-            Resources r = getResources();
-            b.setHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 47,
-                    r.getDisplayMetrics()) + 2);
-            b.setWidth((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 47,
-                    r.getDisplayMetrics()) + 2);
 
             SpannableString content = new SpannableString(c.getNom());
             tvr.setText(""+c.getTotal());

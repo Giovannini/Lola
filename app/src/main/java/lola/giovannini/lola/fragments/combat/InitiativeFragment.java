@@ -36,7 +36,7 @@ public class InitiativeFragment extends Fragment implements View.OnClickListener
 
         initViews(initiative);
 
-        Log.i(CLASS_NAME, "Ce fragment est créé.");
+        Log.i(CLASS_NAME, "Le fragment Initiative est créé.");
         return initiative;
     }
 
