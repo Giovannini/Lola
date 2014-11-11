@@ -61,7 +61,7 @@
                 <TextView
                     android:layout_width="154dp"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Mélée (FOR)"
                     android:id="@+id/title_melee"
                     android:textColor="#222222"
@@ -70,7 +70,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Distance (DEX)"
                     android:id="@+id/titleDistance"
                     android:textColor="#222222"
@@ -85,7 +85,7 @@
                 <TextView
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="0"
                     android:id="@+id/bba_melee_value"
                     android:textColor="#222222"/>
@@ -93,7 +93,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="0"
                     android:id="@+id/bba_distance_value"
                     android:textColor="#222222"/>

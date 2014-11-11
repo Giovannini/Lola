@@ -227,7 +227,10 @@ public class Caractéristiques {
     }
 
     public int getModificateur(int caract){
-        return (caract - 10)/2;
+        int result = (caract - 10)/2;
+        if (caract < 10)
+            result = (caract - 11)/2;
+        return result;
     }
 
     public int getModificateur(String s){

@@ -113,10 +113,6 @@ public class Personnage {
             Caractéristiques caractéristiques = new Caractéristiques(jsonCar);
             this.caractéristiques = caractéristiques;
 
-            this.bba = obj.getInt("BBA");
-            this.bonusTaille = obj.getInt("bonusTaille");
-            this.valeurInitiative = obj.getInt("initiative");
-
             /* Classes */
             JSONArray classes = obj.getJSONArray("Classes");
             for (int i=0;i<classes.length();i++) {
@@ -134,6 +130,13 @@ public class Personnage {
                 }
                 this.allClassParts.addAll(c.getParticularités());
             }
+
+            this.bonusTaille = obj.getInt("bonusTaille");
+            this.bba = 0;
+            for(Classe c : this.classes){
+                this.bba += c.getBonusBBA()[0];
+            }
+            this.valeurInitiative = obj.getInt("initiative");
 
             /* Race */
             JSONArray race = obj.getJSONArray("Race");

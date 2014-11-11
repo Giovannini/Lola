@@ -71,7 +71,7 @@ public class ObjetFragment extends Fragment implements View.OnClickListener{
             tvnom.setTextColor(Color.parseColor("#222222"));
 
             if (i%2 == 1) {
-                tvnom.setBackgroundColor(Color.parseColor("#cccccc"));
+                tvnom.setBackgroundColor(Color.parseColor("#dddddd"));
             }
 
             l.setOnClickListener(new View.OnClickListener() {

@@ -44,8 +44,7 @@
                 android:id="@+id/buttonInitiative"
                 android:background="@drawable/rounded_spinner"
                 android:layout_marginLeft="13dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="1dp"/>
 
             <TextView
                 android:layout_width="fill_parent"

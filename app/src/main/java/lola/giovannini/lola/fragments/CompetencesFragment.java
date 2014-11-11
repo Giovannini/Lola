@@ -82,11 +82,11 @@ public class CompetencesFragment extends Fragment {
             SpannableString content = new SpannableString(c.getNom());
             tvr.setText(""+c.getTotal());
             if(c.getTotal() >= perso.getNiveau()){
-                tvl.setTextColor(Color.parseColor("#2f8b31"));
-                tvr.setTextColor(Color.parseColor("#2f8b31"));
+                tvl.setTextColor(getResources().getColor(R.color.themecolor));
+                tvr.setTextColor(getResources().getColor(R.color.themecolor));
             }else{
-                tvl.setTextColor(Color.parseColor("#8e282b"));
-                tvr.setTextColor(Color.parseColor("#8e282b"));
+                tvl.setTextColor(Color.parseColor("#cccccc"));
+                tvr.setTextColor(Color.parseColor("#cccccc"));
             }
 
             if(c.isCc()){

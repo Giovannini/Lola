@@ -1,5 +1,6 @@
 <resources>
 
+    <color name="themecolor">#138B8B</color>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
     </style>

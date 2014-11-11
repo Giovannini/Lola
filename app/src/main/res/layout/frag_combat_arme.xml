@@ -49,7 +49,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:id="@+id/layout_scroll_container_armes"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"

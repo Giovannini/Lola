@@ -32,7 +32,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#466C79"));
+        ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.themecolor));
         getActionBar().setBackgroundDrawable(colorDrawable);
 
         /*

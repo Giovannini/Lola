@@ -43,7 +43,7 @@
                 android:layout_weight="0.15"
                 android:layout_marginLeft="13dp"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="1dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"/>
 
             <TextView
@@ -61,10 +61,11 @@
                 android:layout_height="45dp"
                 android:text="@string/degat"
                 android:id="@+id/buttonDegat"
-                android:background="@drawable/rounded_spinner"
+                android:background="@drawable/rounded_spinner_grey"
                 android:layout_weight="0.15"
                 android:layout_marginRight="13dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"/>
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginBottom="1dp"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
