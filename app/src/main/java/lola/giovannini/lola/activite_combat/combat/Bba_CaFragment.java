@@ -1,16 +1,11 @@
-package lola.giovannini.lola.fragments.combat;
+package lola.giovannini.lola.activite_combat.combat;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import lola.giovannini.lola.Armure;
@@ -30,7 +25,7 @@ public class Bba_CaFragment  extends Fragment{
     TextView bba_melee, bba_distance, ca_valeur;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View bba_ca = inflater.inflate(R.layout.frag_combat_bba_ca, container, false);
+        View bba_ca = inflater.inflate(R.layout.frag_combat1_bba_ca, container, false);
         perso = ((MainActivity) getActivity()).getPerso();
 
         initViews(bba_ca);

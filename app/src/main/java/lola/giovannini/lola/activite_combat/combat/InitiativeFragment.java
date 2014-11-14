@@ -1,4 +1,4 @@
-package lola.giovannini.lola.fragments.combat;
+package lola.giovannini.lola.activite_combat.combat;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -26,12 +27,12 @@ public class InitiativeFragment extends Fragment implements View.OnClickListener
     /*Personnage*/
     Personnage perso;
     /*Button*/
-    Button bouton_initiative;
+    ImageView bouton_initiative;
     /*TextView*/
     TextView initiativeValue;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View initiative = inflater.inflate(R.layout.frag_combat_initiative, container, false);
+        View initiative = inflater.inflate(R.layout.frag_combat1_initiative, container, false);
         perso = ((MainActivity) getActivity()).getPerso();
 
         initViews(initiative);
@@ -41,7 +42,7 @@ public class InitiativeFragment extends Fragment implements View.OnClickListener
     }
 
     public void initViews(View combat) {
-        bouton_initiative   = (Button) combat.findViewById(R.id.buttonInitiative);
+        bouton_initiative   = (ImageView) combat.findViewById(R.id.buttonInitiative);
         bouton_initiative.setOnClickListener(this);
 
         initiativeValue     = (TextView) combat.findViewById(R.id.initiativeValue);

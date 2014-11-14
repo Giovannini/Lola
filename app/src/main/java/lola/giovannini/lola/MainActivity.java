@@ -7,23 +7,30 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import lola.giovannini.lola.activite_combat.MyCombatPagerAdapter;
+import lola.giovannini.lola.activite_overview.MyOverviewPagerAdapter;
 
 
 public class MainActivity extends FragmentActivity {
 
     String CLASS_NAME = "MainActivity";
 
-    MyPagerAdapter myPagerAdapter;
+    FragmentStatePagerAdapter myPagerAdapter;
     ViewPager mViewPager;
+    ImageView button;
+    int state;
 
     Personnage perso;
 
@@ -35,11 +42,31 @@ public class MainActivity extends FragmentActivity {
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.themecolor));
         getActionBar().setBackgroundDrawable(colorDrawable);
 
+        state = 0;
+        button = (ImageView) findViewById(R.id.buttonSwitch);
+        button.setImageResource(R.drawable.swords48);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (state == 0) {
+                    myPagerAdapter = new MyCombatPagerAdapter(getSupportFragmentManager());
+                    mViewPager.setAdapter(myPagerAdapter);
+                    button.setImageResource(R.drawable.man48);
+                    state = 1;
+                } else {
+                    myPagerAdapter = new MyOverviewPagerAdapter(getSupportFragmentManager());
+                    mViewPager.setAdapter(myPagerAdapter);
+                    button.setImageResource(R.drawable.swords48);
+                    state = 0;
+                }
+            }
+        });
+
         /*
          * ViewPager and its adapters use support library
          * fragments, so use getSupportFragmentManager.
          */
-        myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        myPagerAdapter = new MyOverviewPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(myPagerAdapter);
 

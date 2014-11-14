@@ -1,4 +1,4 @@
-package lola.giovannini.lola.fragments.objets;
+package lola.giovannini.lola.activite_overview.objets;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import lola.giovannini.lola.MainActivity;
@@ -23,7 +24,7 @@ import lola.giovannini.lola.R;
 public class RichesseFragment extends Fragment implements View.OnClickListener {
     String CLASS_NAME = "RichesseFragment";
 
-    Button gestionRichesse;
+    ImageView gestionRichesse;
     TextView tvplatine, tvor, tvargent, tvbronze;
     View richesse;
 
@@ -43,7 +44,7 @@ public class RichesseFragment extends Fragment implements View.OnClickListener {
     }
 
     private void getViews(View v){
-        gestionRichesse = (Button) v.findViewById(R.id.buttonGestionRichesse);
+        gestionRichesse = (ImageView) v.findViewById(R.id.buttonGestionRichesse);
         tvplatine = (TextView) v.findViewById(R.id.valeurPlatine);
         tvor = (TextView) v.findViewById(R.id.valeurOr);
         tvargent = (TextView) v.findViewById(R.id.valeurArgent);

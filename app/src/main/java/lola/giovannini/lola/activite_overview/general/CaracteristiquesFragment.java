@@ -1,4 +1,4 @@
-package lola.giovannini.lola.fragments.general;
+package lola.giovannini.lola.activite_overview.general;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -47,12 +47,18 @@ public class CaracteristiquesFragment extends Fragment {
 
     private void retrieveData() {
          /*Caractéristiques*/
-        force.setText("" + perso.getCaractéristiques().getForce());
-        dexterite.setText("" + perso.getCaractéristiques().getDextérité());
-        constitution.setText("" + perso.getCaractéristiques().getConstitution());
-        intelligence.setText("" + perso.getCaractéristiques().getIntelligence());
-        sagesse.setText("" + perso.getCaractéristiques().getSagesse());
-        charisme.setText("" + perso.getCaractéristiques().getCharisme());
+        force.setText("" + perso.getCaractéristiques().getForce() + "\t(" + perso
+                .getCaractéristiques().getModificateur("for") + ")");
+        dexterite.setText("" + perso.getCaractéristiques().getDextérité()+ "\t(" + perso
+                .getCaractéristiques().getModificateur("dex") + ")");
+        constitution.setText("" + perso.getCaractéristiques().getConstitution()+ "\t(" + perso
+                .getCaractéristiques().getModificateur("con") + ")");
+        intelligence.setText("" + perso.getCaractéristiques().getIntelligence()+ "\t(" + perso
+                .getCaractéristiques().getModificateur("int") + ")");
+        sagesse.setText("" + perso.getCaractéristiques().getSagesse()+ "\t(" + perso
+                .getCaractéristiques().getModificateur("sag") + ")");
+        charisme.setText("" + perso.getCaractéristiques().getCharisme()+ "\t(" + perso
+                .getCaractéristiques().getModificateur("cha") + ")");
 
         ajoutPointCaractéristiquePossible = (perso.getPointCaractéristiques() > 0);
     }

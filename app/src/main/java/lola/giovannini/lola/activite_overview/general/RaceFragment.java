@@ -1,4 +1,4 @@
-package lola.giovannini.lola.fragments.general;
+package lola.giovannini.lola.activite_overview.general;
 
 import android.app.AlertDialog;
 import android.content.Context;

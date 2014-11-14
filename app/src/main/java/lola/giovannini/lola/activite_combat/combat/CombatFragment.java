@@ -1,4 +1,4 @@
-package lola.giovannini.lola.fragments.combat;
+package lola.giovannini.lola.activite_combat.combat;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,44 +10,29 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import lola.giovannini.lola.R;
+import lola.giovannini.lola.activite_combat.combat_armes.ArmeFragment;
+import lola.giovannini.lola.activite_combat.combat_armes.ArmureFragment;
 
 public class CombatFragment extends Fragment {
     String CLASS_NAME = "CombatFragment";
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View combat = inflater.inflate(R.layout.frag_combat, container, false);
+        View combat = inflater.inflate(R.layout.frag_combat1, container, false);
 
-        getArmeFragment();
-        getArmureFragment();
         getInitiativeFragment();
         getPVFragment();
         getBBACAFragment();
+        getSauvegardeFragment();
 
         Log.i(CLASS_NAME, "Le fragment combat est créé.");
         return combat;
-    }
-
-    private void getArmeFragment(){
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        ArmeFragment armeFragment = new ArmeFragment();
-        fragmentTransaction.add(R.id.combatContainerArme, armeFragment, "Arme");
-        fragmentTransaction.commit();
-    }
-
-    private void getArmureFragment(){
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        ArmureFragment armeFragment = new ArmureFragment();
-        fragmentTransaction.add(R.id.combatContainerArmure, armeFragment, "Armure");
-        fragmentTransaction.commit();
     }
 
     private void getInitiativeFragment(){
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         InitiativeFragment initiativeFragment = new InitiativeFragment();
-        fragmentTransaction.add(R.id.combatContainerInitiative, initiativeFragment, "Armure");
+        fragmentTransaction.add(R.id.combatContainerInitiative, initiativeFragment, "Initiative");
         fragmentTransaction.commit();
     }
 
@@ -55,7 +40,7 @@ public class CombatFragment extends Fragment {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         PVFragment pvFragment = new PVFragment();
-        fragmentTransaction.add(R.id.combatContainerPV, pvFragment, "Armure");
+        fragmentTransaction.add(R.id.combatContainerPV, pvFragment, "PV");
         fragmentTransaction.commit();
     }
 
@@ -63,7 +48,15 @@ public class CombatFragment extends Fragment {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Bba_CaFragment bba_caFragment = new Bba_CaFragment();
-        fragmentTransaction.add(R.id.combatContainerBbaCa, bba_caFragment, "Armure");
+        fragmentTransaction.add(R.id.combatContainerBbaCa, bba_caFragment, "BbaCa");
+        fragmentTransaction.commit();
+    }
+
+    private void getSauvegardeFragment(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        SauvegardeFragment sauvegardeFragment = new SauvegardeFragment();
+        fragmentTransaction.add(R.id.combatContainerSauvegarde, sauvegardeFragment, "Sauvegarde");
         fragmentTransaction.commit();
     }
 

@@ -1,10 +1,9 @@
-package lola.giovannini.lola.fragments.classe;
+package lola.giovannini.lola.activite_overview.classe;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -23,11 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import lola.giovannini.lola.Classe;
 import lola.giovannini.lola.MainActivity;
@@ -142,7 +137,7 @@ public class ClasseFragment extends Fragment {
             final Context context = getActivity();
             TextView levelup = new TextView(context);
             levelup.setText("Level up");
-            levelup.setTextColor(Color.parseColor("#466C79"));
+            levelup.setTextColor(getResources().getColor(R.color.themecolor));
             levelup.setTextSize(14.0f);
             levelup.setPadding(13, 23, 5, 19);
             levelup.setOnClickListener(new View.OnClickListener() {
@@ -158,7 +153,7 @@ public class ClasseFragment extends Fragment {
             if (perso.getClasses().size() == 1){
                 TextView multiclasse = new TextView(context);
                 multiclasse.setText("Multiclassage");
-                multiclasse.setTextColor(Color.parseColor("#466C79"));
+                multiclasse.setTextColor(getResources().getColor(R.color.themecolor));
                 multiclasse.setTextSize(14.0f);
                 multiclasse.setPadding(13, 23, 5, 19);
 

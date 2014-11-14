@@ -1,4 +1,4 @@
-package lola.giovannini.lola.fragments.general;
+package lola.giovannini.lola.activite_overview.general;
 
 
 import android.os.Bundle;
@@ -23,10 +23,11 @@ import lola.giovannini.lola.fragments.MySpinnerAdapter;
 /**
  * Created by giovannini on 10/17/14.
  */
-public class OverviewFragment extends Fragment {
+public class OverviewFragment extends Fragment implements View.OnClickListener{
 
     Personnage perso;
     Spinner spinner;
+    Spinner fragmentButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View competences = inflater.inflate(R.layout.frag_overview, container, false);
@@ -112,5 +113,9 @@ public class OverviewFragment extends Fragment {
                 getDons();
                 break;
         }
+    }
+
+    @Override
+    public void onClick(View v) {
     }
 }

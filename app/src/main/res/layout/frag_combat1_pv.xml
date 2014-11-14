@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    >
+              android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,49 +11,64 @@
         android:background="@drawable/layout_shadow">
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/title_initiative"
+            android:text="@string/PV"
             android:id="@+id/textView"
+            android:autoText="false"
             android:background="@drawable/textlinetop"
             android:textColor="#888888"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="2dp"
-            android:gravity="center_vertical|left"
             android:paddingLeft="13dp"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:gravity="center_vertical|left"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:weightSum="1"
-            android:id="@+id/linearLayout"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="2dp">
+            android:id="@+id/linearLayout">
 
-            <Button
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="@string/buttonInitiative"
-                android:id="@+id/buttonInitiative"
+            <ImageButton
+                android:layout_width="15dp"
+                android:layout_height="45dp"
+                android:text="@string/heal"
+                android:id="@+id/healButton"
                 android:background="@drawable/rounded_spinner"
+                android:layout_weight="0.15"
                 android:layout_marginLeft="13dp"
-                android:layout_marginBottom="1dp"/>
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="1dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:src="@drawable/heal"
+                />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="0"
-                android:id="@+id/initiativeValue"
-                android:layout_weight="0.38"
+                android:text="100"
+                android:id="@+id/PVTextView"
+                android:layout_weight="0.72"
                 android:gravity="center_vertical|center_horizontal"
                 android:textColor="#222222"/>
+
+            <ImageButton
+                android:layout_width="15dp"
+                android:layout_height="45dp"
+                android:text="@string/degat"
+                android:id="@+id/buttonDegat"
+                android:background="@drawable/rounded_spinner_grey"
+                android:layout_weight="0.15"
+                android:layout_marginRight="13dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginBottom="1dp"
+                android:src="@drawable/punch"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

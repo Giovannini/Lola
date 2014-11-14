@@ -88,5 +88,9 @@
     <string name="multiclassage">Multiclassage</string>
     <string name="maitredesombres">Maître des Ombres</string>
     <string name="ombrageur">Ombrageur</string>
+    <string name="jetdesauvegarde">JETS DE SAUVEGARDE</string>
+    <string name="vigueur">Vigueur (CON)</string>
+    <string name="reflexes">Réflexes (DEX)</string>
+    <string name="volonte">Volonté (SAG)</string>
 
 </resources>

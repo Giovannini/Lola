@@ -1,9 +1,5 @@
-package lola.giovannini.lola.fragments.objets;
+package lola.giovannini.lola.activite_overview.objets;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,22 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.util.List;
-
-import lola.giovannini.lola.MainActivity;
-import lola.giovannini.lola.Objet;
-import lola.giovannini.lola.Personnage;
 import lola.giovannini.lola.R;
-import lola.giovannini.lola.fragments.general.CaracteristiquesFragment;
 
 /**
  * Created by giovannini on 10/17/14.

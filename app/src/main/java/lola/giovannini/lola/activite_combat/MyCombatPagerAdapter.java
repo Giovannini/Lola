@@ -1,20 +1,21 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.activite_combat;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import lola.giovannini.lola.fragments.classe.ClasseFragment;
-import lola.giovannini.lola.fragments.CompetencesFragment;
-import lola.giovannini.lola.fragments.objets.EquipementFragment;
-import lola.giovannini.lola.fragments.combat.CombatFragment;
-import lola.giovannini.lola.fragments.general.OverviewFragment;
+import lola.giovannini.lola.activite_combat.combat.CombatFragment;
+import lola.giovannini.lola.activite_combat.combat_armes.CombatArmesFragment;
+import lola.giovannini.lola.activite_overview.CompetencesFragment;
+import lola.giovannini.lola.activite_overview.classe.ClasseFragment;
+import lola.giovannini.lola.activite_overview.general.OverviewFragment;
+import lola.giovannini.lola.activite_overview.objets.EquipementFragment;
 
 // Since this is an object collection, use a FragmentStatePagerAdapter,
 // and NOT a FragmentPagerAdapter.
-public class MyPagerAdapter extends FragmentStatePagerAdapter {
-    public MyPagerAdapter(FragmentManager fm) {
+public class MyCombatPagerAdapter extends FragmentStatePagerAdapter {
+    public MyCombatPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -23,22 +24,13 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment;
         switch (i){
             case 0:
-                fragment =  new OverviewFragment();
-                break;
-            case 1:
-                fragment = new CompetencesFragment();
-                break;
-            case 2:
-                fragment = new EquipementFragment();
-                break;
-            case 3:
                 fragment = new CombatFragment();
                 break;
-            case 4:
-                fragment = new ClasseFragment();
+            case 1:
+                fragment = new CombatArmesFragment();
                 break;
             default:
-                fragment = new ClasseFragment();
+                fragment = new CombatFragment();
                 break;
         }
         Bundle args = new Bundle();
@@ -50,7 +42,7 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 2;
     }
 
     @Override

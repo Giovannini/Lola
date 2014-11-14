@@ -1,16 +1,13 @@
-package lola.giovannini.lola.fragments;
+package lola.giovannini.lola.activite_overview;
 
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +31,7 @@ public class CompetencesFragment extends Fragment {
     Personnage perso;
     LinearLayout layoutL, layoutR, layoutB;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View competences = inflater.inflate(R.layout.frag_overview_competences, container, false);
+        View competences = inflater.inflate(R.layout.frag_competences, container, false);
         perso = ((MainActivity) getActivity()).getPerso();
 
         layoutL = (LinearLayout) competences.findViewById(R.id.compLayoutLeft);
@@ -72,6 +69,7 @@ public class CompetencesFragment extends Fragment {
             b.setText("+");
             b.setTextSize(16.0f);
             b.setPadding(13,21,5,17);
+            b.setTextColor(getResources().getColor(R.color.themecolor));
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -85,8 +83,8 @@ public class CompetencesFragment extends Fragment {
                 tvl.setTextColor(getResources().getColor(R.color.themecolor));
                 tvr.setTextColor(getResources().getColor(R.color.themecolor));
             }else{
-                tvl.setTextColor(Color.parseColor("#cccccc"));
-                tvr.setTextColor(Color.parseColor("#cccccc"));
+                tvl.setTextColor(Color.parseColor("#222222"));
+                tvr.setTextColor(Color.parseColor("#222222"));
             }
 
             if(c.isCc()){
