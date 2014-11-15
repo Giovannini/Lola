@@ -22,7 +22,8 @@ public class Personnage {
     MainActivity main;
 
     String nom, race, alignement, sexe, peau, cheveux, yeux, religion;
-    int niveau, expérience, malusXP, age, poids, taille, bba, bonusTaille;
+    int niveau, expérience, malusXP, age, poids, taille, bonusTaille;
+    int[] bba;
     int levelUpClass;
     /*Caractéristiques*/
     Caractéristiques caractéristiques;
@@ -134,9 +135,20 @@ public class Personnage {
             }
 
             this.bonusTaille = obj.getInt("bonusTaille");
-            this.bba = 0;
-            for(Classe c : this.classes){
-                this.bba += c.getBonusBBA()[0];
+            System.out.println("Bonus taille = " + this.bonusTaille);
+            for (Classe c : this.getClasses()){
+                if (this.bba == null)
+                    this.bba = c.getBonusBBA();
+                else{
+                    for (int i = 0, fini = c.getBonusBBA().length; i<fini;i++){
+                        this.bba[i] += c.getBonusBBA()[i];
+                    }
+                }
+            }
+            for (int i = 0, fini = this.bba.length; i<fini;i++) {
+                System.out.println("Av: this.bba[i] = " + this.bba[i]);
+                this.bba[i] += bonusTaille;
+                System.out.println("Ap: this.bba[i] = " + this.bba[i]);
             }
             this.valeurInitiative = obj.getInt("initiative");
 
@@ -343,12 +355,8 @@ public class Personnage {
         this.taille = taille;
     }
 
-    public int getBba() {
-        return bba;
-    }
-
-    public void setBba(int bba) {
-        this.bba = bba;
+    public int[] getBba() {
+        return this.bba;
     }
 
     public int getBonusTaille() {

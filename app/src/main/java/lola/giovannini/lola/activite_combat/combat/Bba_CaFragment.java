@@ -43,13 +43,25 @@ public class Bba_CaFragment  extends Fragment{
     }
 
     private void getBbaInfos(){
-        int bba = perso.getBba();
-        int bonusTaille = perso.getBonusTaille();
-        int melee = bba + perso.getCaractéristiques().getModificateur("for") + bonusTaille;
-        int distance = bba + perso.getCaractéristiques().getModificateur("dex") + bonusTaille;
+        int[] bba = perso.getBba();
 
-        bba_melee.setText(""+melee);
-        bba_distance.setText(""+distance);
+        String text = "";
+        int[] melee = bba;
+        for(int i=0, fini = melee.length;i<fini;i++){
+            melee[i] += perso.getCaractéristiques().getModificateur("for");
+            text += melee[i] + " / ";
+        }
+        text = text.substring(0, text.length() - 2);
+        bba_melee.setText(text);
+
+        int[] distance = bba;
+        text = "";
+        for(int i=0, fini = melee.length;i<fini;i++){
+            distance[i] += perso.getCaractéristiques().getModificateur("dex");
+            text += distance[i] + " / ";
+        }
+        text = text.substring(0, text.length() - 2);
+        bba_distance.setText(text);
     }
 
     private void getCaInfos(){
