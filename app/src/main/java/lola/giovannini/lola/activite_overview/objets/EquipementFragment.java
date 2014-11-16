@@ -16,7 +16,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 10/17/14.
  */
 public class EquipementFragment extends Fragment {
-
+    String CLASS_NAME = "EquipementFragment";
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View equipement = inflater.inflate(R.layout.frag_objets, container, false);
@@ -24,7 +24,7 @@ public class EquipementFragment extends Fragment {
         getListeFragment();
         getRichesseFragment();
 
-        Log.i("EquipementFragment", "Le fragment Équipement est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Équipement est créé.");
         return equipement;
     }
 

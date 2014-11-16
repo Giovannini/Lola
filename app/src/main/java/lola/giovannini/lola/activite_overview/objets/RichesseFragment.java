@@ -39,7 +39,7 @@ public class RichesseFragment extends Fragment implements View.OnClickListener {
         gestionRichesse.setOnClickListener(this);
         getRichesses();
 
-        Log.i(CLASS_NAME, "Le fragment Richesse est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Richesse est créé.");
         return richesse;
     }
 
