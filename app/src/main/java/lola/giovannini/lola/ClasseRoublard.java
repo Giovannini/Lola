@@ -229,23 +229,19 @@ public class ClasseRoublard extends Classe {
     }
 
     public void initParts(){
-        Log.i(CLASS_NAME + ".initParts()",
-                "Initialisation des particularités:");
         this.nbTalents = 0;
         this.parts.clear();
         for (int i = 0; i<this.niveau;i++){
 
             Particularité[] ps = this.allParts[i];
             for (Particularité p : ps){
-                Log.i(CLASS_NAME + ".initParts()",
-                        "Ajout de la particulatité " + p.getNom());
                 if (p.getNom().contains("Attaque sournoise") && i > 0){
                     /*
                      * Modifier le nom de l'attaque sournoise pour lui rajouter un dé
                      * On sait qu'il s'agit du premier élément ajouté dans la liste.
                     */
-                    Log.i(CLASS_NAME + ".initParts()",
-                            p.getNom() + " remplacera " + this.parts.get(0).getNom());
+                    /*Log.i(CLASS_NAME + ".initParts()",
+                            p.getNom() + " remplacera " + this.parts.get(0).getNom());*/
                     this.parts.get(0).setNom(p.getNom());
                 }else if (p.getNom().contains("Sens des pièges") && i > 2) {
                     /*
@@ -255,8 +251,8 @@ public class ClasseRoublard extends Classe {
                     while (!this.parts.get(k).getNom().contains("Sens des pièges")) {
                         k++;
                     }
-                    Log.i(CLASS_NAME + ".initParts()",
-                            p.getNom() + " remplacera " + this.parts.get(k).getNom());
+                    /*Log.i(CLASS_NAME + ".initParts()",
+                            p.getNom() + " remplacera " + this.parts.get(k).getNom());*/
                     this.parts.get(k).setNom(p.getNom());
                 }else if(p.getNom().contains("Talent de")) {
                     this.nbTalents++;
@@ -279,10 +275,10 @@ public class ClasseRoublard extends Classe {
                      talent = new Particularité(
                             t.getString("nom"),
                             t.getString("description"));
-                    Log.d(CLASS_NAME, "Talent ajouté: " + talent.getNom());
+                    /*Log.d(CLASS_NAME, "Talent ajouté: " + talent.getNom());*/
                 }else{
                     talent = new Particularité("Talent", "");
-                    Log.d(CLASS_NAME, "Talent vide ajouté.");
+                    /*Log.d(CLASS_NAME, "Talent vide ajouté.");*/
                 }
                 this.parts.add(talent);
             }

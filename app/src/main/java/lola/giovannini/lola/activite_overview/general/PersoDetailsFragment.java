@@ -21,7 +21,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 11/5/14.
  */
 public class PersoDetailsFragment extends Fragment implements View.OnClickListener{
-
+    String CLASS_NAME = "PersoDetailsFragment";
     Personnage perso;
 
     TextView valueNom, valueSexe , valuePoids, valueTaille, valueAlignement, valueNiveau, valueExperience, caracTaille;
@@ -34,7 +34,7 @@ public class PersoDetailsFragment extends Fragment implements View.OnClickListen
         findViewsPersoInfos(competences);
         retrieveData();
 
-        Log.i("OverviewFragment", "Le fragment Détails est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Détails est créé.");
         return competences;
     }
 

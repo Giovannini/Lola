@@ -9,9 +9,8 @@ import org.json.JSONObject;
  * Created by giovannini on 10/20/14.
  */
 public class Arme {
-    /**TODO
-     * modify JSON on setters
-     */
+    String CLASS_NAME = "Arme";
+
     String nom, bonus, dommages, critiques, portée, taille, type, poids;
     JSONObject obj;
 
@@ -42,7 +41,7 @@ public class Arme {
 
             this.obj = o;
         }catch (JSONException e){
-            Log.e("Arme()", "Erreur lors de la création d'une arme.");
+            Log.e(CLASS_NAME, "Erreur lors de la création d'une arme.");
         }
     }
 
@@ -55,7 +54,7 @@ public class Arme {
             this.setCritiques(o.getString("critique"));
             this.setBonus(o.getString("bonus"));
         }catch(JSONException e){
-            Log.e("Arme", e.getMessage());
+            Log.e(CLASS_NAME, e.getMessage());
         }
     }
 
@@ -68,7 +67,7 @@ public class Arme {
         try{
             this.obj.put("nom", nom);
         }catch (JSONException e){
-            Log.e("Armure.setNom()", e.getMessage());
+            Log.e(CLASS_NAME + ".setNom()", e.getMessage());
         }
     }
 
@@ -81,7 +80,7 @@ public class Arme {
         try{
             this.obj.put("bonus", bonus);
         }catch (JSONException e){
-            Log.e("Armure.setBonus()", e.getMessage());
+            Log.e(CLASS_NAME + ".setBonus()", e.getMessage());
         }
     }
 
@@ -94,7 +93,7 @@ public class Arme {
         try{
             this.obj.put("dommages", dommages);
         }catch (JSONException e){
-            Log.e("Armure.setDommages()", e.getMessage());
+            Log.e(CLASS_NAME + ".setDommages()", e.getMessage());
         }
     }
 
@@ -107,7 +106,7 @@ public class Arme {
         try{
             this.obj.put("critique", critiques);
         }catch (JSONException e){
-            Log.e("Armure.setCritiques()", e.getMessage());
+            Log.e(CLASS_NAME + ".setCritiques()", e.getMessage());
         }
     }
 
@@ -120,7 +119,7 @@ public class Arme {
         try{
             this.obj.put("portée", portée);
         }catch (JSONException e){
-            Log.e("Armure.setPirtée()", e.getMessage());
+            Log.e(CLASS_NAME + ".setPirtée()", e.getMessage());
         }
     }
 
@@ -133,7 +132,7 @@ public class Arme {
         try{
             this.obj.put("taille", taille);
         }catch (JSONException e){
-            Log.e("Armure.setTaille()", e.getMessage());
+            Log.e(CLASS_NAME + ".setTaille()", e.getMessage());
         }
     }
 
@@ -146,7 +145,7 @@ public class Arme {
         try{
             this.obj.put("type", type);
         }catch (JSONException e){
-            Log.e("Armure.setType()", e.getMessage());
+            Log.e(CLASS_NAME + ".setType()", e.getMessage());
         }
     }
 
@@ -159,7 +158,7 @@ public class Arme {
         try{
             this.obj.put("poids", poids);
         }catch (JSONException e){
-            Log.e("Armure.setPoids()", e.getMessage());
+            Log.e(CLASS_NAME + ".setPoids()", e.getMessage());
         }
     }
 

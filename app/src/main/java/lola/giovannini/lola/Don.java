@@ -12,6 +12,7 @@ import java.util.Map;
  * Created by giovannini on 11/5/14.
  */
 public class Don {
+    String CLASS_NAME = "Don";
     String nom, effet, conditions;
     JSONObject obj;
 
@@ -30,7 +31,7 @@ public class Don {
             obj.put("effet", effet);
             obj.put("conditions", conditions);
         }catch (JSONException e){
-            Log.e("Don",
+            Log.e(CLASS_NAME,
                     "Erreur JSON lors de l'ajout du don:\n" + e.getMessage());
         }
     }
@@ -42,7 +43,7 @@ public class Don {
             effet = o.getString("effet");
             conditions = o.getString("conditions");
         }catch (JSONException e){
-            Log.e("Don",
+            Log.e(CLASS_NAME,
                     "Erreur JSON lors de la création du don:\n" + e.getMessage());
         }
     }

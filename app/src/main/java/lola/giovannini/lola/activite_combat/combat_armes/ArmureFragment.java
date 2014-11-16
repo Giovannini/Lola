@@ -28,7 +28,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 11/6/14.
  */
 public class ArmureFragment extends Fragment implements View.OnClickListener{
-    String CLASS_NAME = "CombatFragment";
+    String CLASS_NAME = "ArmureFragment";
     /*Personnage*/
     Personnage perso;
     /*Armures*/
@@ -43,7 +43,7 @@ public class ArmureFragment extends Fragment implements View.OnClickListener{
         initViews(armure);
         getArmuresInfos();
 
-        Log.i("CombatFragment", "Le fragment Armure est créé.");
+        Log.i(CLASS_NAME, "Le fragment Armure est créé.");
         return armure;
     }
 

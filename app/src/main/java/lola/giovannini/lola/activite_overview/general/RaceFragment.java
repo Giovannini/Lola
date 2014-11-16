@@ -24,6 +24,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 11/5/14.
  */
 public class RaceFragment extends Fragment {
+    String CLASS_NAME = "RaceFragment";
     Personnage perso;
     LinearLayout ll;
 
@@ -35,7 +36,7 @@ public class RaceFragment extends Fragment {
 
         retrieveData();
 
-        Log.i("OverviewFragment", "Le fragment Race est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Race est créé.");
         return race;
     }
 

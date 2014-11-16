@@ -11,6 +11,8 @@ import java.util.Map;
  * Created by giovannini on 10/21/14.
  */
 public class Objet {
+    String CLASS_NAME = "Objet";
+
     String nom, emplacement, poids, note, bonus;
     int quantite;
     JSONObject o;
@@ -67,7 +69,7 @@ public class Objet {
             this.setPoids(poids);
             this.setQuantite(quantite);
         }catch(JSONException e){
-            Log.e("Objet", e.getMessage());
+            Log.e(CLASS_NAME, e.getMessage());
         }
     }
 
@@ -80,7 +82,7 @@ public class Objet {
         try {
             this.o.put("nom", nom);
         }catch(JSONException e){
-            Log.e("Objet.setNom()", e.getMessage());
+            Log.e(CLASS_NAME + ".setNom()", e.getMessage());
         }
     }
 
@@ -93,7 +95,7 @@ public class Objet {
         try {
             this.o.put("emplacement", emplacement);
         }catch(JSONException e){
-            Log.e("Objet.setEmplacement()", e.getMessage());
+            Log.e(CLASS_NAME + ".setEmplacement()", e.getMessage());
         }
     }
 
@@ -106,7 +108,7 @@ public class Objet {
         try {
             this.o.put("poids", poids);
         }catch(JSONException e){
-            Log.e("Objet.setPoids()", e.getMessage());
+            Log.e(CLASS_NAME + ".setPoids()", e.getMessage());
         }
     }
 
@@ -119,7 +121,7 @@ public class Objet {
         try {
             this.o.put("qt", quantite);
         }catch(JSONException e){
-            Log.e("Objet.setQuantite()", e.getMessage());
+            Log.e(CLASS_NAME + ".setQuantite()", e.getMessage());
         }
     }
 
@@ -128,7 +130,7 @@ public class Objet {
         try {
             this.o.put("qt", this.quantite);
         }catch (JSONException e){
-            Log.e("Objet", e.getMessage());
+            Log.e(CLASS_NAME, e.getMessage());
         }
     }
 
@@ -137,7 +139,7 @@ public class Objet {
         try {
             this.o.put("qt", this.quantite);
         }catch (JSONException e){
-            Log.e("Objet", e.getMessage());
+            Log.e(CLASS_NAME, e.getMessage());
         }
     }
 
@@ -150,7 +152,7 @@ public class Objet {
         try {
             this.o.put("note", note);
         }catch(JSONException e){
-            Log.e("Objet.setNote()", e.getMessage());
+            Log.e(CLASS_NAME + ".setNote()", e.getMessage());
         }
     }
 
@@ -163,7 +165,7 @@ public class Objet {
             o.put("note", this.note);
             o.put("qt", this.quantite);
         }catch (JSONException e){
-            Log.e("Objet.getJson()", e.getMessage());
+            Log.e(CLASS_NAME + ".getJson()", e.getMessage());
         }
         return o;
     }
@@ -177,7 +179,7 @@ public class Objet {
         try {
             this.o.put("bonus", bonus);
         }catch(JSONException e){
-            Log.e("Objet.setBonus()", e.getMessage());
+            Log.e(CLASS_NAME + ".setBonus()", e.getMessage());
         }
     }
 }

@@ -119,14 +119,10 @@ public class ClasseMaîtreDesOmbres  extends Classe {
 
     public void initParts(){
         this.parts.clear();
-        Log.i(CLASS_NAME + ": ", "initialisation des particularité");
         for (int i = 0; i<this.niveau;i++){
-            Log.i(CLASS_NAME + ": ", "Particularités de niveau " + (i+1));
             System.out.println(this.allParts.length);
             Particularité[] ps = this.allParts[i];
             for (Particularité p : ps){
-                Log.i(CLASS_NAME + ".initParts()",
-                        "Ajout de la particulatité " + p.getNom());
                 if (p.getNom().contains("Téléportation par les ombres") && i > 3){
                     /*
                      * Modifier le nom de l'attaque sournoise pour lui rajouter un dé

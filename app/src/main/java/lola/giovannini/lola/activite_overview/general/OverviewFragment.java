@@ -24,10 +24,9 @@ import lola.giovannini.lola.fragments.MySpinnerAdapter;
  * Created by giovannini on 10/17/14.
  */
 public class OverviewFragment extends Fragment implements View.OnClickListener{
-
+    String CLASS_NAME = "OverviewFragment";
     Personnage perso;
     Spinner spinner;
-    Spinner fragmentButton;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View competences = inflater.inflate(R.layout.frag_overview, container, false);
@@ -63,7 +62,7 @@ public class OverviewFragment extends Fragment implements View.OnClickListener{
 
         getFragmentDetail();
 
-        Log.i("OverviewFragment", "Le fragment Général est créé.");
+        Log.i(CLASS_NAME, "Le fragment Général est créé.");
         return competences;
     }
 

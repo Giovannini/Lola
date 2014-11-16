@@ -77,7 +77,7 @@ public class ClasseFragment extends Fragment {
         this.classeCourante = perso.getClasses().get(0);
         getClasse(this.classeCourante);
 
-        Log.i(CLASS_NAME, "Le fragment Classe est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Classe est créé.");
         return classe;
     }
 
@@ -88,7 +88,7 @@ public class ClasseFragment extends Fragment {
     }
 
     private void getClasse(Classe c){
-        Log.i(CLASS_NAME, "Affichage de la classe " + c.getNom());
+        //Log.i(CLASS_NAME, "Affichage de la classe " + c.getNom());
         final Context context = getActivity();
 
         TextView niveau = new TextView(context);
@@ -124,7 +124,7 @@ public class ClasseFragment extends Fragment {
     }
 
     private void changeClasse(Classe c){
-        Log.i(CLASS_NAME + "changeClasse()", "Changement de classe");
+        //Log.i(CLASS_NAME + "changeClasse()", "Changement de classe");
         this.classeCourante = c;
         this.layout.removeAllViews();
         this.containerNiveau.removeAllViews();

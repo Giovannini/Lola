@@ -86,7 +86,7 @@ public class MainActivity extends FragmentActivity {
         /*******HERE**********/
         /*******HERE**********/
         if ((persoDir.exists() && persoFile.exists())) {
-            Log.d(CLASS_NAME + ".createJson()", "Le fichier json existe déjà.");
+            //Log.d(CLASS_NAME + ".createJson()", "Le fichier json existe déjà.");
             try {
                 is = new FileInputStream(persoFile);
                 retrieveJSON(is);
@@ -125,7 +125,7 @@ public class MainActivity extends FragmentActivity {
             is.close();
             json = new String(buffer, "utf-8");
         } catch (IOException e) {
-            Log.e(CLASS_NAME + ".retrieveJson()", "e1: " + e.getMessage());
+            Log.e(CLASS_NAME + ".retrieveJson()", "Erreur JSON: " + e.getMessage());
         }
 
         JSONObject obj = new JSONObject(json);

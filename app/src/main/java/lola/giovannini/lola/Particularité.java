@@ -9,6 +9,8 @@ import org.json.JSONObject;
  * Created by giovannini on 11/6/14.
  */
 public class Particularité {
+    String CLASS_NAME = "Particularité";
+
     String nom, description;
     JSONObject obj;
 
@@ -23,7 +25,7 @@ public class Particularité {
             this.obj.put("description", this.description);
             this.obj.put("bonus", "");
         }catch (JSONException e){
-            Log.e("Particularité()", "Erreur JSON lors de la création d'une particularité.\n"
+            Log.e(CLASS_NAME, "Erreur JSON lors de la création d'une particularité.\n"
                     + e.getMessage());
         }
     }
@@ -36,8 +38,7 @@ public class Particularité {
             this.description = o.getString("description");
             parseBonus(o.getString("bonus"), p);
         }catch(JSONException e){
-            Log.e("ParticularitéRace", "Erreur JSON lors de la création d'une particularité de " +
-                    "race.");
+            Log.e(CLASS_NAME, "Erreur JSON lors de la création d'une particularité.");
         }
     }
 

@@ -35,7 +35,7 @@ public class SauvegardeFragment extends Fragment{
         initViews(sauvegarde);
         getSauvegardesInfos();
 
-        Log.i(CLASS_NAME, "Le fragment Sauvegarde est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Sauvegarde est créé.");
         return sauvegarde;
     }
 

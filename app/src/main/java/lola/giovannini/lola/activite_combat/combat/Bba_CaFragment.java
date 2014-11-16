@@ -32,7 +32,7 @@ public class Bba_CaFragment  extends Fragment{
         getBbaInfos();
         getCaInfos();
 
-        Log.i(CLASS_NAME, "Le fragment BBA/CA est créé.");
+        //Log.i(CLASS_NAME, "Le fragment BBA/CA est créé.");
         return bba_ca;
     }
 

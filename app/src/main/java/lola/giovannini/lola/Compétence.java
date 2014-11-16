@@ -6,6 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Compétence {
+    String CLASS_NAME = "Compétence";
+
     String nom;
     int total, rang;
     boolean cc;
@@ -25,7 +27,7 @@ public class Compétence {
             this.setTotal(this.getRang() + divers + perso.getCaractéristiques()
                     .getModificateur(o.getString("carac")));
         }catch(JSONException e){
-            Log.e("Compétence", e.getMessage());
+            Log.e(CLASS_NAME, e.getMessage());
         }
     }
 
@@ -68,7 +70,7 @@ public class Compétence {
             try {
                 this.o.put("rang", this.rang);
             }catch(JSONException e){
-                Log.e("Compétences.addPoint()", e.getMessage());
+                Log.e(CLASS_NAME + ".addPoint()", e.getMessage());
             }
             perso.useCompetencePoint();
             return true;

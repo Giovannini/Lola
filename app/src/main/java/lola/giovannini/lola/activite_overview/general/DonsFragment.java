@@ -24,6 +24,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 11/6/14.
  */
 public class DonsFragment extends Fragment {
+    String CLASS_NAME = "DonsFragment";
     Personnage perso;
 
     LinearLayout ll;
@@ -65,7 +66,7 @@ public class DonsFragment extends Fragment {
         retrieveData();
         System.out.println(perso.getPointDon());
 
-        Log.i("DonsFragment", "Le fragment Dons est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Dons est créé.");
         return dons;
     }
 

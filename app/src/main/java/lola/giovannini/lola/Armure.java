@@ -9,9 +9,8 @@ import org.json.JSONObject;
  * Created by giovannini on 10/20/14.
  */
 public class Armure {
-    /**TODO
-     * modify JSON on setters
-     */
+    String CLASS_NAME = "Armure";
+
     String nom, ca, dex, pénalité, sorts, déplacement, poids;
     JSONObject obj;
 
@@ -39,7 +38,7 @@ public class Armure {
 
             this.obj = o;
         }catch (JSONException e){
-            Log.e("Armure()", "Erreur JSON lors de la création d'une armure.");
+            Log.e(CLASS_NAME, "Erreur JSON lors de la création d'une armure.");
         }
     }
 
@@ -54,7 +53,7 @@ public class Armure {
             this.setDéplacement(o.getString("deplacements"));
             this.setPoids(o.getString("poids"));
         }catch(JSONException e){
-            Log.e("Armure", e.getMessage());
+            Log.e(CLASS_NAME, e.getMessage());
         }
     }
 
@@ -67,7 +66,7 @@ public class Armure {
         try{
             this.obj.put("nom", nom);
         }catch (JSONException e){
-            Log.e("Armure.setNom()", e.getMessage());
+            Log.e(CLASS_NAME + ".setNom()", e.getMessage());
         }
     }
 
@@ -80,7 +79,7 @@ public class Armure {
         try{
             this.obj.put("ca", ca);
         }catch (JSONException e){
-            Log.e("Armure.setCa()", e.getMessage());
+            Log.e(CLASS_NAME + ".setCa()", e.getMessage());
         }
     }
 
@@ -93,7 +92,7 @@ public class Armure {
         try{
             this.obj.put("dex", dex);
         }catch (JSONException e){
-            Log.e("Armure.setDex()", e.getMessage());
+            Log.e(CLASS_NAME + ".setDex()", e.getMessage());
         }
     }
 
@@ -106,7 +105,7 @@ public class Armure {
         try{
             this.obj.put("penalite", pénalité);
         }catch (JSONException e){
-            Log.e("Armure.setPénalité()", e.getMessage());
+            Log.e(CLASS_NAME + ".setPénalité()", e.getMessage());
         }
     }
 
@@ -119,7 +118,7 @@ public class Armure {
         try{
             this.obj.put("sorts", sorts);
         }catch (JSONException e){
-            Log.e("Armure.setSorts()", e.getMessage());
+            Log.e(CLASS_NAME + ".setSorts()", e.getMessage());
         }
     }
 
@@ -132,7 +131,7 @@ public class Armure {
         try{
             this.obj.put("deplacements", déplacement);
         }catch (JSONException e){
-            Log.e("Armure.setDéplacement()", e.getMessage());
+            Log.e(CLASS_NAME + ".setDéplacement()", e.getMessage());
         }
     }
 
@@ -145,7 +144,7 @@ public class Armure {
         try{
             this.obj.put("poids", poids);
         }catch (JSONException e){
-            Log.e("Armure.setPoids()", e.getMessage());
+            Log.e(CLASS_NAME + ".setPoids()", e.getMessage());
         }
     }
 

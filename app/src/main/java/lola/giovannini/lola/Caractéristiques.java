@@ -9,6 +9,7 @@ import org.json.JSONObject;
  * Created by giovannini on 10/22/14.
  */
 public class Caractéristiques {
+    String CLASS_NAME = "Caractéristiques";
     int force, dextérité, intelligence, sagesse, constitution, charisme, pv, pvmax;
     JSONObject obj;
 
@@ -28,7 +29,7 @@ public class Caractéristiques {
             setSagesse(o.getInt("Sagesse"));
             setCharisme(o.getInt("Charisme"));
         }catch (JSONException e){
-            Log.e("Caractéristiques", e.getMessage());
+            Log.e(CLASS_NAME, e.getMessage());
         }
     }
 
@@ -41,7 +42,7 @@ public class Caractéristiques {
         try {
             obj.put("Force", this.force);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutForce()",
+            Log.e(CLASS_NAME + ".ajoutForce()",
                     "Erreur JSON lors de l'ajout d'un point de FOR.");
         }
     }
@@ -50,7 +51,7 @@ public class Caractéristiques {
         try {
             obj.put("Force", this.force);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutForce()",
+            Log.e(CLASS_NAME + ".retireForce()",
                     "Erreur JSON lors du retranchement d'un point de FOR.");
         }
     }
@@ -68,7 +69,7 @@ public class Caractéristiques {
         try {
             obj.put("Dextérité", this.dextérité);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutDexterite()",
+            Log.e(CLASS_NAME + ".ajoutDexterite()",
                     "Erreur JSON lors de l'ajout d'un point de DEX.");
         }
     }
@@ -77,7 +78,7 @@ public class Caractéristiques {
         try {
             obj.put("Dextérité", this.dextérité);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutDexterite()",
+            Log.e(CLASS_NAME + ".retireDexterite()",
                     "Erreur JSON lors du retranchement d'un point de DEX.");
         }
     }
@@ -95,7 +96,7 @@ public class Caractéristiques {
         try {
             obj.put("Intelligence", this.intelligence);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutIntelligence()",
+            Log.e(CLASS_NAME + ".ajoutIntelligence()",
                     "Erreur JSON lors de l'ajout d'un point de INT.");
         }
     }
@@ -104,7 +105,7 @@ public class Caractéristiques {
         try {
             obj.put("Intelligence", this.intelligence);
         }catch (JSONException e){
-            Log.e("Caractéristiques.retireIntelligence()",
+            Log.e(CLASS_NAME + ".retireIntelligence()",
                     "Erreur JSON lors du retranchement d'un point de INT.");
         }
     }
@@ -122,7 +123,7 @@ public class Caractéristiques {
         try {
             obj.put("Sagesse", this.sagesse);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutSagesse()",
+            Log.e(CLASS_NAME + ".ajoutSagesse()",
                     "Erreur JSON lors de l'ajout d'un point de SAG.");
         }
     }
@@ -131,7 +132,7 @@ public class Caractéristiques {
         try {
             obj.put("Intelligence", this.sagesse);
         }catch (JSONException e){
-            Log.e("Caractéristiques.retireSagesse()",
+            Log.e(CLASS_NAME + ".retireSagesse()",
                     "Erreur JSON lors du retranchement d'un point de SAG.");
         }
     }
@@ -149,7 +150,7 @@ public class Caractéristiques {
         try {
             obj.put("Constitution", this.constitution);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutConstitution()",
+            Log.e(CLASS_NAME + ".ajoutConstitution()",
                     "Erreur JSON lors de l'ajout d'un point de CON.");
         }
     }
@@ -158,7 +159,7 @@ public class Caractéristiques {
         try {
             obj.put("Constitution", this.constitution);
         }catch (JSONException e){
-            Log.e("Caractéristiques.retireConstitution()",
+            Log.e(CLASS_NAME + ".retireConstitution()",
                     "Erreur JSON lors du retranchement d'un point de CON.");
         }
     }
@@ -176,7 +177,7 @@ public class Caractéristiques {
         try {
             obj.put("Charisme", this.charisme);
         }catch (JSONException e){
-            Log.e("Caractéristiques.ajoutCharisme()",
+            Log.e(CLASS_NAME + ".ajoutCharisme()",
                     "Erreur JSON lors de l'ajout d'un point de CHA.");
         }
     }
@@ -185,7 +186,7 @@ public class Caractéristiques {
         try {
             obj.put("Charisme", this.charisme);
         }catch (JSONException e){
-            Log.e("Caractéristiques.retireCharisme()",
+            Log.e(CLASS_NAME + ".retireCharisme()",
                     "Erreur JSON lors du retranchement d'un point de CHA.");
         }
     }
@@ -208,14 +209,20 @@ public class Caractéristiques {
             try{
                 obj.put("Pv", this.pv);
             }catch(JSONException e){
-                Log.e("Caractéristiques.addPv", e.getMessage());
+                Log.e(CLASS_NAME + ".addPv", e.getMessage());
             }
         }
     }
 
     public void removePv(){
-        if(this.pv > -10)
+        if(this.pv > -10) {
             this.pv--;
+            try {
+                obj.put("Pv", this.pv);
+            } catch (JSONException e) {
+                Log.e(CLASS_NAME + ".removePv", e.getMessage());
+            }
+        }
     }
 
     public int getPvmax() {

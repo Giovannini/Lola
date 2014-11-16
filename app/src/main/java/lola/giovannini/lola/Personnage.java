@@ -3,6 +3,7 @@ package lola.giovannini.lola;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -120,22 +121,22 @@ public class Personnage {
             JSONArray classes = obj.getJSONArray("Classes");
             for (int i=0;i<classes.length();i++) {
                 JSONObject json = classes.getJSONObject(i);
-                System.out.println("Traitement de la classe "+ json.getString("Nom"));
+                //System.out.println("Traitement de la classe "+ json.getString("Nom"));
                 Classe c = null;
                 if (json.getString("Nom").equals("Roublard")){
-                    System.out.println("Création de la classe Roublard");
+                    //System.out.println("Création de la classe Roublard");
                     c = new ClasseRoublard(json, this);
                     this.classes.add(c);
                 }else if (json.getString("Nom").equals("Maître des ombres")){
-                    /**TODO
-                     * Maître des ombres
-                     */
+                    //System.out.println("Création de la classe Roublard");
+                    c = new ClasseMaîtreDesOmbres(json, this);
+                    this.classes.add(c);
                 }
                 this.allClassParts.addAll(c.getParticularités());
             }
 
             this.bonusTaille = obj.getInt("bonusTaille");
-            System.out.println("Bonus taille = " + this.bonusTaille);
+            //System.out.println("Bonus taille = " + this.bonusTaille);
             for (Classe c : this.getClasses()){
                 if (this.bba == null)
                     this.bba = c.getBonusBBA();
@@ -145,11 +146,9 @@ public class Personnage {
                     }
                 }
             }
-            for (int i = 0, fini = this.bba.length; i<fini;i++) {
-                System.out.println("Av: this.bba[i] = " + this.bba[i]);
+            for (int i = 0, fini = this.bba.length; i<fini;i++)
                 this.bba[i] += bonusTaille;
-                System.out.println("Ap: this.bba[i] = " + this.bba[i]);
-            }
+
             this.valeurInitiative = obj.getInt("initiative");
 
             /* Race */
@@ -193,7 +192,7 @@ public class Personnage {
             }
 
         }catch (JSONException e){
-            Log.e("Personnage.parse()", e.getMessage());
+            Log.e(CLASS_NAME + ".parse()", e.getMessage());
         }
 
     }
@@ -286,7 +285,7 @@ public class Personnage {
             this.obj.put("pointDon", this.pointDon);
             this.obj.put("levelupclass", this.levelUpClass);
         } catch (JSONException e) {
-            Log.e("Personnage.levelUp()", e.getMessage());
+            Log.e(CLASS_NAME + ".levelUp()", e.getMessage());
         }
     }
 
@@ -303,7 +302,7 @@ public class Personnage {
         try {
             this.obj.put("XP", this.expérience);
         }catch (JSONException e){
-            Log.e("Personnage.setExperience", e.getMessage());
+            Log.e(CLASS_NAME + ".setExperience", e.getMessage());
         }
         while(this.expérience > getXPForLevelUp()){
             levelUp();
@@ -377,7 +376,7 @@ public class Personnage {
             this.getObj().put("initiative", valeurInitiative);
             main.saveJson(this.getObj());
         }catch (JSONException e){
-            Log.e("Personnage", "setValeurInitiative:\n" + e.getMessage());
+            Log.e(CLASS_NAME + ".setValeurInitiative()", e.getMessage());
         }
         this.valeurInitiative = valeurInitiative;
     }
@@ -396,7 +395,8 @@ public class Personnage {
             richesses.put("Bronze", this.richesses[3]);
             main.saveJson(this.obj);
         }catch (JSONException e){
-            Log.e("Personnage", "Problèmes lors de l'ajout de richesses:\n" + e.getMessage());
+            Log.e(CLASS_NAME + ".addRichesses()", "Erreur JSON lors de l'ajout de richesses:\n" + e
+                    .getMessage());
         }
     }
 
@@ -447,7 +447,7 @@ public class Personnage {
             objets.put(o.getJson());
             main.saveJson(this.obj);
         }catch (JSONException e){
-            Log.e("Personnage.addObjet()", e.getMessage());
+            Log.e(CLASS_NAME + ".addObjet()", "Erreur JSON: " + e.getMessage());
         }
         this.getObjets().add(o);
     }
@@ -470,7 +470,7 @@ public class Personnage {
         try {
             this.obj.put("pointCompetences", this.competencesPoints);
         }catch(JSONException e){
-            Log.e("Personnage.useCompetencePoint", e.getMessage());
+            Log.e(CLASS_NAME + ".useCompetencePoint", "Erreur JSON: " + e.getMessage());
         }
     }
 
@@ -481,9 +481,8 @@ public class Personnage {
             JSONArray armes = obj.getJSONArray("Armes");
             armes.remove(i);
             main.saveJson(this.obj);
-            Log.i(CLASS_NAME + ".removeWeapon()", nom + " removed.");
         }catch (JSONException e){
-            Log.e(CLASS_NAME + ".removeWeapon()", "Problem removing the weapon " + nom + ":\n" +
+            Log.e(CLASS_NAME + ".removeWeapon()", "Erreur JSON en retirant l'arme " + nom + ":\n" +
                     e.getMessage());
         }
     }
@@ -494,10 +493,8 @@ public class Personnage {
 
             this.getObj().getJSONArray("Armes").put(a.getObj());//Ajout de l'arme au fichier JSON.
             main.saveJson(this.obj);//Sauvegarde du JSON
-
-            Log.i(CLASS_NAME + ".addWeapon()", "Arme " + a.getNom() + " ajoutée.");
         }catch (JSONException e){
-            Log.e(CLASS_NAME + ".addWeapon()", "Problem removing the weapon " + nom + ":\n" + e
+            Log.e(CLASS_NAME + ".addWeapon()", "Erreur JSON en ajoutant l'arme " + nom + ":\n" + e
                     .getMessage());
         }
     }
@@ -507,11 +504,10 @@ public class Personnage {
         this.armures.remove(i);
         try {
             JSONArray armures = obj.getJSONArray("Armures");
-            armes.remove(i);
             main.saveJson(this.obj);
-            Log.i(CLASS_NAME + ".removeArmor()", nom + " removed.");
         }catch (JSONException e){
-            Log.e(CLASS_NAME + ".removeArmor()", "Problem removing the armor " + nom + ":\n" + e
+            Log.e(CLASS_NAME + ".removeArmor()", "Erreur JSON en retirant l'armure " + nom + ":\n"
+                    + e
                     .getMessage());
         }
     }
@@ -522,12 +518,9 @@ public class Personnage {
 
             this.getObj().getJSONArray("Armures").put(a.getObj());//Ajout de l'arme au fichier JSON.
             main.saveJson(this.obj);//Sauvegarde du JSON
-
-            Log.i(CLASS_NAME + ".addArmor()",
-                    "Armure " + a.getNom() + " ajoutée.");
         }catch (JSONException e){
             Log.e(CLASS_NAME + ".addArmor()",
-                    "Problem removing the armor " + nom + ":\n" + e.getMessage());
+                    "Erreur JSON en ajoutant l'armure " + a.getNom() + ":\n" + e.getMessage());
         }
     }
 
@@ -541,9 +534,6 @@ public class Personnage {
             //Ajout du point de caractéristiques dans le fichier JSON.
             this.getObj().put("pointsCaractéristiques",this.pointCaractéristiques);
             //Sauvegarde du JSON plus tard dans le programme.
-
-            Log.i(CLASS_NAME + ".addPointCaractéristique()",
-                    "Ajout d'un point de caractéristiques.");
         }catch (JSONException e){
             Log.e(CLASS_NAME + ".addPointCaractéristique()",
                     "Erreur JSON lors de l'ajout d'un point de caractéristiques:\n" + e
@@ -557,9 +547,6 @@ public class Personnage {
             //Notification de l'utilisation dans le fichier JSON.
             this.getObj().put("pointsCaractéristiques", this.pointCaractéristiques);
             main.saveJson(this.obj);//Sauvegarde du JSON
-
-            Log.i(CLASS_NAME + ".usePointCaractéristique()",
-                    "Utilisation d'un point de caractéristiques.");
         }catch (JSONException e){
             Log.e(CLASS_NAME + ".usePointCaractéristique()",
                     "Erreur JSON lors de l'utilisation d'un point de caractéristiques:\n"
@@ -581,10 +568,8 @@ public class Personnage {
 
             this.getObj().getJSONArray("Dons").put(d.getObj());//Ajout de l'arme au fichier JSON.
             main.saveJson(this.obj);//Sauvegarde du JSON
-
-            Log.i(CLASS_NAME + ".ajoutDon()", "Don " + d.getNom() + " ajouté.");
         }catch (JSONException e){
-            Log.e(CLASS_NAME + ".ajoutDon()", "Problem adding the gift " + nom + ":\n" + e
+            Log.e(CLASS_NAME + ".ajoutDon()", "Erreur JSON à l'ajout du don " + nom + ":\n" + e
                     .getMessage());
         }
     }
@@ -595,8 +580,6 @@ public class Personnage {
             //Notification de l'utilisation dans le fichier JSON.
             this.getObj().put("pointDon", this.pointDon);
             main.saveJson(this.obj);//Sauvegarde du JSON
-
-            Log.i(CLASS_NAME + ".useDonPoint()", "Utilisation d'un point de don.");
         }catch (JSONException e){
             Log.e(CLASS_NAME + ".useDonPoint()",
                     "Erreur JSON lors de l'utilisation d'un point de don:\n" + e.getMessage());
@@ -612,7 +595,6 @@ public class Personnage {
             Log.e("Personnage.addLevelUpClassPoint", "Erreur JSON à l'a jout d'un point LU.\n" +
                     e.getMessage());
         }
-        Log.d("Personnage.addLevelUpClassPoint", "Ajout d'un point LU: " + this.levelUpClass);
     }
 
     public void useLevelUpClassPoint(){
@@ -624,8 +606,6 @@ public class Personnage {
             Log.e("Personnage.addLevelUpClassPoint", "Erreur JSON au retranchement d'un point LU" +
                     ".\n" + e.getMessage());
         }
-        Log.d("Personnage.addLevelUpClassPoint", "Retranchement d'un point LU: " + this
-                .levelUpClass);
     }
 
     public int getLevelUpClass() {

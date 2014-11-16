@@ -28,6 +28,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 10/17/14.
  */
 public class CompetencesFragment extends Fragment {
+    String CLASS_NAME = "CompetencesFragment";
     Personnage perso;
     LinearLayout layoutL, layoutR, layoutB;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -43,7 +44,7 @@ public class CompetencesFragment extends Fragment {
         }
 
         instanciateComp();
-        Log.i("CompétencesFragment", "Le fragment Compétences est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Compétences est créé.");
         return competences;
     }
 
@@ -99,8 +100,7 @@ public class CompetencesFragment extends Fragment {
     }
 
     private void addCompetencePoint(View v, String nom){
-        Log.i("CompetenceFragment.addCompetencePoint()",
-                "Points = " + this.perso.getCompetencesPoints());
+        //Log.i("CompetenceFragment.addCompetencePoint()","Points = " + this.perso.getCompetencesPoints());
         if (this.perso.getCompetencesPoints() > 0) {
             int i = 0;
             List<Compétence> competences = perso.getCompétences();
@@ -109,10 +109,10 @@ public class CompetencesFragment extends Fragment {
             }
             Compétence c = competences.get(i);
             if (c.addPoint()){
-                Log.d("CompetencesFragment.addCompetencePoint()", "Point de compétence ajouté à " +
+                /*Log.d("CompetencesFragment.addCompetencePoint()", "Point de compétence ajouté à " +
                         "la compétence " + c.getNom() + ".");
                 Log.d("CompetencesFragment.addCompetencePoint()", "Nouveau niveau: " + c.getRang
-                        () + ".");
+                        () + ".");*/
             }
             perso.getMain().saveJson(perso.getObj());
             layoutB.removeAllViews();

@@ -12,6 +12,8 @@ import java.util.Map;
 
 
 public abstract class Classe {
+    String CLASS_NAME = "Classe";
+
     String nom;
     int niveau;
     Personnage p;
@@ -33,16 +35,14 @@ public abstract class Classe {
     }
 
     public void addNiveau() {
-        System.out.println("Classe.addNiveau()");
         this.niveau++;
         p.useLevelUpClassPoint();
         try {
             this.obj.put("Niveau", this.niveau);
             addPointCompetences();
-
             //La sauvegarde se fait plus tard, dans la classe Personnage.
         }catch (JSONException e){
-            Log.e("Class.addNiveau()", "Erreur JSON en ajoutant un niveau.");
+            Log.e(CLASS_NAME + ".addNiveau()", "Erreur JSON en ajoutant un niveau.");
         }
         initParts();
     }

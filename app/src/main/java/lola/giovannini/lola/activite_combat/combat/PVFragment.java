@@ -38,7 +38,7 @@ public class PVFragment extends Fragment implements View.OnClickListener{
 
         setButtonsAction();
 
-        Log.i(CLASS_NAME, "Le fragment de gestion des PV est créé.");
+        //Log.i(CLASS_NAME, "Le fragment de gestion des PV est créé.");
         return combat;
     }
 

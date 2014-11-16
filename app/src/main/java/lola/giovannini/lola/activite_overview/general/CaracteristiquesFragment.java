@@ -17,7 +17,7 @@ import lola.giovannini.lola.R;
  * Created by giovannini on 11/5/14.
  */
 public class CaracteristiquesFragment extends Fragment {
-
+    String CLASS_NAME = "CaracteristiquesFragment";
     Personnage perso;
 
     TextView force, dexterite, constitution, intelligence, sagesse, charisme;
@@ -41,7 +41,7 @@ public class CaracteristiquesFragment extends Fragment {
             this.layoutAjoutPointCaractéristique.setVisibility(View.GONE);
         }
 
-        Log.i("OverviewFragment", "Le fragment Caractéristiques est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Caractéristiques est créé.");
         return caractéristiques;
     }
 

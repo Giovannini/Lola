@@ -44,7 +44,7 @@ public class ArmeFragment extends Fragment implements View.OnClickListener{
         initViews(arme);
         getArmesInfos();
 
-        Log.i(CLASS_NAME, "Le fragment Arme est créé.");
+        //Log.i(CLASS_NAME, "Le fragment Arme est créé.");
         return arme;
     }
 
