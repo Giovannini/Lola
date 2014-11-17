@@ -57,7 +57,7 @@ public class PersoDetailsFragment extends Fragment implements View.OnClickListen
         valueSexe.      setText(perso.getSexe());
         valuePoids.     setText(perso.getPoids() + " kg");
         valueTaille.    setText(perso.getTaille() + " cm");
-        caracTaille.    setText("[P]");/**TODO change that line*/
+        caracTaille.    setText("[" + perso.getRace().getTaille() +"]");
         valueAlignement.setText(perso.getAlignement());
         valueNiveau.    setText("" + perso.getNiveau());
         valueExperience.setText("" + perso.getExpérience());

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class Particularité {
     String CLASS_NAME = "Particularité";
 
-    String nom, description;
+    String nom, description, bonus;
     JSONObject obj;
 
     public Particularité(){}
@@ -28,6 +28,12 @@ public class Particularité {
             Log.e(CLASS_NAME, "Erreur JSON lors de la création d'une particularité.\n"
                     + e.getMessage());
         }
+    }
+
+    public Particularité(String nom, String description, String bonus, Personnage p){
+        this.nom = nom;
+        this.description = description;
+        parseBonus(bonus, p);
     }
 
     public Particularité(JSONObject o, Personnage p){

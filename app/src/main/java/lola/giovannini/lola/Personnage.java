@@ -1,9 +1,6 @@
 package lola.giovannini.lola;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +11,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lola.giovannini.lola.classes.Classe;
+import lola.giovannini.lola.classes.ClasseMaîtreDesOmbres;
+import lola.giovannini.lola.classes.ClasseRoublard;
+import lola.giovannini.lola.races.RaceHalfelin;
+import lola.giovannini.lola.races.RaceNain;
+import lola.giovannini.lola.races.Race;
+
 /**
  * Created by giovannini on 10/17/14.
  */
@@ -22,12 +26,14 @@ public class Personnage {
 
     MainActivity main;
 
-    String nom, race, alignement, sexe, peau, cheveux, yeux, religion;
+    String nom, alignement, sexe, peau, cheveux, yeux, religion;
     int niveau, expérience, malusXP, age, poids, taille, bonusTaille;
     int[] bba;
     int levelUpClass;
+    /*Race*/
+    Race race;
     /*Caractéristiques*/
-    Caractéristiques caractéristiques;
+    Caractéristique caractéristiques;
     int valeurInitiative;
     /*Liste d'armes*/
     List<Arme> armes;
@@ -80,7 +86,13 @@ public class Personnage {
 
         try {
             this.setNom(obj.getString("Nom"));
-            this.setRace(obj.getString("Race"));
+            String r = obj.getString("Race");
+            if (r.equals("Halfelin"))
+                this.race = new RaceHalfelin(this);
+            else if (r.equals("Nain"))
+                this.race = new RaceNain(this);
+            else//en attendant de tout pouvoir gérer, on est Halfelin de base
+                this.race = new RaceHalfelin(this);
 
             this.setAlignement(obj.getString("Alignement"));
             this.setNiveau(obj.getInt("Niveaux"));
@@ -111,10 +123,11 @@ public class Personnage {
             richesses[1] = jsonRic.getInt("Or");
             richesses[2] = jsonRic.getInt("Argent");
             richesses[3] = jsonRic.getInt("Bronze");
+
             /*Caractéristiques*/
             JSONObject jsonCar = obj.getJSONObject("Caracteristique");
             this.pointCaractéristiques = obj.getInt("pointsCaractéristiques");
-            Caractéristiques caractéristiques = new Caractéristiques(jsonCar);
+            Caractéristique caractéristiques = new Caractéristique(jsonCar);
             this.caractéristiques = caractéristiques;
 
             /* Classes */
@@ -150,13 +163,6 @@ public class Personnage {
                 this.bba[i] += bonusTaille;
 
             this.valeurInitiative = obj.getInt("initiative");
-
-            /* Race */
-            JSONArray race = obj.getJSONArray("Race");
-            for (int i=0;i<race.length();i++){
-                Particularité pr = new Particularité(race.getJSONObject(i), this);
-                particularitéRaces.add(pr);
-            }
 
             /* Dons */
             this.pointDon = obj.getInt("pointDon");
@@ -205,11 +211,11 @@ public class Personnage {
         this.nom = nom;
     }
 
-    public String getRace() {
+    public Race getRace() {
         return race;
     }
 
-    private void setRace(String race) {
+    private void setRace(Race race) {
         this.race = race;
     }
 
@@ -426,7 +432,7 @@ public class Personnage {
         return objets;
     }
 
-    public Caractéristiques getCaractéristiques() {
+    public Caractéristique getCaractéristiques() {
         return caractéristiques;
     }
 

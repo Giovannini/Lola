@@ -2,7 +2,6 @@ package lola.giovannini.lola.activite_combat.combat;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,8 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Map;
 
-import lola.giovannini.lola.Caractéristiques;
-import lola.giovannini.lola.Classe;
+import lola.giovannini.lola.Caractéristique;
+import lola.giovannini.lola.classes.Classe;
 import lola.giovannini.lola.MainActivity;
 import lola.giovannini.lola.Personnage;
 import lola.giovannini.lola.R;
@@ -47,7 +46,7 @@ public class SauvegardeFragment extends Fragment{
 
     private void getSauvegardesInfos(){
         int vig = 0, ref = 0, vol = 0;
-        Caractéristiques carac = perso.getCaractéristiques();
+        Caractéristique carac = perso.getCaractéristiques();
         Map<String, Integer> divers = perso.getDivers();
         /* Armes */
         List<Classe> classes = perso.getClasses();

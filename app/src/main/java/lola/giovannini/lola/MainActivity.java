@@ -85,7 +85,7 @@ public class MainActivity extends FragmentActivity {
         /*******HERE**********/
         /*******HERE**********/
         /*******HERE**********/
-        if ((persoDir.exists() && persoFile.exists())) {
+        if (!(persoDir.exists() && persoFile.exists())) {
             //Log.d(CLASS_NAME + ".createJson()", "Le fichier json existe déjà.");
             try {
                 is = new FileInputStream(persoFile);

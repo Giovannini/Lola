@@ -1,4 +1,4 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.classes;
 
 import android.util.Log;
 
@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import lola.giovannini.lola.Particularité;
+import lola.giovannini.lola.Personnage;
 
 
 public abstract class Classe {

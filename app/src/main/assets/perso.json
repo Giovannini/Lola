@@ -453,42 +453,5 @@
         }
 
     ],
-    "Talents":[],
-    "Race":[
-        {
-            "nom": "Petite taille",
-            "description": "Les halfelins sont des créatures de taille P. Ils gagnent donc un bonus de taille de +1 à leur classe d’armure et aux jets d’attaque, un malus de -1 à leur bonus de manœuvres offensives (BMO) et à leur degré de manœuvres défensives (DMD), ainsi qu’un bonus de taille de +4 aux tests de Discrétion.",
-            "bonus": "CA:1;Discrétion:4"
-        },
-        {
-            "nom": "Vitesse lente",
-            "description": "Les halfelins possèdent une vitesse de déplacement de base de 6 mètres (4 cases).",
-            "bonus": ""
-        },
-        {
-            "nom": "Sans peur",
-            "description": "Les halfelins reçoivent un bonus racial de +2 à tous les jets de sauvegarde contre la terreur. Ce bonus se cumule avec celui provenant de la chance des halfelins.",
-            "bonus": ""
-        },
-        {
-            "nom": "Chance des halfelins",
-            "description": "Les halfelins reçoivent un bonus racial de +1 à tous les jets de sauvegarde.",
-            "bonus": "SAUVVIG:1;SAUVREF:1;SAUVVOL:1"
-        },
-        {
-            "nom": "Sens aiguisés",
-            "description": "Les halfelins reçoivent un bonus racial de +2 à tous les tests de Perception.",
-            "bonus": "PerceptionAuditive:2"
-        },
-        {
-            "nom": "Bon équilibre",
-            "description": "Les halfelins reçoivent un bonus racial de +2 à tous les tests d’Acrobaties et d’Escalade.",
-            "bonus": "Escalade:2;Acrobatie:2"
-        },
-        {
-            "nom": "Armes familières",
-            "description": "Les halfelins sont formés au maniement des frondes et considèrent toutes les armes dont le nom comporte le mot «halfelin» comme des armes de guerre.",
-            "bonus": ""
-        }
-    ]
+    "Talents":[]
 }

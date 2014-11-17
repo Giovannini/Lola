@@ -8,15 +8,15 @@ import org.json.JSONObject;
 /**
  * Created by giovannini on 10/22/14.
  */
-public class Caractéristiques {
+public class Caractéristique {
     String CLASS_NAME = "Caractéristiques";
     int force, dextérité, intelligence, sagesse, constitution, charisme, pv, pvmax;
     JSONObject obj;
 
-    public Caractéristiques() {
+    public Caractéristique() {
     }
 
-    public Caractéristiques(JSONObject o){
+    public Caractéristique(JSONObject o){
         this();
         this.obj = o;
         try {

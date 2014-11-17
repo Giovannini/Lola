@@ -1,4 +1,4 @@
-package lola.giovannini.lola;
+package lola.giovannini.lola.classes;
 
 import android.util.Log;
 
@@ -8,6 +8,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import lola.giovannini.lola.Particularité;
+import lola.giovannini.lola.Personnage;
+import lola.giovannini.lola.R;
 
 /**
  * Created by giovannini on 11/8/14.

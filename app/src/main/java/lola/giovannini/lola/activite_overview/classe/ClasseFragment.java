@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import lola.giovannini.lola.Classe;
+import lola.giovannini.lola.classes.Classe;
 import lola.giovannini.lola.MainActivity;
 import lola.giovannini.lola.Particularité;
 import lola.giovannini.lola.Personnage;

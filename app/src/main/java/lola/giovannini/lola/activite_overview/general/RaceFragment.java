@@ -36,13 +36,12 @@ public class RaceFragment extends Fragment {
 
         retrieveData();
 
-        //Log.i(CLASS_NAME, "Le fragment Race est créé.");
         return race;
     }
 
     private void retrieveData(){
         final Context context = getActivity();
-        List<Particularité> races = perso.getParticularitéRaces();
+        List<Particularité> races = perso.getRace().getParticularites();
         for (final Particularité race : races){
             TextView tv = new TextView(context);
             tv.setText(race.getNom());
