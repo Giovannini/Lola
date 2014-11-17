@@ -3,6 +3,7 @@ package lola.giovannini.lola.activite_main.races;
 import java.util.ArrayList;
 import java.util.List;
 
+import lola.giovannini.lola.R;
 import lola.giovannini.lola.activite_main.Particularité;
 import lola.giovannini.lola.activite_main.Personnage;
 
@@ -14,11 +15,14 @@ public class RaceNain extends Race{
     List<Particularité> particularites;
     String taille;
 
+    int image;
+
     public RaceNain(Personnage perso) {
         super("Nain", perso);
         setDescription();
         initCaracs();
         this.taille = "M";
+        image = R.drawable.race_nain;
     }
 
     @Override

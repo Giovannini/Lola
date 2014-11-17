@@ -50,19 +50,19 @@ public class MainActivity extends FragmentActivity {
 
         state = 0;
         button = (ImageView) findViewById(R.id.buttonSwitch);
-        button.setImageResource(R.drawable.swords48);
+        button.setImageResource(R.drawable.icon_swords);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (state == 0) {
                     myPagerAdapter = new MyCombatPagerAdapter(getSupportFragmentManager());
                     mViewPager.setAdapter(myPagerAdapter);
-                    button.setImageResource(R.drawable.man48);
+                    button.setImageResource(R.drawable.icon_man);
                     state = 1;
                 } else {
                     myPagerAdapter = new MyOverviewPagerAdapter(getSupportFragmentManager());
                     mViewPager.setAdapter(myPagerAdapter);
-                    button.setImageResource(R.drawable.swords48);
+                    button.setImageResource(R.drawable.icon_swords);
                     state = 0;
                 }
             }
@@ -91,7 +91,7 @@ public class MainActivity extends FragmentActivity {
         /*******HERE**********/
         /*******HERE**********/
         /*******HERE**********/
-        if (!(persoDir.exists() && persoFile.exists())) {
+        if ((persoDir.exists() && persoFile.exists())) {
             //Log.d(CLASS_NAME + ".createJson()", "Le fichier json existe déjà.");
             try {
                 is = new FileInputStream(persoFile);

@@ -49,7 +49,7 @@
                         android:layout_height="150dp"
                         android:id="@+id/classeImageView"
                         android:layout_marginLeft="2dp"
-                        android:src="@drawable/roublard"/>
+                        android:src="@drawable/classe_roublard"/>
 
                     <LinearLayout
                         android:orientation="vertical"

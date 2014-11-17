@@ -45,7 +45,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="1dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:src="@drawable/heal"
+                android:src="@drawable/icon_heal"
                 android:padding="10dp"/>
 
             <TextView
@@ -68,7 +68,7 @@
                 android:layout_marginRight="13dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_marginBottom="1dp"
-                android:src="@drawable/punch"/>
+                android:src="@drawable/icon_punch"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

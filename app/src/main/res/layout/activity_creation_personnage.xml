@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/activity_creation_nom_EditText"
+        android:layout_gravity="center_horizontal"
+        android:hint="Nom"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/race"
+        android:id="@+id/activity_creation_race_Button"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/themecolor"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/classe"
+        android:id="@+id/activity_creation_classe_Button"
+        android:layout_gravity="center_horizontal"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_creation_sexe_EditText"
+        android:layout_gravity="center_horizontal"
+        android:spinnerMode="dropdown"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/activity_creation_age_EditText"
+        android:layout_gravity="center_horizontal"
+        android:hint="Age"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_creation_alignement1_Spinner"
+            android:spinnerMode="dropdown"
+            android:layout_weight="0.5"/>
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/activity_creation_alignement2_Spinner"
+            android:layout_weight="0.5"
+            android:spinnerMode="dropdown"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/activity_creation_poids_EditText"
+        android:layout_gravity="center_horizontal"
+        android:hint="Poids"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/activity_creation_taille_EditText"
+        android:layout_gravity="center_horizontal"
+        android:hint="Taille"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_creation_religion_Spinner"
+        android:layout_gravity="center_horizontal"
+        android:spinnerMode="dropdown"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/go"
+        android:id="@+id/activity_creation_go_Button"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/themecolor"/>
+</LinearLayout>

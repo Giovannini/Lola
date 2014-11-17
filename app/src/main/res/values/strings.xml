@@ -92,5 +92,6 @@
     <string name="vigueur">Vigueur (CON)</string>
     <string name="reflexes">Réflexes (DEX)</string>
     <string name="volonte">Volonté (SAG)</string>
+    <string name="go">GO</string>
 
 </resources>

@@ -52,7 +52,7 @@ public class ClasseMaîtreDesOmbres  extends Classe {
         initVigVol();
 
         initParts();
-        image = R.drawable.mdombres;
+        image = R.drawable.classe_mdombres;
     }
 
     private void initAllParts(){

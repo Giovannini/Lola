@@ -23,7 +23,7 @@
         android:layout_marginBottom="10dp"
         android:text="C"
         android:gravity="center_vertical|center_horizontal"
-        android:src="@drawable/swords48"
+        android:src="@drawable/icon_swords"
         android:padding="12dp"
         />
 

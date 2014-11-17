@@ -50,7 +50,7 @@ public class ClasseRoublard extends Classe {
 
         initParts();
         initTalents();
-        image = R.drawable.roublard;
+        image = R.drawable.classe_roublard;
     }
 
     private void initTalents(){

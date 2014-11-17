@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -185,12 +186,16 @@ public class ClasseFragment extends Fragment {
                 context);
         alertDialogBuilder.setView(promptsView);
 
+        getActivity().getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor
+                ("#26151a")));
+
         alertDialogBuilder
                 .setCancelable(true)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
+                                getActivity().getActionBar().setBackgroundDrawable(new
+                                        ColorDrawable(getResources().getColor(R.color.themecolor)));
                             }
                         });
 

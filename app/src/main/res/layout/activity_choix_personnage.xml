@@ -10,7 +10,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_margin="5dp"
-        android:background="@drawable/layout_shadow">
+        android:background="@drawable/layout_shadow"
+        android:padding="2dp">
 
         <ScrollView
             android:layout_width="fill_parent"

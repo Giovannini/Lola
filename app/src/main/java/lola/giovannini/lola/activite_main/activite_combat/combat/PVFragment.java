@@ -1,5 +1,8 @@
 package lola.giovannini.lola.activite_main.activite_combat.combat;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -62,6 +65,11 @@ public class PVFragment extends Fragment implements View.OnClickListener{
             if (perso.getCaractéristiques().getPv() > -10) {
                 perso.getCaractéristiques().removePv();
                 pvValue.setText("" + perso.getCaractéristiques().getPv());
+                ColorDrawable[] colorBlink = {new ColorDrawable(Color.parseColor("#bf1725")),
+                        new ColorDrawable(getResources().getColor(R.color.themecolor))};
+                TransitionDrawable trans = new TransitionDrawable(colorBlink);
+                getActivity().getActionBar().setBackgroundDrawable(trans);
+                trans.startTransition(500);
                 try {
                     perso.getObj().put("Pv", perso.getCaractéristiques().getPv());
                     perso.getMain().saveJson(perso.getObj());
@@ -73,6 +81,11 @@ public class PVFragment extends Fragment implements View.OnClickListener{
             if (perso.getCaractéristiques().getPv() < perso.getCaractéristiques().getPvmax()) {
                 perso.getCaractéristiques().addPv();
                 pvValue.setText("" + perso.getCaractéristiques().getPv());
+                ColorDrawable[] colorBlink = {new ColorDrawable(Color.parseColor("#97bf41")),
+                        new ColorDrawable(getResources().getColor(R.color.themecolor))};
+                TransitionDrawable trans = new TransitionDrawable(colorBlink);
+                getActivity().getActionBar().setBackgroundDrawable(trans);
+                trans.startTransition(500);
                 try {
                     perso.getObj().put("Pv", perso.getCaractéristiques().getPv());
                     perso.getMain().saveJson(perso.getObj());
