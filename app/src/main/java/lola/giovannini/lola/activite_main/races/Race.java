@@ -28,4 +28,5 @@ public abstract class Race {
     public abstract String getTaille();
     public abstract String getDescription();
     public abstract List<Particularité> getParticularites();
+    public abstract int getImage();
 }

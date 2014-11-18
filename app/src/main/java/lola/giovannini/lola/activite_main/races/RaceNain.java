@@ -133,4 +133,9 @@ public class RaceNain extends Race{
     public String getTaille(){
         return taille;
     }
+
+    @Override
+    public int getImage() {
+        return this.image;
+    }
 }

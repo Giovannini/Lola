@@ -14,13 +14,14 @@ import android.widget.TextView;
 import java.io.File;
 
 import lola.giovannini.lola.R;
+import lola.giovannini.lola.activite_creation.RaceActivity;
 import lola.giovannini.lola.activite_main.MainActivity;
 import lola.giovannini.lola.activite_main.Personnage;
 
 /**
  * Created by giovannini on 11/17/14.
  */
-public class NouveauPersonnageActivity extends Activity{
+public class NouveauPersonnageActivity extends Activity implements View.OnClickListener{
     String CLASS_NAME = "NouveauPersonnageActivity";
 
     LinearLayout persoChooser;
@@ -75,8 +76,19 @@ public class NouveauPersonnageActivity extends Activity{
         tv.setPadding(10, 21, 10, 17);
         tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         tv.setGravity(View.TEXT_ALIGNMENT_CENTER);
-        /**TODO Ajouter action d'ajout de personnage*/
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(NouveauPersonnageActivity.this, RaceActivity.class);
+                startActivity(i);
+            }
+        });
         tv.setBackgroundColor(Color.parseColor("#555555"));
         persoChooser.addView(tv);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
