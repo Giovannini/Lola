@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import org.json.JSONObject;
+
 import lola.giovannini.lola.R;
 
 /**

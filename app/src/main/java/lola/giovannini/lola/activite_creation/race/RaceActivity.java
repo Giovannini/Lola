@@ -1,25 +1,23 @@
-package lola.giovannini.lola.activite_creation;
+package lola.giovannini.lola.activite_creation.race;
 
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 
 import lola.giovannini.lola.R;
-import lola.giovannini.lola.activite_main.activite_combat.MyCombatPagerAdapter;
-import lola.giovannini.lola.activite_main.activite_overview.MyOverviewPagerAdapter;
 
 /**
  * Created by giovannini on 11/18/14.
  */
-public class RaceActivity extends FragmentActivity {
+public class RaceActivity extends FragmentActivity implements View.OnClickListener{
 
     String CLASS_NAME = "RaceActivity";
 
+    String[] races = {"Halfelin", "Nain"};
     int[] images = {R.drawable.race_halfelin, R.drawable.race_nain};
     String[] description = {
             "Les halfelins sont des créatures optimistes, joyeuses, " +
@@ -51,8 +49,10 @@ public class RaceActivity extends FragmentActivity {
                     "les gobelins et bien d’autres monstres encore."
     };
 
+    int number = races.length;
     FragmentStatePagerAdapter myPagerAdapter;
     ViewPager mViewPager;
+    Button ok_button, next_button, last_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,29 +61,55 @@ public class RaceActivity extends FragmentActivity {
 
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.themecolor));
         getActionBar().setBackgroundDrawable(colorDrawable);
+
+        ok_button   = (Button) findViewById(R.id.activity_creation_race_choice_Button);
+        ok_button.setOnClickListener(this);
+        next_button = (Button) findViewById(R.id.activity_creation_race_next_Button);
+        next_button.setOnClickListener(this);
+        last_button = (Button) findViewById(R.id.activity_creation_race_previous_Button);
+        last_button.setOnClickListener(this);
         /*
          * ViewPager and its adapters use support library
          * fragments, so use getSupportFragmentManager.
          */
         myPagerAdapter = new MyRacePagerAdapter(getSupportFragmentManager(), images.length);
+
         mViewPager = (ViewPager) findViewById(R.id.activity_creation_race_pager);
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         mViewPager.setAdapter(myPagerAdapter);
     }
 
-    public int getNumber(){
-        /**TODO
-         * Cette fonction ne retourne pas ce que je veux.
-         */
-        return  mViewPager.getCurrentItem();
+    public int getImage(int i){
+        return images[i];
     }
 
-    public int getImage(){
-        return images[getNumber()];
-    }
-
-    public String getDescription(){
-        return description[getNumber()];
+    public String getDescription(int i){
+        return description[i];
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if (v == ok_button){
+
+        }else if(v == next_button){
+            mViewPager.setCurrentItem((mViewPager.getCurrentItem() + 1) % number);
+        }else if(v == last_button){
+            mViewPager.setCurrentItem((mViewPager.getCurrentItem() + number - 1) % number);
+        }
+    }
 }

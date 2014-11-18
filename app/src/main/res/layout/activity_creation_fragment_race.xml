@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/background">
 
     <ImageView
         android:layout_width="fill_parent"
@@ -10,24 +11,31 @@
         android:id="@+id/activity_creation_fragment_race_image_ImageView"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.65"
-        android:src="@drawable/race_halfelin"/>
+        android:src="@drawable/race_halfelin"
+        android:background="@drawable/layout_shadow"
+        android:layout_marginBottom="5dp"
+        android:padding="2dp"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.25">
+        android:layout_weight="0.25"
+        android:background="@drawable/layout_shadow">
 
         <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/scrollView">
+            android:id="@+id/scrollView"
+            android:layout_marginBottom="2dp"
+            android:paddingBottom="2dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/activity_creation_fragment_race_description_TextView"/>
+                android:id="@+id/activity_creation_fragment_race_description_TextView"
+                android:textColor="#222222"/>
         </ScrollView>
     </LinearLayout>
 

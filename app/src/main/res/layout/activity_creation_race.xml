@@ -1,23 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/background">
 
-    <android.support.v4.view.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/activity_creation_race_pager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#dddddd"
-        android:layout_weight="0.9"/>
-
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:text="New Button"
-        android:id="@+id/activity_creation_race_choix_Button"
-        android:layout_weight="0.1"
-        android:background="@color/themecolor"/>
+        android:layout_height="fill_parent"
+        android:layout_weight="0.9"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_margin="5dp">
 
-</LinearLayout>
+        <android.support.v4.view.ViewPager
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/activity_creation_race_pager"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="#dddddd"
+            android:layout_margin="2dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:id="@+id/activity_creation_race_previous_Button"
+            android:background="@drawable/rounded_spinner"
+            android:layout_weight="0.3"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="&lt;"
+            android:textColor="#ffffff"
+            android:layout_gravity="bottom"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:id="@+id/activity_creation_race_choice_Button"
+            android:background="@drawable/rounded_spinner"
+            android:layout_weight="0.3"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="OK"
+            android:textColor="#ffffff"
+            android:layout_gravity="bottom"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:id="@+id/activity_creation_race_next_Button"
+            android:background="@drawable/rounded_spinner"
+            android:layout_weight="0.3"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:textColor="#ffffff"
+            android:text=">"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+
+</RelativeLayout>

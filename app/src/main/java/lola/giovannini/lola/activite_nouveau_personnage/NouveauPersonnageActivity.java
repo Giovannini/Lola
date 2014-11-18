@@ -14,9 +14,8 @@ import android.widget.TextView;
 import java.io.File;
 
 import lola.giovannini.lola.R;
-import lola.giovannini.lola.activite_creation.RaceActivity;
+import lola.giovannini.lola.activite_creation.race.RaceActivity;
 import lola.giovannini.lola.activite_main.MainActivity;
-import lola.giovannini.lola.activite_main.Personnage;
 
 /**
  * Created by giovannini on 11/17/14.
